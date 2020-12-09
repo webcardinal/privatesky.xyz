@@ -1,0 +1,97 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NW4R664');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<psk-page title="psk-table">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <psk-toc title="Table of contents"></psk-toc>
+
+    <psk-description title="Summary">
+        <p>This component creates a html table with <code>footer</code> and <code>header</code> set up in the properties.</p>
+        <p>The columns will be delimited by the special character <b>|</b>( <code>pipe</code>) ( Example: <b>Title | Author | Published Year</b> )</p>
+        <p>The lines will be delimited by the <code>enter</code> character .</p>
+    </psk-description>
+
+    <psk-property-descriptor title="Supported properties">
+        <psk-table></psk-table>
+    </psk-property-descriptor>
+
+    <psk-chapter title="HTML Children">
+        <p>The info given between the tags is rendered as the table content.</p>
+    </psk-chapter>
+
+    <psk-chapter title="Code Example">
+        <psk-code language="markup">
+            <psk-table header="true" footer="true">
+                Title | Author | Published Year | Number of pages
+                The Water Dancer | Ta-Nehisi Coates | 2019 | 416
+                Maggie Brown & Others: Stories | Peter Orner | 2019 | 336
+                Title | Author | Published Year | Number of pages
+            </psk-table>
+        </psk-code>
+        <psk-chapter  title="Full table Example">
+            <psk-example class="app-example" >
+                <psk-table header="true" footer="true">
+                    Title | Author | Published Year | Number of pages
+                    The Water Dancer | Ta-Nehisi Coates | 2019 | 416
+                    Maggie Brown & Others: Stories | Peter Orner | 2019 | 336
+                    Title | Author | Published Year | Number of pages
+                </psk-table>
+            </psk-example>
+        </psk-chapter>
+
+        <psk-code language="markup"> 
+            <psk-table header="true" footer="true">
+                Title | | | Number of pages
+                The Water Dancer | Ta-Nehisi Coates | | 416
+                Maggie Brown & Others: Stories | Peter Orner | | 336
+                Title | Author | | Number of pages
+            </psk-table>
+        </psk-code>
+        <psk-chapter title="Empty spaces table Example">
+            <psk-example >
+                <psk-table header="true" footer="true">
+                    Title | | | Number of pages
+                    The Water Dancer | Ta-Nehisi Coates | | 416
+                    Maggie Brown & Others: Stories | Peter Orner | | 336
+                    Title | Author | | Number of pages
+                </psk-table>
+            </psk-example>
+        </psk-chapter>
+        <psk-code language="markup">
+            <psk-table header="true" footer="true">
+                Author | Song | Published Year 
+                 | I want to break free | 1984
+                Queen |  I want it all | 1989
+                 | The show must go an | 1991
+                 | California Love | 1996
+                2Pac | Only god can judge me| 1996
+                 | Ambitionz az a ridah | 1996
+            </psk-table>
+        </psk-code>
+        <psk-chapter title="Rowspan Example">
+            <psk-example >
+                <psk-table header="true" footer="true">
+                    Author | Song | Published Year  
+                    | I want to break free | 1984
+                    Queen |  I want it all | 1989
+                    | The show must go an | 1991
+                    | California Love | 1996
+                    2Pac | Only god can judge me| 1996
+                    | Ambitionz az a ridah | 1996
+                </psk-table>
+            </psk-example>
+        </psk-chapter>
+    </psk-chapter>
+
+</psk-page>

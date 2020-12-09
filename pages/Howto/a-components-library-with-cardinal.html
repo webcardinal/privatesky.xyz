@@ -1,0 +1,143 @@
+<head>
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != "dataLayer" ? "&l=" + l : "";
+      j.async = true;
+      j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, "script", "dataLayer", "GTM-NW4R664");
+  </script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<psk-page title="How to create a reusable components library with using Cardinal.Js">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+      height="0"
+      width="0"
+      style="display: none; visibility: hidden"
+    >
+    </iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <psk-toc title="Table of contents"></psk-toc>
+
+  <psk-dscription title="Summary">
+    <p>
+      This guide will provide the necessary information on how to create a reusable components library with using
+      Cardinal.Js framework.
+    </p>
+  </psk-dscription>
+
+  <psk-chapter title="Considerations">
+    <psk-list list-type="ordered">
+      The custom components library should only contain components and their logic. This project should not be treated as a Cardinal.Js project so no pages should be included in it.
+      The steps described in this guide will generate a components library, which will contain the core from Cardinal.Js framework. So this means that any Cardinal.Js components can be used in order to define other custom components.
+      Since the custom components library will be used inside a Cardinal project, the Cardinal.Js library should be also included there (before including the custom library). The cusom component library is an extension of Cardinal.Js, it's not including it.
+    </psk-list>
+  </psk-chapter>
+
+  <psk-chapter title="Prerequisites">
+    <psk-list list-type="ordered">
+      Install or update <a href="https://nodejs.org/en/">Node</a> (including NPM) to version <b>12.14.0</b>. Install or
+      update <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git</a>
+    </psk-list>
+  </psk-chapter>
+
+  <psk-chapter title="Creating the folder structure">
+    <psk-card>
+      <p>
+        Start by cloning the
+        <a href="https://github.com/PrivateSky/cardinal-custom-components-template" target="_blank">cardinal-custom-components-template</a>
+        repository.
+      </p>
+      <psk-code> git clone https://github.com/PrivateSky/cardinal-custom-components-template cardinal-custom-components </psk-code>
+
+      <p>
+        Next, go ahead and remove the existing <code>.git</code> folder from your <code>cardinal-custom-components</code> folder,
+        initialize a new empty git repo and commit the existing content to your own repository.
+      </p>
+
+      <psk-code language="bash">
+        cd cardinal-custom-components
+				rm -rf .git
+				git init
+
+				# set the url of your git repository
+				# replace 'https://github.com/username/cardinal-custom-components.git' with the your own url
+				git remote add origin https://github.com/username/cardinal-custom-components.git
+				git fetch
+
+				git add --all
+				git commit -m "first commit"
+
+				# push the files to your git repository.
+				git push --set-upstream origin master
+      </psk-code>
+      <p>You've just developed your new cardinal-custom-components library's basic structure, using the Cardinal.Js framework.</p>
+    </psk-card>
+  </psk-chapter>
+
+  <psk-chapter title="Installing dependencies">
+    The install script will make use of <psk-link tag="octopus">Octopus</psk-link> which will install the latest
+    <psk-link tag="cardinal-mvc">Cardinal</psk-link> version from its repository.
+    <psk-code language="bash"> npm install </psk-code>
+  </psk-chapter>
+
+  <psk-chapter title="Developing the components">
+    In order to develop the required components and see how they interract, you can execute the command
+    <psk-code language="bash"> npm run start </psk-code>
+    Upon the start of the web server, go to the browser and navigate to:
+    <a href="http://localhost:3000/">http://localhost:3000/</a>
+
+    The command will do the following:
+    <psk-list list-type="ordered">
+      Start a local web server at port 3000 (can be changed by setting another port number inside <code>package.json</code> -> <code>"web"</code> script).
+      Starts a watcher for the <code>src</code> folder which will rebuild the custom components library
+    </psk-list>
+
+    The <code>src/index.html</code> can be changed to include the developed components for testing purposes. Please not that the <code>psk-app-root</code> tag is required by Cardinal.Js in order to show the content.
+    <br /><br />
+    
+    <psk-list>
+      The components should be developed inside the <code>src/components</code> folder and there should be a separated folder for each. 
+      As a starting point the template contains two sample components, <code>psk-custom-label</code> and <code>psk-custom-label2</code>.
+      As seen in these two components, anything from Cardinal.Js project can be imported and used. The import should be relative (the cardinal project will be installed at <code>cardinal</code>). Path aliases cannot be properly used due to some Stencil limitations.
+    </psk-list>
+
+    For example, <code>psk-custom-label</code> contains the following import:
+
+    <psk-code>
+      import {
+        BindModel,
+        CustomTheme,
+        TableOfContentProperty,
+      } from "../../../cardinal/src";
+    </psk-code>
+
+    These are Cardinal.Js decorators which are usually used for developing the components, in order to follow the Cardinal.Js standard of developing components.
+    Any Cardinal.Js component is an Stencil component, so you can follow the official guide of developing components <a href="https://stenciljs.com/docs/decorators">here</a>.
+
+  </psk-chapter>
+
+  <psk-chapter title="Existing Cardinal.Js components">
+    To learn about the existing Cardinal.Js components check
+    <psk-link tag="cheatsheet">Cardinal.Js documentation page</psk-link>
+  </psk-chapter>
+
+  <psk-chapter title="Update Cardinal.Js framework">
+    <p>
+      To update the instance of Cardinal.Js framework used, you must be within the cardinal-custom-components root folder and to execute
+      the command:
+    </p>
+    <psk-code language="bash"> npm run update </psk-code>
+  </psk-chapter>
+</psk-page>

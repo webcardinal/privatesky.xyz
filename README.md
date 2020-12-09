@@ -1,39 +1,29 @@
-## Description
-
-Application template that combines multiple components of Cardinal.
-
 ## How to make it run on your side
+
+### Prerequisites
+
+In order to follow next steps you need to have the following software installed on your machine:
+- [Git](https://git-scm.com/)
+- [Node](https://nodejs.org/) version 12 or newer
 
 ### Clone it
 
 ```
-git clone https://github.com/webcardinal/cardinal-app-starter my-app
+git clone https://github.com/webcardinal/privatesky.xyz
 ```
+
+This will create a folder named **privatesky.xyz**.
 
 ### Install dependencies
 
 ```
-cd my-app
+cd privatesky.xyz
 npm install
 ```
-
-Now you should see two folders: __`cardinal`__ and __`dev`__.
-
-First one is your distribution of Cardinal.
-
-Second one is where your development workflow will take place.
-
-### How to build
-
-```
-# Production build
-cardinal build 
-
-# Development build
-cardinal build --dev
-```
-
+      
 ### Run local server
+
+While being inside **privatesky.xyz** folder run:
 
 ```
 npm run start

@@ -1,0 +1,68 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NW4R664');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<psk-page title="psk-user-profile">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <psk-toc title="Table of contents"></psk-toc>
+
+    <psk-description title="Summary">
+        <p>This component is intended to be used to show some user information.</p>
+        <p>By default, if no datasource is provided (userInfo), the component will emit an event (getUserInfo) in order to get desired data.</p>
+    </psk-description>
+
+    <psk-property-descriptor title="Supported properties">
+        <psk-user-profile></psk-user-profile>
+    </psk-property-descriptor>
+
+    <psk-controller-descriptor title="Events that supports Controller">
+        <psk-user-profile data-define-controller="true"></psk-user-profile>
+    </psk-controller-descriptor>
+
+    <psk-chapter title="HTML Children">
+        <p>This component has no HTML children.</p>
+    </psk-chapter>
+
+    <psk-chapter title="Example">
+        <psk-code language="markup">
+            <psk-container>
+                <script>
+                    const data = {
+                        username: 'John',
+                        email: 'john.doe@example.com',
+                        avatar: '/assets/images/cardinal/psk-user-profile/avatar.png'
+                    }
+                    const userProfile = controller.element.querySelector('psk-user-profile');
+                    userProfile.userInfo = data;
+                </script>
+                <psk-user-profile></psk-user-profile>
+            </psk-container>
+        </psk-code>
+
+        <psk-example class="mobile-example">
+            <psk-container>
+                <script>
+                    const data = {
+                        username: 'John',
+                        email: 'john.doe@example.com',
+                        avatar: '/assets/images/cardinal/psk-user-profile/avatar.png'
+                    }
+                    const userProfile = controller.element.querySelector('psk-user-profile');
+                    userProfile.userInfo = data;
+                </script>
+                <psk-user-profile style="display: block; background: #FFF"></psk-user-profile>
+            </psk-container>
+        </psk-example>
+    </psk-chapter>
+
+</psk-page>

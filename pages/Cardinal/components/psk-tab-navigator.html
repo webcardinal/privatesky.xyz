@@ -1,0 +1,122 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NW4R664');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<psk-page title="psk-tab-navigator">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <psk-toc title="Table of contents"></psk-toc>
+
+    <psk-description title="Summary">
+        <p>This web component is an UI element. Navigation is done through TABs similar to those in the browser.</p>
+        <p>Each tab is a component called <code>psk-tab</code> and the wrapper component is the present one, named <code>psk-tab-navigator</code>.</p>
+        <p>It should be noted that the tab visibility control area is re-rendered when changing tabs. The actual tab which is visible uses a slot mechanism.</p>
+        <p>Feel free to inspect the working mechanism of this component in DevTools.</p>
+    </psk-description>
+
+    <psk-chapter title="Supported properties">
+        <psk-property-descriptor title="For psk-tab-navigator">
+            <psk-tab-navigator></psk-tab-navigator>
+        </psk-property-descriptor>
+
+        <psk-property-descriptor title="For psk-tab">
+            <psk-tab></psk-tab>
+        </psk-property-descriptor>
+    </psk-chapter>
+
+    <psk-chapter title="Examples">
+        <psk-chapter title="Horizontal layout">
+            <psk-code>
+                <psk-tab-navigator default="4">
+                    <psk-tab title="Tab 0">0</psk-tab>
+                    <psk-tab title="Tab 1">1</psk-tab>
+                    <psk-tab title="Tab 2">2</psk-tab>
+                    <psk-tab title="Tab 3">3</psk-tab>
+                    <psk-tab title="Tab 4">4</psk-tab>
+                </psk-tab-navigator>
+            </psk-code>
+
+            <psk-example class="app-example">
+                <psk-tab-navigator default="4">
+                    <psk-tab title="Tab 0">0</psk-tab>
+                    <psk-tab title="Tab 1">1</psk-tab>
+                    <psk-tab title="Tab 2">2</psk-tab>
+                    <psk-tab title="Tab 3">3</psk-tab>
+                    <psk-tab title="Tab 4">4</psk-tab>
+                </psk-tab-navigator>
+            </psk-example>
+        </psk-chapter>
+
+        <psk-chapter title="Vertical layout">
+            <psk-code language="markup">
+                <psk-tab-navigator layout="vertical" default="2">
+                    <psk-tab title="Tab 0">0</psk-tab>
+                    <psk-tab title="Tab 1">1</psk-tab>
+                    <psk-tab title="Tab 2">2</psk-tab>
+                    <psk-tab title="Tab 3">3</psk-tab>
+                    <psk-tab title="Tab 4">4</psk-tab>
+                    <psk-tab title="Tab 5">5</psk-tab>
+                    <psk-tab title="Tab 6">6</psk-tab>
+                </psk-tab-navigator>
+            </psk-code>
+
+            <psk-example class="app-example">
+                <psk-tab-navigator layout="vertical" default="2">
+                    <psk-tab title="Tab 0">0</psk-tab>
+                    <psk-tab title="Tab 1">1</psk-tab>
+                    <psk-tab title="Tab 2">2</psk-tab>
+                    <psk-tab title="Tab 3">3</psk-tab>
+                    <psk-tab title="Tab 4">4</psk-tab>
+                    <psk-tab title="Tab 5">5</psk-tab>
+                    <psk-tab title="Tab 6">6</psk-tab>
+                </psk-tab-navigator>
+            </psk-example>
+        </psk-chapter>
+
+        <psk-chapter title="Mobile layout">
+            <psk-code language="markup">
+                <psk-tab-navigator layout="mobile">
+                    <psk-tab title="Option 1">Tab 1</psk-tab>
+                    <psk-tab title="Option 2">Tab 2</psk-tab>
+                    <psk-tab title="Option 3">Tab 3</psk-tab>
+                </psk-tab-navigator>
+            </psk-code>
+
+            <psk-example class="mobile-example">
+                <psk-tab-navigator layout="mobile">
+                    <psk-tab title="Option 1">Tab 1</psk-tab>
+                    <psk-tab title="Option 2">Tab 2</psk-tab>
+                    <psk-tab title="Option 3">Tab 3</psk-tab>
+                </psk-tab-navigator>
+            </psk-example>
+        </psk-chapter>
+
+        <psk-chapter title="No layout">
+            <psk-code language="markup">
+                <psk-tab-navigator layout="none" default="1">
+                    <psk-tab title="Tab 0">0</psk-tab>
+                    <psk-tab title="Tab 1">1</psk-tab>
+                    <psk-tab title="Tab 2">2</psk-tab>
+                </psk-tab-navigator>
+            </psk-code>
+
+            <psk-example class="app-example">
+                <psk-tab-navigator layout="none" default="1">
+                    <psk-tab title="Tab 0">0</psk-tab>
+                    <psk-tab title="Tab 1">1</psk-tab>
+                    <psk-tab title="Tab 2">2</psk-tab>
+                </psk-tab-navigator>
+            </psk-example>
+        </psk-chapter>
+    </psk-chapter>
+
+</psk-page>

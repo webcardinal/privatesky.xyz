@@ -1,0 +1,77 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NW4R664');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<psk-page title="psk-icon-chooser">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+
+    <psk-toc title="Table of contents"></psk-toc>
+
+    <psk-description title="Summary">
+        <p>This component allows the user to select one icon from all font-awesome provided list of icons.</p>
+        <p>Since we did not created the icons we used the ones found in the font-awesome list of icons:
+            <a href="https://fontawesome.com/icons?d=gallery&m=free">Icons List</a></p>
+    </psk-description>
+
+    <psk-property-descriptor title="Supported properties">
+        <psk-icon-chooser></psk-icon-chooser>
+    </psk-property-descriptor>
+
+    <psk-chapter title="HTML Children">
+        <p>This component has no HTML children.</p>
+    </psk-chapter>
+
+    <psk-chapter title="Controller Source Code">
+        <psk-code language="Javascript">
+            import ContainerController from "../../cardinal/controllers/base-controllers/ContainerController.js";
+
+            const model = {
+                iconSize: '20px',
+                iconColor: 'red',
+                iconValue: ''
+            };
+
+            export default class PskIconChooserController extends ContainerController {
+                constructor(element) {
+                    super(element);
+                    this.model = this.setModel(JSON.parse(JSON.stringify(model)));
+                    this.model.onChange('iconValue', () => {
+                        // this.model.iconValue has the value of the icon you just selected.
+                        // Your code here.
+                    })
+                }
+            }
+        </psk-code>
+    </psk-chapter>
+
+    <psk-chapter title="HTML Source Code">
+        <psk-code language="markup">
+            <psk-container controller-name="PskIconChooserController">
+                <psk-label label="Icon:"></psk-label>
+                <psk-icon icon="@iconValue" color="@iconColor"></psk-icon>
+                <psk-icon-chooser icons-size="@iconSize" icons-color="@iconColor" value="@iconValue"></psk-icon-chooser>
+            </psk-container>
+        </psk-code>
+    </psk-chapter>
+
+    <psk-chapter title="Example">
+        <psk-example class="app-example">
+            <psk-container controller-name="PskIconChooserController">
+                <psk-label label="Icon:"></psk-label>
+                <psk-icon icon="@iconValue" color="@iconColor"></psk-icon>
+                <psk-icon-chooser icons-size="@iconSize" icons-color="@iconColor" value="@iconValue"></psk-icon-chooser>
+            </psk-container>
+        </psk-example>
+    </psk-chapter>
+
+</psk-page>

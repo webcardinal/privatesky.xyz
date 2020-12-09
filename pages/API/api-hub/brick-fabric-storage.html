@@ -1,0 +1,97 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NW4R664');</script>
+    <!-- End Google Tag Manager -->
+</head>
+<psk-page title="Brick Storage API">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <psk-highlight type-of-highlight="note">
+        The Brick Fabric Storage allows you to store commands.
+    </psk-highlight>
+
+    <psk-toc title="Table of contents"></psk-toc>
+    <psk-chapter title="world state manager">
+        World state manager 
+        <psk-card title="Syntax">
+            <psk-list list-type="unordered">
+                <psk-card title="URL">
+                    <code>/bricks-ledger/wsms/command/<code>
+                </psk-card>
+                <psk-card title="Method">
+                    <code>PUT</code>
+                </psk-card>
+                <psk-card title="URL Params">
+                    <code>None</code>
+                </psk-card>
+                <psk-card title="Data Params">
+                    Content-Type: <code>application/octet-stream</code><br>
+                    Content: <code>data stream</code>
+                </psk-card>
+                <psk-card title="Body">
+                    <psk-code language="JavaScript">{}</psk-code>
+                </psk-card>
+                <psk-card title="Success Response">
+                    Code: <code>200 OK</code><br>
+                    Content: <code>None</code>
+                </psk-card>
+                <psk-card title="Error Response">
+                    Code: <code>400</code><br>
+                    Reasons: [Invalid config,Module not found]
+                </psk-card>
+            </psk-list>
+        </psk-card>
+        <psk-card title="Description">
+            This component of brick ledger allows you to execute commands.
+            Commands can either make HTTP call or be defined services.
+        </psk-card>
+        <psk-card title="Example">
+
+        </psk-card>
+    </psk-chapter>
+
+    <psk-chapter title="brick fabric storage">
+        Brick fabric storage
+        <psk-card title="Syntax">
+            <psk-list list-type="unordered">
+                <psk-card title="URL">
+                    <code>/bricks-ledger/bfs/storeCommand</code>
+                </psk-card>
+                <psk-card title="Method">
+                    <code>PUT</code>
+                </psk-card>
+                <psk-card title="URL Params">
+                    <code>None</code>
+                </psk-card>
+                <psk-card title="Body">
+                    <psk-code language="JavaScript">
+                        {
+                            command: [string],
+                            body: [Object | string]
+                        }
+                    </psk-code>
+                </psk-card>
+                <psk-card title="Data Params">
+                    <code>None</code>
+                </psk-card>
+                <psk-card title="Success Response">
+                    Code: <code>200 OK</code><br>
+                    Content-Type: <code>application/json</code><br>
+                </psk-card>
+                
+            </psk-list>
+        </psk-card>
+        <psk-card title="Description">
+            Place bricks on top of each other starting from genesis initial brick.
+        </psk-card>
+        <psk-card title="Example">
+
+        </psk-card>
+    </psk-chapter>
+</psk-page>

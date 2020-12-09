@@ -1,0 +1,257 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NW4R664');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<psk-page title="psk-mobile">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <psk-toc title="Table of contents"></psk-toc>
+
+    <psk-description title="Summary">
+        <p>This component is a wrapper for any page of a mobile application.</p>
+        <p>It must be used like <psk-link tag="psk-page">psk-page</psk-link> but only for mobile devices.</p>
+    </psk-description>
+
+    <psk-chapter title="Supported properties">
+        <psk-property-descriptor title="For psk-mobile">
+            <psk-mobile></psk-mobile>
+        </psk-property-descriptor>
+
+        <psk-property-descriptor title="For psk-button-link">
+            <psk-button-link></psk-button-link>
+        </psk-property-descriptor>
+    </psk-chapter>
+
+    <psk-chapter title="Methods">
+        <p>This component has two <strong>asynchronous</strong> methods called <code>toggleSidebar</code> and <code>toggleOptions</code>.</p>
+        <p>
+            If they are called without any parameters they will change the current state of the respective element.
+            For example, if the options menu is visible and the <code>toggleOptions()</code> function is called, it will become hidden, after a second call the menu will become visible again.
+        </p>
+        <p>
+            If another behavior is desired, the functions accept a boolean value which represents the visibility of the element:
+            <code>true</code> only show sidebar / options menu, <code>false</code> hide that element.
+        </p>
+    </psk-chapter>
+
+    <psk-chapter title="Slots">
+        <p>There are three slots available for this component named "title", "footer" and "options".</p>
+
+        <psk-chapter title="Title">
+            <p>The developer has the possibility to use a custom title.</p>
+            <p>If a slot name "title" is given, the title property from component is ignored.</p>
+
+            <psk-example>
+                <psk-mobile mode="demo" id="demo-title" disable-sidebar>
+                    <section slot="title">
+                        <psk-icon icon="cloud" color="#FFFFFF"></psk-icon>
+                        <span>PrivateSky <strong>Application</strong></span>
+                    </section>
+                </psk-mobile>
+            </psk-example>
+
+            <psk-code language="markup">
+                <psk-mobile disable-sidebar>
+                    <section slot="title">
+                        <psk-icon icon="cloud" color="#FFFFFF"></psk-icon>
+                        <span>PrivateSky <strong>Application</strong></span>
+                    </section>
+                </psk-mobile>
+            </psk-code>
+
+        </psk-chapter>
+
+        <psk-chapter title="Footer">
+            <p>The developer can provide a footer to a mobile page through this slot. He must use one of these two components <strong>psk-button-link</strong> and <psk-link tag="psk-link">psk-link</psk-link> with the corresponding attributes.</p>
+
+            <psk-example class="mobile-example">
+                <psk-mobile mode="demo" id="demo-footer">
+                    <div slot="footer">
+                        <psk-button-link name="Cloud" icon="cloud" page="."></psk-button-link>
+                        <psk-button-link name="Messages" icon="envelope" page="."></psk-button-link>
+                        <psk-button-link name="Bugs" icon="bug" page="."></psk-button-link>
+                        <psk-button-link name="Account" icon="user" page="."></psk-button-link>
+                    </div>
+                </psk-mobile>
+            </psk-example>
+
+            <psk-code language="markup">
+                <psk-mobile title="Footer">
+                    <div slot="footer">
+                        <psk-button-link name="Cloud" icon="cloud" page="pages/cloud"></psk-button-link>
+                        <psk-button-link name="Messages" icon="envelope" page="pages/messages"></psk-button-link>
+                        <psk-button-link name="Bugs" icon="bug" page="pages/bugs"></psk-button-link>
+                        <psk-button-link name="Account" icon="user" page="pages/account"></psk-button-link>
+                    </div>
+                </psk-mobile>
+            </psk-code>
+        </psk-chapter>
+
+        <psk-chapter title="Options">
+            <p>There is also the possibility to display a menu with options for each page rendered with psk-mobile.</p>
+
+            <psk-example class="mobile-example">
+                <psk-mobile mode="demo" title="Options" disable-sidebar id="demo-options">
+                    <div slot="options">
+                        <psk-link page="page/option-1">Option 1</psk-link>
+                        <psk-button-link page="page/option-2">Option 2</psk-button-link>
+                        <psk-button-link name="Option 3" page="page/option-3"></psk-button-link>
+                    </div>
+                </psk-mobile>
+            </psk-example>
+
+            <psk-code language="markup">
+                <psk-mobile title="Options" disable-sidebar>
+                    <div slot="options">
+                        <psk-link page="page/option-1">Option 1</psk-link>
+                        <psk-button-link page="page/option-2">Option 2</psk-button-link>
+                        <psk-button-link name="Option 3" page="page/option-3"></psk-button-link>
+                    </div>
+                </psk-mobile>
+            </psk-code>
+        </psk-chapter>
+    </psk-chapter>
+
+    <psk-chapter title="HTML Children">
+        <p>Any tag specified inside the component automatically reaches the content area of the page rendered with psk-mobile.</p>
+
+        <psk-example class="mobile-example">
+            <psk-container>
+                <script>
+                    let sidebarItems = [...Array(5).keys()].map(item => { return { name: `Menu item ${item + 1}` }});
+                    controller.on("needMenuItems", e => {
+                        e.stopImmediatePropagation();
+                        const callback = e.detail;
+                        callback(null, sidebarItems);
+                    });
+                </script>
+                <psk-mobile mode="demo" title="Content" id="demo-content">
+                    <psk-card title="Hello World! 👋">
+                        <p>This is our entry in the world of mobile devices!</p>
+                    </psk-card>
+                </psk-mobile>
+            </psk-container>
+        </psk-example>
+
+        <psk-code language="markup">
+            <psk-mobile title="Content">
+                <psk-card title="Hello World! 👋">
+                    <p>This is our entry in the world of mobile devices!</p>
+                </psk-card>
+            </psk-mobile>
+        </psk-code>
+    </psk-chapter>
+
+    <psk-chapter title="Glue them all together">
+        <p>Your final mobile application will look similar with the one listed bellow.</p>
+
+        <psk-example class="mobile-example">
+            <psk-mobile mode="demo" title="Demo" controller-name="MobileController" id="demo-overall">
+                <psk-description title="Where did it all come from?">
+                    <h6>This phone.</h6>
+                    <psk-img src="/assets/images/mobile/ibm-simon.jpeg"></psk-img>
+                </psk-description>
+
+                <psk-button event-name="showSidebar" button-class="btn btn-outline-secondary">Show sidebar</psk-button>
+                <psk-button event-name="toggleOptions" button-class="btn btn-outline-secondary">Toggle options</psk-button>
+
+                <!-- slots -->
+                <psk-for-each slot="options" data-view-model="options">
+                    <psk-button-link name="@name" page="@page"></psk-button-link>
+                </psk-for-each>
+
+                <psk-for-each slot="footer" data-view-model="footer">
+                    <psk-button-link name="@name" icon="@icon" page="@page"></psk-button-link>
+                </psk-for-each>
+            </psk-mobile>
+        </psk-example>
+
+        <psk-code title="JavaScript" language="JavaScript">
+        // scripts/controllers/MobileController.js
+        import ContainerController from '../../cardinal/controllers/base-controllers/ContainerController.js';
+
+        class MobileController extends ContainerController {
+            getModel() {
+                return {
+                    footer: [
+                        { name: 'Home', icon: 'home', page: 'pages/home' },
+                        { name: 'Tasks', icon: 'tasks', page: 'pages/tasks' },
+                        { name: 'History', icon: 'history', page: 'pages/history' },
+                        { name: 'Settings', icon: 'cog', page: 'pages/settings' }
+                    ],
+                    options: [
+                        { name: 'About', page: 'about' },
+                        { name: 'Glossary', page: 'glossary' }
+                    ],
+                    sidebar: [
+                        { name: 'Github' },
+                        { name: 'Android' },
+                        { name: 'iOS' }
+                    ]
+                }
+            }
+
+            constructor(element) {
+                // element is psk-mobile web component
+                super(element);
+
+                this.model = this.setModel(this.getModel());
+
+                // fills the sidebar
+                this.on("needMenuItems", e => {
+                    e.stopImmediatePropagation();
+                    const callback = e.detail;
+                    callback(null, this.model.sidebar);
+                });
+
+                // captures events from buttons
+                this.on("showSidebar", async e => {
+                    e.stopImmediatePropagation();
+                    await element.toggleSidebar(true);
+                });
+                this.on("toggleOptions", async e => {
+                    e.stopImmediatePropagation();
+                    await element.toggleOptions();
+                });
+            }
+        }
+
+        export default MobileController;
+        </psk-code>
+
+        <psk-code title="HTML" language="markup">
+            <!-- pages/mobile-demo.html -->
+            <psk-mobile title="Demo" controller-name="MobileController">
+                <!-- content -->
+                <psk-description title="Where did it all come from?">
+                    <h6>This phone.</h6>
+                    <psk-img src="/assets/images/mobile/ibm-simon.jpeg"></psk-img>
+                </psk-description>
+
+                <psk-button-group>
+                    <psk-button event-name="showSidebar">Show sidebar</psk-button>
+                    <psk-button event-name="toggleOptions">Toggle options</psk-button>
+                </psk-button-group>
+
+                <!-- slots -->
+                <psk-for-each slot="options" data-view-model="options">
+                    <psk-button-link name="@name" page="@page"></psk-button-link>
+                </psk-for-each>
+
+                <psk-for-each slot="footer" data-view-model="footer">
+                    <psk-button-link name="@name" icon="@icon" page="@page"></psk-button-link>
+                </psk-for-each>
+            </psk-mobile>
+        </psk-code>
+    </psk-chapter>
+
+</psk-page>

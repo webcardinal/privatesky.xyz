@@ -1,0 +1,76 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NW4R664');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<psk-page title="psk-img-input">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <psk-toc title="Table of contents"></psk-toc>
+
+    <psk-description title="Summary">
+        <p>The scope of the component is to allow the user to upload and to display an image.</p>
+        <p>The <code>src</code>property uses the relative path to that image.</p>
+        <p>When the user uploads an image, an event is triggered with the content of the image sent as ArrayBuffer.</p>
+        <p>The contents of the image will be available after catching the event inside a controller.</p>
+    </psk-description>
+
+    <psk-property-descriptor title="Supported properties">
+        <psk-img></psk-img>
+    </psk-property-descriptor>
+
+    <psk-chapter title="HTML Children">
+        <p>This component accepts no HTML children or web components.</p>
+    </psk-chapter>
+
+    <psk-chapter title="Code Example">
+        <psk-chapter title="Controller Source Code">
+            <psk-code language="javascript">
+                import ContainerController from "../../cardinal/controllers/base-controllers/ContainerController.js";
+
+                export default class ImgInputController extends ContainerController {
+                    constructor(element) {
+                        super(element);
+
+                        this.model = this.setModel({
+                            placeholder: "Click to choose an image",
+                            alt: "image input component",
+                            label: "Image Input Component",
+                            eventName: "img-input"
+                        });
+
+                        this.on("img-input", (event) => {
+                            this.image = event.data; // Here the user can process the uploaded image
+                            this.model.setChainValue("src", this.image);
+                        });
+                    }
+                }
+            </psk-code>
+        </psk-chapter>
+
+        <psk-chapter title="HTML Source code">
+            <psk-code language="markup">
+                <psk-container controller-name="ImgInputController">
+                    <psk-img-input alt="@alt" label="@label" event-name="@eventName" placeholder="@placeholder">
+                    </psk-img-input>
+                </psk-container>
+            </psk-code>
+        </psk-chapter>
+
+        <psk-chapter class="app-example" title="Psk-img-input Example">
+            <psk-container controller-name="ImgInputController">
+                <psk-img-input alt="@alt" label="@label" event-name="@eventName" placeholder="@placeholder">
+                </psk-img-input>
+            </psk-container>
+        </psk-chapter>
+    </psk-chapter>
+
+</psk-page>

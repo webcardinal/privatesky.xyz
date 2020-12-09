@@ -1,0 +1,214 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NW4R664');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<psk-page title="psk-modal">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <psk-toc title="Table of contents"></psk-toc>
+
+    <psk-description title="Summary">
+        <p>This component is intended to be used when a modal is needed in the application.</p>
+        <p>By default, the modal will be closed and it will have no content.</p>
+        <p>There are two mechanisms by which the psk-modal component can be controlled. One of them is through management of an attribute called <code>opened</code> in Application or Page Controller and the other is via <code>showModal</code> method inherited from ContainerController of Cardinal.</p>
+        <p>When a modal need to be closed, an event is triggered.</p>
+        <p>To better understand these mechanisms, see the examples below.</p>
+    </psk-description>
+
+    <psk-property-descriptor title="Supported properties">
+        <psk-modal></psk-modal>
+    </psk-property-descriptor>
+
+    <psk-event-descriptor title="Event Description">
+        <psk-modal data-define-events="true">
+        </psk-modal>
+        <p>The default closing event for the modal is <code>closeModal</code>, but you are not limited to this because other event names can be set.</p>
+    </psk-event-descriptor>
+
+    <psk-chapter title="Slots">
+        <p>There are two slots available for this component named "title" and "footer".</p>
+    </psk-chapter>
+
+    <psk-chapter title="HTML Children">
+        <p>Any tag specified inside the component automatically reaches the body area of the psk-modal.</p>
+    </psk-chapter>
+
+    <psk-chapter title="Examples">
+        <psk-chapter title="A simple example">
+            <p>In the case of a modal displayed in such a way, its model is present in the Application Controller.</p>
+
+            <psk-code title="JavaScript" language="JavaScript">
+            // scripts/controllers/ModalController.js
+            import ModalController from '../../../cardinal/controllers/base-controllers/ModalController.js';
+
+            export default class ApplicationController extends ModalController {
+                getModel() {
+                    return {
+                        modal: { opened: false }
+                    }
+                }
+
+                constructor(element) {
+                    super(element);
+                    this.model = this.setModel(this.getModel());
+
+                    this.on('openModal', _ => this.model.modal.opened = true);
+                    this.on('closeModal', _ => this.model.modal.opened = false);
+                }
+            }
+            </psk-code>
+
+            <psk-code title="HTML" language="markup">
+                <!-- Do not forget your psk-container with the corresponding controller! -->
+                <!-- <psk-container controller-name="ApplicationController.js"> -->
+                <psk-modal opened="@modal.opened">
+                    <p>➡️ Content of this modal is here!</p>
+
+                    <!-- slots -->
+                    <h5 slot="title">Modal title</h5>
+                    <psk-button slot="footer" event-name="closeModal">Modal action</psk-button>
+                </psk-modal>
+                <psk-button event-name="openModal">Open modal</psk-button>
+                <!-- </psk-container> -->
+            </psk-code>
+
+            <p>If you want to trigger other event than <code>closeModal</code> for closing your modal, you can easily add <strong><code>event-name</code></strong> attribute with corresponding value for <code>psk-modal</code> then listen for that event in controller.</p>
+
+            <psk-example title="Live example" class="app-example">
+                <psk-container controller-name="PskModalSimpleController">
+                    <psk-modal opened="@modal.opened">
+                        <p>➡️ Content of this modal is here!</p>
+
+                        <h5 slot="title">Modal title</h5>
+                        <psk-button slot="footer" event-name="closeModal">Modal action</psk-button>
+                    </psk-modal>
+                    <p>Click on the button below!</p>
+                    <psk-button event-name="openModal">Open modal</psk-button>
+                </psk-container>
+            </psk-example>
+
+        </psk-chapter>
+
+        <psk-chapter title="A more complex example">
+            <p>The main advantage of this method is that the modal is separated from the rest of the content of any page. More precisely, the modal can have its own controller with its own model.</p>
+            <p>In order to achieve a modal in this mechanism you must follow the steps below:</p>
+            <ol style="margin-left: -1em">
+                <li>
+                    Create a new HTML file in your pages, for example <code>/pages/modals/my-modal.html</code>.
+                    <br>
+                    Put your modal code here and be careful with <code>psk-container</code> and <strong>related controller</strong>.
+                    <br>
+                    Our example of modal:
+                    <psk-code title="my-modal.html">
+                        <!-- <psk-container controller-name="MyModalController.js"> -->
+                        <psk-modal opened>
+                            <psk-tab-navigator>
+                                <psk-tab title="Sign in">
+                                    <psk-email-input view-model="signIn.email"></psk-email-input>
+                                    <psk-password-input view-model="signIn.password"></psk-password-input>
+                                    <psk-checkbox view-model="signIn.remember"></psk-checkbox>
+                                </psk-tab>
+                                <psk-tab title="New account!">
+                                    <psk-text-input view-model="signUp.fullName"></psk-text-input>
+                                    <psk-email-input view-model="signIn.email"></psk-email-input>
+                                    <psk-password-input view-model="signIn.password"></psk-password-input>
+                                    <psk-password-input view-model="signUp.repeatPassword"></psk-password-input>
+                                </psk-tab>
+                            </psk-tab-navigator>
+
+                            <!-- slots -->
+                            <psk-label slot="title" class="title" label="@title"></psk-label>
+                            <psk-button slot="footer" view-model="@submit"></psk-button>
+                        </psk-modal>
+                        <!-- </psk-container> -->
+                    </psk-code>
+                </li>
+                <li>
+                    Add your modal in <strong><code>config.json</code></strong> in order to be used further.
+                    <psk-code title="config.json" language="JSON">
+                    ...
+                    "modals": {
+                        "my-named-modal": "/modals/my-modal.html"
+                    }
+                    </psk-code>
+                </li>
+                <li>
+                    Create a new controller (<code>/scripts/controllers/MyModalController.js</code>) in witch you have your business logic for the modal, the model for your modal and so on.
+                    <psk-code title="MyModalController.js" language="JavaScript">
+                    import ModalController from '../../../cardinal/controllers/base-controllers/ModalController.js';
+
+                    export default class PskModalComplexController extends ModalController {
+                        getModel() {
+                            return {
+                                title: 'PrivateSky portal',
+                                signIn: {
+                                    email: {
+                                        label: 'Email',
+                                        placeholder: 'john.doe@privatesky.xyz'
+                                    },
+                                    password: { label: 'Password' },
+                                    remember: {
+                                        checked: true,
+                                        checkboxLabel: 'Remember me?'
+                                    }
+                                },
+                                signUp: {
+                                    fullName: {
+                                        label: 'Full name',
+                                        placeholder: 'John Doe'
+                                    },
+                                    repeatPassword: { label: 'Repeat password' }
+                                },
+                                submit: { label: 'Continue' }
+                            }
+                        }
+
+                        constructor(element, history) {
+                            super(element, history);
+                            this.model = this.setModel(this.getModel());
+
+                            this.on('showModalEvent', _ => {
+                                this.showModal('my-named-modal', this.model, (err, preferences) => {
+                                    if (err) {
+                                        console.error(err);
+                                        return;
+                                    }
+                                    console.log(preferences);
+                                });
+                            });
+                        }
+                    }
+                    </psk-code>
+                </li>
+                <li>
+                    In the page you want to show the model, trigger the event that calls our <code>showModel</code> function.
+                    <br>
+                    Pay attention again to the <code>psk-container</code> controller, to be the right one!
+                    <br>
+                    It can be other than <code>MyModalController.js</code> as long as <code>showModal('my-named-modal', ... )</code> is called.
+                    <psk-code>
+                        <!-- <psk-container controller-name="MyModalController.js"> -->
+                            <psk-button event-name="showModalEvent">Show modal</psk-button>
+                        <!-- </psk-container>-->
+                    </psk-code>
+                </li>
+            </ol>
+
+            <psk-example title="Live example" class="app-example">
+                <psk-container controller-name="PskModalComplexController">
+                    <psk-button event-name="showModal">Show modal</psk-button>
+                </psk-container>
+            </psk-example>
+        </psk-chapter>
+    </psk-chapter>
+
+</psk-page>

@@ -1,0 +1,404 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NW4R664');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<psk-page title="Service Worker Middleware">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <psk-toc title="Table of contents"></psk-toc>
+
+    <psk-description>
+        <p>The SSApp service worker simulates a HTTP server environment with a set of endpoints which allow a developer to interact with the PrivateSky services using the HTTP protocol. These endpoints are implemented with the help of <code>Middleware</code> functions similar to the ones used by the Express Node.js framework.</p>
+    </psk-description>
+
+    <psk-chapter title="Upload Middleware">
+        <p>The upload middleware provides an endpoint for uploading files to a brick archive. Both multipart/form-data and request body uploads are supported and multiple files can be uploaded in a single request.</p>
+
+        <psk-chapter title="Request">
+            <psk-highlight title="Example" type-of-highlight="note">
+                <code>POST <strong>/upload</strong>?<strong>path</strong>=/upload/directory&<strong>input</strong>=files[]&<strong>filename</strong>=my-file.name&<strong>maxSize</strong>=100M&<strong>allowedTypes</strong>=image/jpeg</code>
+            </psk-highlight>
+
+            <psk-table header="false" footer="false">
+                <strong>Parameter</strong> | <strong>Required</strong> | <strong>Description</strong>
+                path | <strong>true</strong> | Specifies the upload directory in the brick archive. If this directory doesn't exist it will be created
+
+                input | <strong>true</strong> | The name of the file input. <strong>This parameter is required only if the request is of type multipart/form-data.</strong> Multiple files can be uploaded at once by using the array notation in the input name. Ex: <code>&#x3C;input type=&#x22;file&#x22; name=&#x22;images[]&#x22; /&#x3E;</code>
+
+                filename | <strong>true</strong>| <strong>When uploading a file using the request body method this parameter is required.</strong> The contents of the file will be saved in the location provided by the <strong>path</strong> and <strong>filename</strong> parameters
+
+                preventOverwrite | | Set this to any non falsy value in order to prevent overwriting files with the same name. Defaults to <strong>false</strong>
+
+                maxSize | | Maximum allowed size for a single file. If this parameter is not provided, file size validation is skipped. This parameter can take a number value specifying the allowed number of bytes or a number suffixed with the size unit. Accepted unit sizes: <strong>b k m</strong>. Ex: <strong>65536 128K 32M</strong>. The unit size is case insensitive.
+
+                allowedTypes | | A list of mime types separated by a comma. Ex: <strong>allowedTypes=application/json,image/jpeg</strong>. If this paramater is not provided, file type validation is skipped.
+
+            </psk-table>
+        </psk-chapter>
+
+        <psk-chapter title="Response">
+            <p>The response format is of type JSON and the status code will vary depending on the result of the upload process.</p>
+
+            <psk-table header="false" footer="false">
+                <strong>Status code</strong> | <strong>Reason</strong>
+                201 | Upload was successful. <strong>In the case of multiple files being uploaded at once if at least one file has been successfuly uploaded the request is considered a success</strong>
+                400 | Validation error or the file(s) cannot be stored in the brick archive due to a runtime error
+                500 | Errors related to missing required request parameters or other runtime errors
+            </psk-table>
+
+            <psk-card title="Success response">
+                <p>If the upload was successful the response will consist of an array of objects, each object containing upload information for each file in the request.</p>
+                <psk-highlight type-of-highlight="example">
+                    <o>If multiple files are present in the request and some of those fail to upload, the response will also contain the corresponding errors for those files:</p>
+                </psk-highlight>
+                <psk-code language="javascript">
+                    [
+                        {
+                            file: {
+                                name: "config.json",
+                                type: "application/json"
+                            },
+
+                            result: {
+                                path: "/data/uploads/config.json"
+                            }
+                        },
+                        {
+                            file: {
+                                name: "image.jpg",
+                                type: "image/jpeg"
+                            },
+
+                            result: {
+                                path: "/data/uploads/image.jpg"
+                            }
+                        },
+                        { // This file failed to upload
+                            file: {
+                                name: "application.exe",
+                                type: "application/octet-stream"
+                            },
+
+                            error: {
+                                message: "File type is not allowed",
+                                code: 21
+                            }
+                        },
+                        ...
+                    ]
+                </psk-code>
+            </psk-card>
+
+            <psk-card title="Error response">
+                <p>The error response payload format differs depending on the type of error. In case of runtime errors (HTTP 500) the payload will consist of a single string describing the error. For validation errors (HTTP 400) the response payload can be either an error object or an array of objects:</p>
+                <psk-code language="javascript">
+                    // Generic error
+
+                    {
+                        message: "An error occured",
+                        code: 30
+                    }
+
+                    // OR
+
+                    [
+                        {
+                            file: {
+                                name: "config.json",
+                                type: "application/json"
+                            },
+
+                            error: {
+                                message: "File exists",
+                                code: 30
+                            }
+                        },
+                        {
+                            file: {
+                                name: "image.jpg",
+                                type: "image/jpeg"
+                            },
+
+                            error: {
+                                message: "The file size must not exceed 65536 bytes",
+                                code: 22
+                            }
+                        },
+                        ...
+                    ]
+                </psk-code>
+            </psk-card>
+
+            <p>List of validation error codes:</p>
+            <psk-table header="false" footer="false">
+                <strong>Code</strong> | <strong>Reason</strong>
+                -1 | Runtime error
+                10 | No files are present in the request or the <strong>input</strong> or <strong>filename</strong> parameters are not present
+                21 | File type validation failed
+                22 | File size exceeded the imposed limit
+                30 | File already exists in the brick archive
+            </psk-table>
+
+            <psk-highlight title="Error handling best practice" type-of-highlight="issue">
+                <p>Check the HTTP status code, if it's 400, expect to have an object or an array of objects detailing the error(s) that occured. Responses with status code 500 will contain only a string. See the examples below for one approach in error handling</p>
+            </psk-highlight>
+        </psk-chapter>
+
+        <psk-chapter title="Examples">
+            <psk-highlight type-of-highlight="example">
+                <p>The following examples assume that the service worker has been registered and activated in the application.</p>
+            </psk-highlight>
+
+            <psk-card title="Multiple files upload using the multipart/form-data method">
+                <psk-code language="markup">
+                    <!-- View -->
+                    <psk-container controller-name="ExampleController">
+                        <psk-chapter title="Upload test">
+                            <!-- Populate this list with the file names selected with the psk-files-chooser component -->
+                            <ul id="files-for-upload"></ul>
+                            <p><psk-files-chooser label="Choose files" event-name="files-selected"></psk-files-chooser></p>
+                            <p><psk-button label="Upload" button-class="btn btn-primary" event-name="upload-files"></psk-button></p>
+                        </psk-chapter>
+                    </psk-container>
+                </psk-code>
+
+
+                <psk-code language="javascript">
+                    // Controller
+                    import BindableController from "./base-controllers/BindableController.js";
+
+                    export default class ExampleController extends BindableController {
+                        constructor(element) {
+                            this.files = null; // Will be set by the "files-selected" event handler
+
+                            this.on('files-selected', (e) => {
+                                e.preventDefault();
+                                e.stopImmediatePropagation();
+                                this._listSelectedFiles(e.data);
+                            })
+
+                            this.on('upload-files', (e) => {
+                                e.preventDefault();
+                                e.stopImmediatePropagation();
+                                this._uploadFiles();
+                            });
+                        }
+
+
+                        /**
+                         * Show the list of selected files
+                         * @param {Array} files
+                        */
+                        _listSelectedFiles(files) {
+                            // Render the list of files
+                            const filesList = this._element.querySelector('#files-for-upload');
+
+                            for (const f of files) {
+                                const listItem = document.createElement('li');
+                                listItem.innerText = f.name;
+
+                                filesList.appendChild(listItem);
+                            }
+
+                            // Store a reference to the files
+                            this.files = files;
+                        }
+
+                        /**
+                         * Upload the files
+                         */
+                        _uploadFiles() {
+                            // Obtain a reference to the files
+                            const files = this.files;
+
+                            // Push the files into a FormData object
+                            const formData = new FormData();
+                            for (const f of files) {
+                                // Use array notation in the key to indicate multiple files
+                                formData.append('files[]', f);
+                            }
+
+                            // Upload endpoint
+                            const url = '/upload?path=/data/uploads&input=files[]&maxSize=16m&allowedTypes=image/jpeg,image/png,image/gif'
+
+                            // Send the request
+                            fetch(url, {
+                                method: 'POST',
+                                body: formData
+                            }).then((response) => {
+                                response.json().then((result) => {
+                                    console.log(result);
+                                    if (response.ok) {
+                                        console.log("Upload was successful!");
+                                    } else {
+                                        console.log("Upload failed!");
+                                    }
+
+                                    // Success or file level validation error
+                                    if (Array.isArray(result)) {
+                                        for (const item of result) {
+                                            if (item.error) {
+                                                console.error(`Unable to upload ${item.file.name} due to an error. Code: ${item.error.code}. Message: ${item.error.message}`);
+                                                continue;
+                                            }
+                                            console.log(`Uploaded ${item.file.name} to ${item.result.path}`);
+                                        }
+                                        return;
+                                    }
+
+                                    // Validation error. Can happend when HTTP status is 400
+                                    if (typeof result === 'object') {
+                                        console.error(`An error occured: ${result.message}. Code: ${result.code}`);
+                                        return;
+                                    }
+
+                                    // Error is a string. This happens when the HTTP status is 500
+                                    console.error(`An error occured: ${result}`);
+                                })
+                            }).catch((err) => {
+                                console.error(err);
+                            })
+                        }
+                    }
+                </psk-code>
+            </psk-card>
+
+            <psk-card title="Uploading a file in the request body">
+                <psk-code language="markup">
+                    <!-- View -->
+                    <psk-container controller-name="ExampleController">
+                        <psk-chapter title="Upload test">
+                            <!-- Populate this list with the file names selected with the psk-files-chooser component -->
+                            <ul id="files-for-upload"></ul>
+                            <p><psk-files-chooser label="Choose files" event-name="files-selected"></psk-files-chooser></p>
+                            <p><psk-button label="Upload single file" button-class="btn btn-primary" event-name="upload-single-file"></psk-button></p>
+                        </psk-chapter>
+                    </psk-container>
+                </psk-code>
+
+
+                <psk-code language="javascript">
+                    // Controller
+                    import BindableController from "./base-controllers/BindableController.js";
+
+                    export default class ExampleController extends BindableController {
+                        constructor(element) {
+                            this.files = null; // Will be set by the "files-selected" event handler
+
+                            this.on('files-selected', (e) => {
+                                e.preventDefault();
+                                e.stopImmediatePropagation();
+                                this._listSelectedFiles(e.data);
+                            })
+
+                            this.on('upload-single-file', (e) => {
+                                e.preventDefault();
+                                e.stopImmediatePropagation();
+                                this._uploadSingleFile();
+                            });
+                        }
+
+
+                        /**
+                         * Show the list of selected files
+                         * @param {Array} files
+                         */
+                        _listSelectedFiles(files) {
+                            // Render the list of files
+                            const filesList = this._element.querySelector('#files-for-upload');
+
+                            for (const f of files) {
+                                const listItem = document.createElement('li');
+                                listItem.innerText = f.name;
+
+                                filesList.appendChild(listItem);
+                            }
+
+                            // Store a reference to the files
+                            this.files = files;
+                        }
+
+                        /**
+                         * Upload a file using the request body method
+                         */
+                        _uploadSingleFile() {
+                            const file = this.files.shift(); // Get the first file from the array
+
+                            // Upload endpoint
+                            const url = '/upload?path=/data/uploads&filename=image.jpg&maxSize=16m&allowedTypes=image/jpeg,image/png,image/gif'
+
+                            // Send the request
+                            fetch(url, {
+                                method: 'POST',
+                                body: file // pass the File object directly to the request body
+                            }).then((response) => {
+                                response.json().then((result) => {
+                                    console.log(result);
+                                    if (response.ok) {
+                                        console.log("Upload was successful!");
+                                    } else {
+                                        console.log("Upload failed!");
+                                    }
+
+                                    // Success or file level validation error
+                                    if (Array.isArray(result)) {
+                                        for (const item of result) {
+                                            if (item.error) {
+                                                console.error(`Unable to upload ${item.file.name} due to an error. Code: ${item.error.code}. Message: ${item.error.message}`);
+                                                continue;
+                                            }
+                                            console.log(`Uploaded ${item.file.name} to ${item.result.path}`);
+                                        }
+                                        return;
+                                    }
+
+                                    // Validation error. Can happend when HTTP status is 400
+                                    if (typeof result === 'object') {
+                                        console.error(`An error occured: ${result.message}. Code: ${result.code}`);
+                                        return;
+                                    }
+
+                                    // Error is a string. This happens when the HTTP status is 500
+                                    console.error(`An error occured: ${result}`);
+                                })
+                            }).catch((err) => {
+                                console.error(err);
+                            })
+                        }
+                    }
+                </psk-code>
+            </psk-card>
+        </psk-chapter>
+    </psk-chapter>
+
+    <psk-chapter title="Download Middleware">
+        <p>The endpoint provided by this middleware allows file downloading from a brick archive.</p>
+        <psk-chapter title="Request">
+            <psk-highlight title="Example" type-of-highlight="note">
+                <code>GET <strong>/download</strong>/path/to/file/in/brick/archive</code>
+            </psk-highlight>
+        </psk-chapter>
+
+        <p>The upload &amp; download middlewares make use of the <psk-link page="APIs/BARs">BARs API</psk-link>.</p>
+    </psk-chapter>
+
+    <psk-chapter title="Communication middleware">
+        <p>The following middleware provide endpoints for communicating with different processes inside PrivateSky using VirtualMQ:</p>
+        <psk-list>
+            create channel
+            send message
+            forward message
+            receive message
+        </psk-list>
+        <p>The documentation for using those endpoints can be found by accessing the <psk-link page="APIs/VirtualMQ/Message Passing">VirtualMQ/Message Passing</psk-link> chapter.</p>
+    </psk-chapter>
+
+</psk-page>

@@ -1,0 +1,79 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NW4R664');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<psk-page title="psk-draggable-list">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <psk-toc title="Table of contents"></psk-toc>
+
+    <psk-description title="Summary">
+        <p>This component will render a list of items provided through view-model and then will provide a order change mechanism.</p>
+        <p>Every time the order of the items change, the model that was provided will also update.</p>
+    </psk-description>
+
+    <psk-description title="View model">
+        <h5><b>items</b></h5>
+        <p>Represents a list of <i>DraggableOption</i></p>
+    </psk-description>
+
+    <psk-description title="DraggableOption">
+        <p><b>label</b>: <i>string</i></p>
+        <p><b>value</b>: <i>string</i></p>
+        <p><b>selected?</b>: <i>boolean</i></p>
+    </psk-description>
+
+    <psk-chapter title="HTML Children">
+        <p>This component has no HTML children.</p>
+    </psk-chapter>
+
+    <psk-chapter title="Controller Source Code">
+        <psk-code language="Javascript">
+            import ContainerController from "../../cardinal/controllers/base-controllers/ContainerController.js";
+
+            const model = {
+                draggableListModel: {
+                    items: [
+                        {label: "Romanian", value: "ro", selected: true},
+                        {label: "English", value: "en"},
+                        {label: "German", value: "de"}
+                    ]
+                }
+            }
+
+            export default class DraggableListExampleController extends ContainerController {
+                constructor(element) {
+                    super(element);
+                    this.model = this.setModel(model);
+                    this.model.onChange('draggableListModel.items', () => {
+                        console.log('Order of the list changed', this.model.draggableListModel)
+                    });
+                };
+            }
+        </psk-code>
+    </psk-chapter>
+
+    <psk-chapter title="HTML Source Code">
+        <psk-code language="markup">
+            <psk-container controller-name="DraggableListExampleController">
+                <psk-draggable-list view-model="@draggableListModel"></psk-draggable-list>
+            </psk-container>
+        </psk-code>
+    </psk-chapter>
+
+    <psk-chapter title="Live Example">
+        <psk-example class="app-example">
+            <psk-container controller-name="DraggableListExampleController">
+                <psk-draggable-list view-model="@draggableListModel"></psk-draggable-list>
+            </psk-container>
+        </psk-example>
+    </psk-chapter>
+</psk-page>

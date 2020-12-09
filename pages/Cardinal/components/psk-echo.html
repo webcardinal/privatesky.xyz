@@ -1,0 +1,114 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NW4R664');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<psk-page title="psk-echo">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <psk-toc title="Table of contents"></psk-toc>
+
+    <psk-description title="Summary">
+        <p>This is one of the simplest components of CardinalJS. Its role is to render values ​​that have been dynamically set in the page controller.</p>
+        <p>
+            The <psk-link tag="psk-echo">psk-echo</psk-link> component must be used in close connection with the <psk-link tag="psk-container">psk-container</psk-link>.
+            <br>
+            To use this component at full capacity, read also about <psk-link tag="psk-for-each">psk-for-each</psk-link>.
+        </p>
+        <p>In order to generate content in a simple form, without inputs you can use this component.</p>
+    </psk-description>
+
+    <psk-property-descriptor title="Supported properties">
+        <psk-echo></psk-echo>
+    </psk-property-descriptor>
+
+    <psk-chapter title="HTML Children">This component has no HTML children.</psk-chapter>
+
+    <psk-chapter title="Example">
+        <psk-code language="markup">
+            <psk-container>
+                <script>
+                    controller.getModel = () => ({
+                        legend: 'European cities by population within city limits.',
+                        cities: [
+                            { name: 'Istanbul', population: '15 519 267' },
+                            { name: 'Moscow', population: '12 615 279' },
+                            { name: 'London', population: '9 126 366' },
+                            { name: 'Saint Petersburg', population: '5 383 890' },
+                            { name: 'Berlin', population: '3 748 148' },
+                            { name: 'Madrid', population: '3 223 334' },
+                            { name: 'Kyiv', population: '2 950 800' },
+                            { name: 'Rome', population: '2 844 750' },
+                            { name: 'Paris', population: '2 140 526' },
+                            { name: 'Bucharest', population: '2 106 144' }
+                        ],
+                        source: { name: 'wikipedia.org' }
+                    });
+                    controller.setModel(controller.getModel());
+                </script>
+
+                <psk-card title="@legend">
+                    <psk-for-each data-view-model="cities">
+                        <div>
+                            <psk-echo value="@name"></psk-echo>
+                            (<psk-echo value="@population"></psk-echo>)
+                        </div>
+                    </psk-for-each>
+                    <section>
+                        <em>↗ Source:</em>
+                        <psk-echo value="@source.name"></psk-echo>
+                    </section>
+                </psk-card>
+            </psk-container>
+        </psk-code>
+
+        <psk-container>
+            <script>
+                controller.getModel = () => ({
+                    legend: 'European cities by population within city limits.',
+                    cities: [
+                        { name: 'Istanbul', population: '15 519 267' },
+                        { name: 'Moscow', population: '12 615 279' },
+                        { name: 'London', population: '9 126 366' },
+                        { name: 'Saint Petersburg', population: '5 383 890' },
+                        { name: 'Berlin', population: '3 748 148' },
+                        { name: 'Madrid', population: '3 223 334' },
+                        { name: 'Kyiv', population: '2 950 800' },
+                        { name: 'Rome', population: '2 844 750' },
+                        { name: 'Paris', population: '2 140 526' },
+                        { name: 'Bucharest', population: '2 106 144' }
+                    ],
+                    source: {
+                        name: 'wikipedia.org',
+                    }
+                });
+                controller.setModel(controller.getModel());
+            </script>
+
+            <psk-example class="app-example">
+                <psk-card title="@legend">
+                    <psk-for-each data-view-model="cities">
+                        <div>
+                            <psk-echo value="@name"></psk-echo>
+                            (<psk-echo value="@population"></psk-echo>)
+                        </div>
+                    </psk-for-each>
+                    <br>
+                    <section>
+                        <em>↗ Source:</em>
+                        <psk-echo value="@source.name"></psk-echo>
+                    </section>
+                </psk-card>
+            </psk-example>
+        </psk-container>
+    </psk-chapter>
+
+</psk-page>

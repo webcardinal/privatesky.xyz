@@ -1,0 +1,226 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NW4R664');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<psk-page title="psk-breadcrumb-navigator">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <psk-toc title="Table of Contents"></psk-toc>
+
+    <psk-description title="Summary">
+        <p>The purpose of the component is to display the navigation tree of the user (like a file explorer) with the possibility to navigate trough the segments.</p>
+        <p>Because of flexibility reasons, the navigation needs to be handled inside the controller.</p>
+        <p>At this moment, the component accepts two attributes: <code>event-name</code> and <code>segments</code>.</p>
+        <p>Event name is optional and is used to trigger an event when the user is clicking o the breadcrumb segments. <code>Segments</code> is an array of Objects wth the following structure:</p>
+        <psk-code language="JavaScript">
+            {
+                label: string // The label to be displayed
+                path: string // The path for navigation. Ths attribute is sent as event-data with <psk-link page="cardinal/web-components/psk-button">psk-button</psk-link> component.
+            }
+        </psk-code>
+        <p>The component accepts a special attribute, <code>mode</code>, which allows the user to choose between three default styles of breadcrumb:</p>
+        <psk-list>
+            <code>default: The default mode of the component. Also this is the selected mode if none provided. </code>
+            <code>scroll: By using this mode, the navigator will display a scrollbar on X-axis of the component for an easier navigation over the clickable segments.</code>
+            <code>arrows: By using this mode, the component will display two arrows, one on the left side and one on the right side for an easier navigation over the clickable segments.</code>
+        </psk-list>
+    </psk-description>
+
+    <psk-property-descriptor title="Supported properties">
+        <psk-breadcrumb-navigator></psk-breadcrumb-navigator>
+    </psk-property-descriptor>
+
+    <psk-chapter title="HTML Children">
+        <p>The component accepts no HTML children.</p>
+    </psk-chapter>
+
+    <psk-chapter title="How to use">
+        <psk-example>
+            <psk-container controller-name="BreadcrumbController">
+				<script>
+					const breadcrumbElement = controller.element.querySelector('psk-breadcrumb-navigator');
+					if( breadcrumbElement) {
+						breadcrumbElement.segments = controller.model.toObject("segments");
+					}
+				</script>
+                <psk-chapter title="Default mode">
+                    <psk-description>
+                        <p>Resize the window to see the responsive behaviour.</p> <br>
+                    </psk-description>
+                    <psk-breadcrumb-navigator>
+
+                    </psk-breadcrumb-navigator>
+                </psk-chapter>
+            </psk-container>
+    
+            <psk-container controller-name="BreadcrumbController">
+				<script>
+					const breadcrumbElement = controller.element.querySelector('psk-breadcrumb-navigator');
+					if( breadcrumbElement) {
+						breadcrumbElement.segments = controller.model.toObject("segments");
+					}
+				</script>
+                <psk-chapter title="Scroll mode">
+                    <psk-description>
+                        <p>Resize the window to see the responsive behaviour.</p> <br>
+                    </psk-description>
+                    <psk-breadcrumb-navigator mode="scroll">
+
+                    </psk-breadcrumb-navigator>
+                </psk-chapter>
+            </psk-container>
+    
+            <psk-container controller-name="BreadcrumbController">
+				<script>
+					const breadcrumbElement = controller.element.querySelector('psk-breadcrumb-navigator');
+					if( breadcrumbElement) {
+						breadcrumbElement.segments = controller.model.toObject("segments");
+					}
+				</script>
+                <psk-chapter title="Arrows mode AND Custom event-name: navigation-click">
+                    <psk-description>
+                        <p>Resize the window to see the responsive behaviour.</p> <br>
+                    </psk-description>
+                    <psk-breadcrumb-navigator mode="arrows" event-name="navigation-click">
+
+                    </psk-breadcrumb-navigator>
+                </psk-chapter>
+            </psk-container>
+        </psk-example>
+
+        <psk-chapter title="Javascript">
+            <psk-code language="JavaScript">
+                import ContainerController from "../../cardinal/controllers/base-controllers/ContainerController.js";
+    
+                export default class BreadcrumbController extends ContainerController {
+                    constructor(element) {
+                        super(element);
+                        this.model = this.setModel(this.getInitialModel());
+    
+                        /**
+                        * Default event-name for psk-breadcrumb-navigator component
+                        */
+                        this.on("breadcrumb-click", (event) => {
+                            // Avoid bubbling
+                            event.stopImmediatePropagation();
+    
+                            const path = event.data;
+                            // Handle navigation
+    
+                            console.log(path);
+                        });
+    
+                        /**
+                        * Custom event-name for psk-breadcrumb-navigator component
+                        */
+                        this.on("navigation-click", (event) => {
+                            // Avoid bubbling
+                            event.stopImmediatePropagation();
+    
+                            const path = event.data;
+                            // Handle navigation
+    
+                            console.log(path);
+                        });
+                    }
+    
+                    getInitialModel = () => {
+                        return {
+                            segments: [{
+                                    label: "ROOT",
+                                    path: "/"
+                                },
+                                {
+                                    label: "ISO 9001",
+                                    path: "/iso-9001"
+                                },
+                                {
+                                    label: "Standard Documentation",
+                                    path: "/iso-9001/standard-documentation"
+                                },
+                                {
+                                    label: "Procedures",
+                                    path: "/iso-9001/standard-documentation/procedures"
+                                },
+                                {
+                                    label: "Operational Procedures",
+                                    path: "/iso-9001/standard-documentation/procedures/operational-procedures"
+                                },
+                                {
+                                    label: "Product Aceptance by the Customer",
+                                    path: "/iso-9001/standard-documentation/procedures/operational-procedures/product-acceptace-by-customer"
+                                }
+                            ]
+                        }
+                    }
+                }
+            </psk-code>
+        </psk-chapter>
+
+        <psk-chapter title="HTML">
+            <psk-code language="html">
+                <!-- Source code from the above displayed components -->
+                <psk-container controller-name="BreadcrumbController">
+					<script>
+						const breadcrumbElement = controller.element.querySelector('psk-breadcrumb-navigator');
+						if( breadcrumbElement) {
+							breadcrumbElement.segments = controller.model.toObject("segments");
+						}
+					</script>
+					<psk-chapter title="Default mode">
+						<psk-description>
+							<p>Resize the window to see the responsive behaviour.</p> <br>
+						</psk-description>
+						<psk-breadcrumb-navigator>
+
+						</psk-breadcrumb-navigator>
+					</psk-chapter>
+				</psk-container>
+		
+				<psk-container controller-name="BreadcrumbController">
+					<script>
+						const breadcrumbElement = controller.element.querySelector('psk-breadcrumb-navigator');
+						if( breadcrumbElement) {
+							breadcrumbElement.segments = controller.model.toObject("segments");
+						}
+					</script>
+					<psk-chapter title="Scroll mode">
+						<psk-description>
+							<p>Resize the window to see the responsive behaviour.</p> <br>
+						</psk-description>
+						<psk-breadcrumb-navigator mode="scroll">
+
+						</psk-breadcrumb-navigator>
+					</psk-chapter>
+				</psk-container>
+		
+				<psk-container controller-name="BreadcrumbController">
+					<script>
+						const breadcrumbElement = controller.element.querySelector('psk-breadcrumb-navigator');
+						if( breadcrumbElement) {
+							breadcrumbElement.segments = controller.model.toObject("segments");
+						}
+					</script>
+					<psk-chapter title="Arrows mode AND Custom event-name: navigation-click">
+						<psk-description>
+							<p>Resize the window to see the responsive behaviour.</p> <br>
+						</psk-description>
+						<psk-breadcrumb-navigator mode="arrows" event-name="navigation-click">
+
+						</psk-breadcrumb-navigator>
+					</psk-chapter>
+				</psk-container>
+            </psk-code>
+        </psk-chapter>
+    </psk-chapter>
+
+</psk-page>

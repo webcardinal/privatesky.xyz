@@ -1,0 +1,221 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NW4R664');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<psk-page title="psk-layout">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <psk-toc title="Table of contents"></psk-toc>
+
+    <psk-description title="Summary">
+        <p>This component is a very important element for building layouts.</p>
+        <p>Under the hood this component is a wrapper over the <a href="https://www.w3.org/TR/css-grid/" target="_blank">CSS Grid</a>.</p>
+    </psk-description>
+
+    <psk-chapter title="Supported properties">
+        <psk-property-descriptor title="For psk-layout tag">
+            <psk-layout></psk-layout>
+        </psk-property-descriptor>
+
+        <psk-property-descriptor title="For psk-layout-item tag">
+            <psk-layout-item></psk-layout-item>
+        </psk-property-descriptor>
+    </psk-chapter>
+
+    <psk-chapter title="Examples">
+        <p>In all the examples below <strong>psk-style</strong> was added only for a better presentation of the functionalities.</p>
+
+        <psk-chapter title="Two columns">
+            <p>A simple example in which two columns are illustrated.</p>
+
+            <psk-code>
+                <psk-layout columns="2" column-gap="20px">
+                    <div>
+                        <h4>Column 1</h4>
+                        ...
+                    </div>
+                    <psk-card title="Column 2">
+                        <psk-highlight title="Example">...</psk-highlight>
+                    </psk-card>
+                </psk-layout>
+            </psk-code>
+
+            <psk-example class="app-example">
+                <psk-layout columns="2" gap="20px">
+                    <div>
+                        <h4>Column 1</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at felis magna. Integer quis lectus vel urna ullamcorper vulputate id vel arcu. Aenean commodo ipsum nec diam mattis, sed blandit ex vestibulum. Duis maximus diam sed sapien elementum, eget ultricies ante sollicitudin.</p>
+                    </div>
+                    <psk-card title="Column 2">
+                        <psk-highlight title="Example" type-of-highlight="example">Your highlight</psk-highlight>
+                    </psk-card>
+                </psk-layout>
+            </psk-example>
+        </psk-chapter>
+
+        <psk-chapter title="Template system">
+            <p>This example shows how the templating system works.</p>
+            <p>To expand the cells it is necessary to use the <strong>psk-layout-item</strong> component.</p>
+
+            <psk-code>
+                <psk-layout template-columns="60px 1fr 1fr auto 2fr 1fr" gap="1em">
+                    <div>60px</div>
+                    <div>1fr</div>
+                    <div>1fr</div>
+                    <div>auto</div>
+                    <div>2fr</div>
+                    <div>1fr</div>
+                    <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
+                    <div>7</div>
+                    <psk-layout-item column-start="2" column-end="6">8</psk-layout-item>
+                    <div>9</div>
+                    <psk-layout-item column="1 / -1">10</psk-layout-item>
+                    <div>11</div>
+                    <psk-layout-item row="5 / span 2" column-start="2">12</psk-layout-item>
+                    <div>13</div>
+                    <div>14</div>
+                    <div>15</div>
+                    <div>16</div>
+                    <div>17</div>
+                    <div>18</div>
+                    <div>19</div>
+                    <psk-layout-item column-start="-2">20</psk-layout-item>
+                    <!-- styling for psk-layout-items not included -->
+                </psk-layout>
+            </psk-code>
+
+            <psk-example class="app-example">
+                <psk-layout template-columns="60px 1fr 1fr auto 2fr 1fr" gap="1em">
+                    <psk-style>::slotted(div) { border: 2px solid #5E7FE1; padding: 0.5em; }</psk-style>
+                    <div>60px</div>
+                    <div>1fr</div>
+                    <div>1fr</div>
+                    <div>auto</div>
+                    <div>2fr</div>
+                    <div>1fr</div>
+                    <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
+                    <div>7</div>
+                    <psk-layout-item column-start="2" column-end="6">
+                        <psk-style>:host { border: 2px solid #5E7FE1; padding: 0.5em; }</psk-style>
+                        8
+                    </psk-layout-item>
+                    <div>9</div>
+                    <psk-layout-item column="1 / -1">
+                        <psk-style>:host { border: 2px solid #5E7FE1; padding: 0.5em; }</psk-style>
+                        10
+                    </psk-layout-item>
+                    <div>11</div>
+                    <psk-layout-item row="5 / span 2" column-start="2">
+                        <psk-style>:host { border: 2px solid #5E7FE1; padding: 0.5em; }</psk-style>
+                        12
+                    </psk-layout-item>
+                    <div>13</div>
+                    <div>14</div>
+                    <div>15</div>
+                    <div>16</div>
+                    <div>17</div>
+                    <div>18</div>
+                    <div>19</div>
+                    <psk-layout-item column-start="-2">
+                        <psk-style>:host { border: 2px solid #5E7FE1; padding: 0.5em; }</psk-style>
+                        20
+                    </psk-layout-item>
+                </psk-layout>
+            </psk-example>
+        </psk-chapter>
+
+        <psk-chapter title="Aligning items">
+            <psk-code>
+                <psk-layout template-columns="auto auto" align-items="center">
+                    <psk-style>
+                        :host { height: 150px; border: 2px solid #BBB }
+                        ::slotted(h4) { padding: 0.5em; color: #FFF; background: #666 }
+                    </psk-style>
+                    <h4>A</h4>
+                    <h4>B</h4>
+                </psk-layout>
+            </psk-code>
+
+            <psk-example class="app-example">
+                <psk-layout columns="2" align-items="center">
+                    <psk-style>
+                        :host { height: 150px; border: 2px solid #BBB }
+                        ::slotted(h4) { padding: 0.5em; color: #FFF; background: #666 }
+                    </psk-style>
+                    <h4>A</h4>
+                    <h4>B</h4>
+                </psk-layout>
+            </psk-example>
+        </psk-chapter>
+
+        <psk-chapter title="Aligning content">
+            <psk-code>
+                <psk-layout template-columns="repeat(2, auto 1fr)" align-content="space-between" column-gap="10px">
+                    <div>1</div><div>2</div><div>3</div><div>4</div>
+                    <div>5</div><div>6</div><div>7</div><div>8</div>
+
+                    <psk-style>
+                        :host { padding: 10px; height: 250px; background-color: #FFFFFF }
+                        ::slotted(div) { padding: 0.5em; border: 1px dotted #5E7FE1 }
+                    </psk-style>
+                </psk-layout>
+            </psk-code>
+
+            <psk-example class="app-example">
+                <psk-layout template-columns="repeat(2, auto 1fr)" align-content="space-between" column-gap="10px">
+                    <div>1</div><div>2</div><div>3</div><div>4</div>
+                    <div>5</div><div>6</div><div>7</div><div>8</div>
+
+                    <psk-style>
+                        :host { padding: 10px; height: 250px; background-color: #FFFFFF }
+                        ::slotted(div) { padding: 0.5em; border: 1px dotted #5E7FE1 }
+                    </psk-style>
+                </psk-layout>
+            </psk-example>
+        </psk-chapter>
+
+        <psk-chapter title="Self alignment">
+            <psk-code>
+                <psk-layout row-gap="1em">
+                    <psk-layout-item align="stretch">PrivateSky</psk-layout-item>
+                    <psk-layout-item align="start">X</psk-layout-item>
+                    <psk-layout-item align="center">Y</psk-layout-item>
+                    <psk-layout-item align="end">Z</psk-layout-item>
+                    <!-- styling for psk-layout-items not included -->
+                </psk-layout>
+            </psk-code>
+
+            <psk-example class="app-example">
+                <psk-layout row-gap="1em">
+                    <psk-layout-item align="stretch">
+                        <psk-style>:host { padding: 10px; border: 2px solid #5E7FE1 }</psk-style>
+                        PrivateSky
+                    </psk-layout-item>
+                    <psk-layout-item align="start">
+                        <psk-style>:host { padding: 10px; border: 2px solid red }</psk-style>
+                        X
+                    </psk-layout-item>
+                    <psk-layout-item align="center">
+                        <psk-style>:host { padding: 10px; border: 2px solid green }</psk-style>
+                        Y
+                    </psk-layout-item>
+                    <psk-layout-item align="end">
+                        <psk-style>:host { padding: 10px; border: 2px solid blue }</psk-style>
+                        Z
+                    </psk-layout-item>
+                </psk-layout>
+            </psk-example>
+        </psk-chapter>
+
+    </psk-chapter>
+
+</psk-page>

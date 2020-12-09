@@ -1,0 +1,86 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NW4R664');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<psk-page title="psk-barcode-scanner">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <psk-toc title="Table of contents"></psk-toc>
+
+    <psk-description title="Summary">
+        <p>This component is useful in order to scan various types of barcodes (1D or 2D).</p>
+    </psk-description>
+
+    <psk-property-descriptor title="Supported properties">
+        <psk-barcode-scanner></psk-barcode-scanner>
+    </psk-property-descriptor>
+
+    <psk-chapter title="HTML Children">
+        <p>This component has no HTML children.</p>
+    </psk-chapter>
+
+    <psk-chapter title="Code Examples">
+        <psk-code language="javascript">
+        import ContainerController from "../../cardinal/controllers/base-controllers/ContainerController.js";
+
+        export default class BarcodeController extends ContainerController {
+            getModel() {
+                return {
+                    isScannerActive: false,
+                    scannedData: ''
+                }
+            }
+
+            constructor(element) {
+                super(element);
+
+                this.setModel(this.getModel());
+
+                this.on("toggle-scanner", () => {
+                    this.model.isScannerActive = !this.model.isScannerActive;
+                    this.model.scannedData = '';
+                });
+            }
+        }
+        </psk-code>
+    </psk-chapter>
+
+    <psk-chapter title="Live example">
+            <psk-code language="markup">
+                <psk-container controller-name="BarcodeController">
+                    <psk-condition condition="@isScannerActive">
+                        <psk-layout slot="condition-true" row-gap="1em">
+                            <psk-button event-name="toggle-scanner">Stop Scanner</psk-button>
+                            <psk-barcode-scanner title="Barcode Scanner" data="@scannedData"></psk-barcode-scanner>
+                            <label>Scanned Data:</label>
+                            <psk-echo value="@scannedData"></psk-echo>
+                        </psk-layout>
+                        <psk-button slot="condition-false" event-name="toggle-scanner">Start Scanner</psk-button>
+                    </psk-condition>
+                </psk-container>
+            </psk-code>
+
+            <psk-example class="app-example">
+                <psk-container controller-name="BarcodeController">
+                    <psk-condition condition="@isScannerActive">
+                        <psk-layout slot="condition-true" row-gap="1em">
+                            <psk-button event-name="toggle-scanner">Stop Scanner</psk-button>
+                            <psk-barcode-scanner title="Barcode Scanner" data="@scannedData"></psk-barcode-scanner>
+                            <label>Scanned Data:</label>
+                            <strong><psk-echo value="@scannedData"></psk-echo></strong>
+                        </psk-layout>
+                        <psk-button slot="condition-false" event-name="toggle-scanner">Start Scanner</psk-button>
+                    </psk-condition>
+                </psk-container>
+            </psk-example>
+    </psk-chapter>
+</psk-page>

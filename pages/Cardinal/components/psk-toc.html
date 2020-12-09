@@ -1,0 +1,48 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NW4R664');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<psk-page title="psk-toc">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <psk-toc title="Table of contents"></psk-toc>
+
+    <psk-description title="Summary">
+        <span>This component creates a Table of Content in which every item is a link to that item's position in our <psk-link tag="psk-page">psk-page</psk-link>.</span>
+        <span>It renders a psk-card with the given <code>title</code> in which every <code>psk-page</code> and <psk-link tag="psk-chapter">psk-chapter</psk-link> is rendered.</span>
+        <p>This components selects all <code>psk-chapter</code> components and creates a ordered list based on each chapter existing in the page.</p>
+        <p>It renders a unordered list with it's HTML children.</p>
+    </psk-description>
+
+    <psk-property-descriptor title="Supported properties">
+        <psk-toc></psk-toc>
+    </psk-property-descriptor>
+
+    <psk-chapter title="HTML Children">
+        <p>This component has no html children.</p>
+    </psk-chapter>
+
+    <psk-chapter title="Code Example">
+        <psk-code language="markup">
+            <psk-toc title="PSK-toc Example">
+            </psk-toc>
+        </psk-code>
+    </psk-chapter>
+
+    <psk-chapter title="Live Example">
+        <psk-example class="app-example">
+            <psk-toc title="PSK-toc Example">
+            </psk-toc>
+        </psk-example>
+    </psk-chapter>
+
+</psk-page>

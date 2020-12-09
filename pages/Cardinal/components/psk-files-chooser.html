@@ -1,0 +1,110 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NW4R664');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<psk-page title="psk-files-chooser">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <psk-toc title="Table of contents"></psk-toc>
+
+    <psk-description title="Summary">
+        <p>This component allows the user to select multiple files from his device to load them into the application providing him a customizable way to do this.</p>
+    </psk-description>
+
+    <psk-property-descriptor title="Supported properties">
+        <psk-files-chooser></psk-files-chooser>
+    </psk-property-descriptor>
+
+    <psk-chapter title="HTML Children">
+        <p>This component has no HTML children.</p>
+    </psk-chapter>
+
+    <psk-chapter title="Controller Source Code">
+        <psk-code language="Javascript">
+            import ContainerController from "../../cardinal/controllers/base-controllers/ContainerController.js";
+
+            const model = {
+                filesChooser: {
+                    label: "Select files",
+                    accept: "png",
+                    listFiles: true,
+                    filesAppend: true,
+                    files: []
+                }
+            }
+
+            export default class FilesChooserExampleController extends ContainerController {
+                constructor(element) {
+                    super(element);
+                    this.model = this.setModel(model);
+                    this.model.onChange('filesChooser', () => {
+                        let filesArray = this.model.filesChooser.files || [];
+                    });
+                    this.on('add-file-folder', (event) => {
+                        let filesArray = event.data || [];
+                    });
+                };
+            }
+        </psk-code>
+    </psk-chapter>
+
+    <psk-chapter title="HTML Source Code">
+        <p>Inline model:</p>
+        <psk-code language="markup">
+            <psk-container controller-name="FilesChooserExampleController">
+                <psk-files-chooser label="Select files" accept="png" list-files="true" files-append="true">
+                </psk-files-chooser>
+            </psk-container>
+        </psk-code>
+
+        <p>View model:</p>
+        <psk-code language="markup">
+            <psk-container controller-name="FilesChooserExampleController">
+                <psk-files-chooser view-model="filesChooser">
+                </psk-files-chooser>
+            </psk-container>
+        </psk-code>
+
+        <p>Event name:</p>
+        <psk-code language="markup">
+            <psk-container controller-name="FilesChooserExampleController">
+                <psk-files-chooser event-name="add-file-folder">
+                </psk-files-chooser>
+            </psk-container>
+        </psk-code>
+    </psk-chapter>
+
+    <psk-chapter title="Live Example">
+        <psk-example class="app-example">
+            <p>In case the controller isn't set up then the component will be rendered in this fashion :</p>
+            <psk-files-chooser label="Select files" accept="png">
+            </psk-files-chooser>
+        </psk-example>
+
+        <psk-example class="app-example">
+            <p>But in case a controller with the view-model exists then the model with stay in sync with the component files:</p>
+            <psk-container controller-name="FilesChooserExampleController">
+                <psk-files-chooser view-model="filesChooser">
+                </psk-files-chooser>
+            </psk-container>
+        </psk-example>
+
+        <psk-example class="app-example">
+            <p>But in case a controller with the event-name exists and the psk-files-chooser sends an event, then the component will be rendered like this:</p>
+            <psk-container controller-name="FilesChooserExampleController">
+                <psk-files-chooser list-files="true" files-append="true" event-name="add-file-folder">
+                </psk-files-chooser>
+            </psk-container>
+        </psk-example>
+    </psk-chapter>
+
+</psk-page>

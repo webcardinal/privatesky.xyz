@@ -1,0 +1,142 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NW4R664');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<psk-page title="psk-app-menu">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <psk-toc title="Table of contents"></psk-toc>
+
+    <psk-description title="Summary">
+        <p>This component is providing the application navigation.</p>
+        <p>It can change itself to a hamburger menu when the width of the page is smaller than a given property.</p>
+    </psk-description>
+
+    <psk-property-descriptor title="Supported properties">
+        <psk-app-menu></psk-app-menu>
+    </psk-property-descriptor>
+
+    <psk-controller-descriptor title="Events that supports Controllers">
+        <psk-app-menu data-define-controller="true"></psk-app-menu>
+    </psk-controller-descriptor>
+
+    <psk-chapter title="HTML Children">
+        <p>The menu component accepts two types of slots:</p>
+        <psk-list>
+            <p><strong>slot="before"</strong> - this slot is rendered before the menu items.</p>
+            <p><strong>slot="after"</strong> - this slot is rendered after the menu items.</p>
+        </psk-list>
+    </psk-chapter>
+
+    <psk-chapter title="Example">
+        <psk-code language="markup">
+            <psk-container>
+            <script>
+                let menuItems = [
+                  {
+                    "name": "Main Innovations",
+                    "path": "?Overview/main-innovations",
+                    "icon": "fa-question-circle",
+                    "type": "route",
+                    "component": "psk-page-loader",
+                    "exact": true,
+                    "indexed": true,
+                    "pagePrefix": "?",
+                    "historyType": "query",
+                    "componentProps": {
+                      "pageUrl": "http://privatesky.xyz/pages/Overview/main-innovations.html"
+                    }
+                  },
+                  {
+                    "name": "Architecture",
+                    "path": "?Overview/architecture",
+                    "icon": "fa-cogs",
+                    "type": "route",
+                    "component": "psk-page-loader",
+                    "exact": true,
+                    "indexed": true,
+                    "pagePrefix": "?",
+                    "historyType": "query",
+                    "componentProps": {
+                      "pageUrl": "http://privatesky.xyz/pages/Overview/architecture.html"
+                    }
+                  }
+                ];
+                controller.on("needMenuItems", e => {
+                    e.stopImmediatePropagation();
+                    const callback = e.detail;
+                    callback(null, menuItems);
+                });
+            </script>
+            <psk-app-menu hamburger-max-width="0" class="demo">
+                <div slot="before">
+                    This is shown <strong>before</strong> the menu items are rendered.
+                </div>
+                <div slot="after">
+                    This is shown <strong>after</strong> the menu items are rendered.
+                </div>
+            </psk-app-menu>
+          </psk-container>
+        </psk-code>
+
+        <psk-example class="app-example">
+            <psk-container>
+                <script>
+                    let menuItems = [
+                      {
+                        "name": "Main Innovations",
+                        "path": "?Overview/main-innovations",
+                        "icon": "fa-question-circle",
+                        "type": "route",
+                        "component": "psk-page-loader",
+                        "exact": true,
+                        "indexed": true,
+                        "pagePrefix": "?",
+                        "historyType": "query",
+                        "componentProps": {
+                          "pageUrl": "http://privatesky.xyz/pages/Overview/main-innovations.html"
+                        }
+                      },
+                      {
+                        "name": "Architecture",
+                        "path": "?Overview/architecture",
+                        "icon": "fa-cogs",
+                        "type": "route",
+                        "component": "psk-page-loader",
+                        "exact": true,
+                        "indexed": true,
+                        "pagePrefix": "?",
+                        "historyType": "query",
+                        "componentProps": {
+                          "pageUrl": "http://privatesky.xyz/pages/Overview/architecture.html"
+                        }
+                      }
+                    ];
+                    controller.on("needMenuItems", e => {
+                      e.stopImmediatePropagation();
+                      const callback = e.detail;
+                      callback(null, menuItems);
+                    });
+                </script>
+                <psk-app-menu hamburger-max-width="0" class="demo">
+                    <div slot="before">
+                        This is shown <strong>before</strong> the menu items are rendered.
+                    </div>
+                    <div slot="after">
+                        This is shown <strong>after</strong> the menu items are rendered.
+                    </div>
+                </psk-app-menu>
+            </psk-container>
+        </psk-example>
+    </psk-chapter>
+
+</psk-page>

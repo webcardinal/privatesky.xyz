@@ -1,0 +1,99 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NW4R664');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<psk-page title="psk-button">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <psk-toc title="Table of Contents"></psk-toc>
+
+    <psk-description title="Summary">
+        <p>Basic button component used to trigger button events for any need.</p>
+        <p>This button is not like standard HTML button, which in HTML it submits a form, instead it is able to trigger custom button events with custom data to be handled in a parent controller.</p>
+        <p>The button comes with a default style from bootstrap using primary color (blue), but it can be easily designed using CSS files according to the selected theme for the web-site.</p>
+    </psk-description>
+
+    <psk-property-descriptor title="Supported properties">
+        <psk-button></psk-button>
+    </psk-property-descriptor>
+
+    <psk-chapter title="HTML Children">
+        <p>Recommended to be used in case of displaying a label or an icon. To be used if attribute <code>label</code>
+            is not defined.</p>
+    </psk-chapter>
+
+    <psk-chapter title="Psk-Button Examples">
+        <psk-chapter title="Source code for click and double click">
+            <psk-code>
+                <!-- This example displays a button with a label and next to it an icon. -->
+                <!-- By clicking this button, a custom button event named "send-user-data" will be triggered sending with it all the information found inside "event-data" attribute. -->
+                <psk-button label="Send user data" event-name="send-user-data"
+                            event-data="some informations about the user / can also be a JavaScript Object written as a string.">
+                    <psk-icon icon="user" color="rgb(255, 255, 255)"></psk-icon>
+                </psk-button>
+
+                <!--
+                If we want to display the icon on the left side of the label, we will not use the label attribute and we
+                can write down the text after the icon component.
+                -->
+                <psk-button button-class="btn btn-success" event-name="need-double-click" event-data="This is not the way this button works, how about a double click ? Just saying."
+                                double-click-event-name="double-click-event">
+                    <psk-icon icon="user" color="rgb(255, 255, 255)"></psk-icon>
+                    Send user data
+                </psk-button>
+            </psk-code>
+        </psk-chapter>
+        <psk-chapter title="Souce code for disabled property">
+            <psk-code>
+                <psk-form form-controller="ComponentsExampleController" form-actions="Disable Button Submit">
+                    <psk-checkbox view-model="disabled"></psk-checkbox>
+                </psk-form>
+                <psk-button label="@button.label" disabled="@button.disabled"></psk-button>  
+
+            </psk-code>
+        </psk-chapter>
+        <psk-chapter   title="Visual example">
+            <psk-example class="app-example">
+                <psk-container controller-name="ComponentsExampleController">
+                    <psk-grid columns="2" layout ="xl=[4,8]">
+                        <div>
+                            <div>
+                                <psk-button label="Send user data" event-name="send-user-data"
+                                            event-data="some informations about the user / can also be a JavaScript Object written as a string.">
+                                    <psk-icon icon="user" color="rgb(255, 255, 255)"></psk-icon>
+                                </psk-button>
+                            </div>
+
+                            <div>
+                                <psk-button button-class="btn btn-success" event-name="need-double-click" event-data="This is not the way this button works, how about a double click ? Just saying."
+                                            double-click-event-name="double-click-event">
+                                    <psk-icon icon="user" color="rgb(255, 255, 255)"></psk-icon>
+                                    Send user data
+                                </psk-button>
+                            </div>
+                            
+                            <psk-list-feedbacks messages-to-display="5" time-alive="3000">
+                            </psk-list-feedbacks>
+                        </div>
+                        <div>
+                            <psk-form form-controller="ComponentsExampleController" form-actions="Disable Button Submit">
+                                <psk-checkbox view-model="disabled"></psk-checkbox>
+                            </psk-form>
+                            <psk-button label="@button.label" disabled="@button.disabled"></psk-button>
+                        </div>
+                    </psk-grid>
+                </psk-container>
+            </psk-example>
+        </psk-chapter>
+    </psk-chapter>
+
+</psk-page>

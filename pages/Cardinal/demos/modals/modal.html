@@ -1,0 +1,46 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NW4R664');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+
+<psk-container controller-name="PskModalComplexController">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <psk-modal opened>
+        <psk-tab-navigator>
+            <psk-tab title="Sign in">
+                <psk-email-input view-model="signIn.email"></psk-email-input>
+                <psk-password-input view-model="signIn.password"></psk-password-input>
+                <psk-checkbox view-model="signIn.remember"></psk-checkbox>
+            </psk-tab>
+            <psk-tab title="New account!">
+                <psk-text-input view-model="signUp.fullName"></psk-text-input>
+                <psk-email-input view-model="signIn.email"></psk-email-input>
+                <psk-password-input view-model="signIn.password"></psk-password-input>
+                <psk-password-input view-model="signUp.repeatPassword"></psk-password-input>
+            </psk-tab>
+        </psk-tab-navigator>
+
+        <!-- slots -->
+        <psk-label slot="title" class="title" label="@title"></psk-label>
+        <psk-button slot="footer" view-model="@submit"></psk-button>
+    </psk-modal>
+</psk-container>

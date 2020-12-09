@@ -1,0 +1,54 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NW4R664');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<psk-page title="psk-description">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <psk-toc title="Table of contents"></psk-toc>
+
+    <psk-description title="Summary">
+        <span>This component creates a <psk-link tag="psk-chapter">psk-chapter</psk-link> using the title property.</span>
+        <p>It's role is to create a good looking description for the documentation.</p>
+        <span>If the title property is not given than the component will create a <psk-link tag="psk-card">psk-card</psk-link> instead of a <code>psk-chapter</code></span>.
+    </psk-description>
+
+    <psk-property-descriptor title="Supported properties">
+        <psk-description></psk-description>
+    </psk-property-descriptor>
+
+    <psk-chapter title="HTML Children">
+        <p>This component has one <code>slot</code> as a HTML child in which the data between tags will be rendered inside the:</p>
+        <p><code>psk-chapter</code>(if the title is given) or <code>psk-card</code>(if it is not given)</p>
+    </psk-chapter>
+
+    <psk-chapter  title="Code Example">
+        <psk-code language="markup">
+            <psk-description title="Example of psk-description">
+                <p>Minus 40 degrees Celsius is exactly the same as minus 40 degrees Fahrenheit.</p>
+                <p>A lion's roar can be heard from eight kilometres away.</p>
+                <p>Cats can hear ultrasound.</p>
+            </psk-description>
+        </psk-code>
+    </psk-chapter>
+
+    <psk-chapter title="Live Example">
+        <psk-example class="app-example">
+            <psk-description title="Example of psk-description">
+                <p>Minus 40 degrees Celsius is exactly the same as minus 40 degrees Fahrenheit.</p>
+                <p>A lion's roar can be heard from eight kilometres away.</p>
+                <p>Cats can hear ultrasound.</p>
+            </psk-description>
+        </psk-example>
+    </psk-chapter>
+
+</psk-page>

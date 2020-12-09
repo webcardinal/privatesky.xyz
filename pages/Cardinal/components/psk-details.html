@@ -1,0 +1,84 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NW4R664');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<psk-page title="psk-details">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <psk-toc title="Table of contents"></psk-toc>
+
+    <psk-description title="Summary">
+        <p>This web component is an UI element. The component was created to simulate the html <strong>details</strong> tag, but with a much more modern look and a superior user experience.</p>
+    </psk-description>
+
+    <psk-property-descriptor title="Supported properties">
+        <psk-details></psk-details>
+    </psk-property-descriptor>
+
+    <psk-chapter title="HTML Children">
+        <p>Any tag specified inside the component automatically reaches the hidden area of the <psk-link tag="psk-details">psk-details</psk-link>.</p>
+        <p>The content will be visible as soon as the user interacts with the title or the arrow of the component.</p>
+
+    </psk-chapter>
+
+    <psk-chapter title="Examples">
+        <psk-chapter title="Default layout">
+            <psk-code language="markup">
+                <psk-details title="Click here">
+                    <psk-card title="You reached the content 💣">
+                        <p>Good job!</p>
+                    </psk-card>
+                </psk-details>
+            </psk-code>
+
+            <psk-example class="app-example">
+                <psk-details title="Click here">
+                    <psk-card title="You reached the content 💣">
+                        <p>Good job!</p>
+                    </psk-card>
+                </psk-details>
+            </psk-example>
+        </psk-chapter>
+
+        <psk-chapter title="Collapsable layout">
+            <psk-code language="markup">
+                <psk-details title="Discover your story" layout="collapsable">
+                    Story
+                    ...
+                </psk-details>
+            </psk-code>
+
+            <psk-example class="app-example">
+                <psk-details title="Discover your story" layout="collapsable">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat autem sint eveniet minus, rem optio consequuntur adipisci deleniti, omnis quas sequi est cum explicabo ducimus earum iusto. Officia, numquam et!</p>
+
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos dolores, dicta, suscipit rerum, soluta autem maiores obcaecati consequatur laudantium adipisci asperiores cum mollitia eaque beatae assumenda nobis perferendis nam aliquid dolorum quidem exercitationem ut deleniti. Nesciunt soluta distinctio reprehenderit necessitatibus?</p>
+
+                    <p>Porro repellat molestiae, culpa, labore provident, asperiores distinctio laborum eum earum pariatur ad maiores! Deserunt nemo magni consectetur, maiores tempore quidem ex sit molestias sed officiis quis necessitatibus. Vero harum nihil ex quam facilis, assumenda sunt quae officia et ipsam magni similique nobis, doloremque praesentium corrupti aliquam odio illum commodi porro autem quaerat magnam sequi aperiam consequuntur? Aspernatur officia dolore sequi, harum sunt molestias provident deleniti porro?</p>
+
+                    <p>Minima vel expedita velit dolorum, quae ea neque culpa dolores quo commodi numquam aperiam in incidunt quam quos sapiente dicta ipsa aspernatur doloribus ipsum veritatis quidem suscipit reiciendis quaerat? Impedit esse ex explicabo tempore quos in veniam officia rerum sunt. Veniam, nesciunt?</p>
+                </psk-details>
+            </psk-example>
+        </psk-chapter>
+
+        <psk-chapter title="Plus layout">
+            <psk-code language="markup">
+                <psk-details layout="plus">Content</psk-details>
+            </psk-code>
+
+            <psk-example class="app-example">
+                <psk-details layout="plus">Content</psk-details>
+            </psk-example>
+        </psk-chapter>
+    </psk-chapter>
+
+</psk-page>

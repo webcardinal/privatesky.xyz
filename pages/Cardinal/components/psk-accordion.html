@@ -1,0 +1,89 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NW4R664');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<psk-page title="psk-accordion">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <psk-toc title="Table of contents"></psk-toc>
+
+    <psk-description title="Summary">
+        <p>This web component is an UI element. The component was created to simulate an accordion of collapsible cards.</p>
+    </psk-description>
+
+    <psk-chapter title="Supported properties">
+        <psk-property-descriptor title="For psk-accordion">
+            <psk-accordion></psk-accordion>
+        </psk-property-descriptor>
+
+        <psk-property-descriptor title="For psk-accordion-item">
+            <psk-accordion-item></psk-accordion-item>
+        </psk-property-descriptor>
+    </psk-chapter>
+
+    <psk-chapter title="Examples">
+        <psk-chapter title="Single item example">
+            <p>This is an example where the multiple attribute is not used.</p>
+
+            <psk-code language="markup">
+                <psk-accordion>
+                    <psk-accordion-item title="Section 1">
+                        Content 1
+                    </psk-accordion-item>
+                    <psk-accordion-item title="Section 2" opened>
+                        Content 2
+                    </psk-accordion-item>
+                    <psk-accordion-item title="Section 3">
+                        Content 3
+                    </psk-accordion-item>
+                </psk-accordion>
+            </psk-code>
+
+            <psk-example class="app-example">
+                <psk-accordion>
+                    <psk-accordion-item title="Section 1">
+                        Content 1
+                    </psk-accordion-item>
+                    <psk-accordion-item title="Section 2" opened>
+                        Content 2
+                    </psk-accordion-item>
+                    <psk-accordion-item title="Section 3">
+                        Content 3
+                    </psk-accordion-item>
+                </psk-accordion>
+            </psk-example>
+        </psk-chapter>
+
+        <psk-chapter title="Multiple items example">
+            <p>In this example multiple attribute is used.</p>
+
+            <psk-code>
+                <psk-accordion multiple>
+                    <psk-accordion-item title="Section A">a</psk-accordion-item>
+                    <psk-accordion-item title="Section B" opened="true">b</psk-accordion-item>
+                    <psk-accordion-item title="Section C" opened>c</psk-accordion-item>
+                    <psk-accordion-item title="Section D">d</psk-accordion-item>
+                </psk-accordion>
+            </psk-code>
+
+            <psk-example class="app-example">
+                <psk-accordion multiple>
+                    <psk-accordion-item title="Section A">a</psk-accordion-item>
+                    <psk-accordion-item title="Section B" opened="true">b</psk-accordion-item>
+                    <psk-accordion-item title="Section C" opened>c</psk-accordion-item>
+                    <psk-accordion-item title="Section D">d</psk-accordion-item>
+                </psk-accordion>
+            </psk-example>
+        </psk-chapter>
+    </psk-chapter>
+
+</psk-page>

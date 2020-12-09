@@ -45,6 +45,17 @@
           "cmd": "cd ./dev/cardinal/components/forms && npm install"
         }
       ]
+    },
+    {
+      "name": "themes/clear-sky-theme",
+      "src": "https://github.com/PrivateSky/clear-sky-theme.git",
+      "actions": [
+        {
+          "type": "smartClone",
+          "target": "./dev/cardinal",
+          "collectLog": false
+        }
+      ]
     }
   ]
 }

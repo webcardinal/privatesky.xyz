@@ -1,0 +1,83 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NW4R664');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<psk-page title=psk-barcode-generator">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <psk-toc title="Table of contents"></psk-toc>
+
+    <psk-description title="Summary">
+        <p>This component is useful in order to generate various types of barcodes (1D or 2D).</p>
+    </psk-description>
+
+    <psk-property-descriptor title="Supported properties">
+        <psk-barcode-generator></psk-barcode-generator>
+    </psk-property-descriptor>
+
+    <psk-chapter title="HTML Children">
+        <p>This component has no HTML children.</p>
+    </psk-chapter>
+
+    <psk-chapter title="Code Examples">
+        <psk-code language="javascript">
+            // Controller
+            import ContainerController from "../../cardinal/controllers/base-controllers/ContainerController.js";
+            export default class BarcodeController extends ContainerController{
+                constructor(element) {
+                    super(element);
+                    this.setModel({
+                        data:"1234567890"
+                        gs1datamatrix:"(01)03594455500071(17)220506(21)0100110082245392(10)6006495"
+                    })
+                }
+            }
+        </psk-code>
+    </psk-chapter>
+
+    <psk-chapter title="Live example: code128 and qrcode">
+            <psk-code language="markup">
+                <psk-container controller-name="BarcodeController">
+                    <psk-text-input value="@data" label="Enter data from which you want to generate a barcode"></psk-text-input>
+                    <psk-grid columns="2" layout="xs=[12,12] m=[8,4 l=[8,4] xl=[9,3]">
+                        <psk-barcode-generator type="code128" size="16" include-text="true" data="@data"></psk-barcode-generator>
+                        <psk-barcode-generator type="qrcode" size="16" data="@data"></psk-barcode-generator>
+                    </psk-grid>
+                </psk-container>
+            </psk-code>
+            <psk-example class="app-example">
+                <psk-container controller-name="BarcodeController">
+                    <psk-text-input value="@data" label="Enter data from which you want to generate a barcode"></psk-text-input>
+                    <psk-grid columns="2" layout="xs=[12,12] m=[8,4 l=[8,4] xl=[9,3]">
+                        <psk-barcode-generator type="code128" size="16" include-text="true" data="@data"></psk-barcode-generator>
+                        <psk-barcode-generator type="qrcode" size="16" data="@data"></psk-barcode-generator>
+                    </psk-grid>
+                </psk-container>
+            </psk-example>
+    </psk-chapter>
+
+    <psk-chapter title="Live example: gs1datamatrix">
+        <psk-code language="markup">
+            <psk-container controller-name="BarcodeController">
+                <psk-text-input value="@gs1datamatrix" label="Enter data in valid gs1datamatrix format"></psk-text-input>
+                <psk-barcode-generator type="gs1datamatrix" size="32" data="@gs1datamatrix"></psk-barcode-generator>
+            </psk-container>
+        </psk-code>
+        <psk-example class="app-example">
+            <psk-container controller-name="BarcodeController">
+                <psk-text-input value="@gs1datamatrix" label="Enter data in valid gs1datamatrix format"></psk-text-input>
+                <psk-barcode-generator type="gs1datamatrix" size="32" data="@gs1datamatrix"></psk-barcode-generator>
+            </psk-container>
+        </psk-example>
+    </psk-chapter>
+
+</psk-page>

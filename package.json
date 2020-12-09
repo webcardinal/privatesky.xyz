@@ -1,22 +1,22 @@
 {
-  "name": "cardinal-app-starter",
+  "name": "privatesky.xyz",
   "version": "1.0.0",
-  "description": "Application template that combines multiple components of Cardinal.",
+  "description": "PrivateSky Development Hub.",
   "bin": {
     "cardinal": "./dev/cardinal/merger/bin/cli.js"
   },
   "scripts": {
-    "postinstall": "node ./node_modules/octopus/scripts/run && cardinal build",
+    "postinstall": "node ./node_modules/octopus/scripts/run && cardinal build && cardinal theme",
     "start": "ws --spa ./index.html"
   },
+  "dependencies": {},
   "devDependencies": {
     "local-web-server": "^4.2.1",
     "octopus": "git+http://github.com/privatesky/octopus.git"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/webcardinal/cardinal-app-starter.git"
+    "url": "git+https://github.com/webcardinal/privatesky.xyz.git"
   },
-  "license": "MIT",
-  "dependencies": {}
+  "license": "MIT"
 }
