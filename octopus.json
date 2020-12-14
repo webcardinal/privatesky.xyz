@@ -2,8 +2,8 @@
   "workDir": ".",
   "dependencies": [
     {
-      "name": "merger",
-      "src": "https://github.com/webcardinal/cardinal-merger",
+      "name": "composer",
+      "src": "https://github.com/webcardinal/cardinal-composer",
       "actions": [
         {
           "type": "smartClone",
@@ -12,7 +12,7 @@
         },
         {
           "type": "execute",
-          "cmd": "cd ./dev/cardinal/merger && npm install"
+          "cmd": "npm install ./dev/cardinal/composer -D"
         }
       ]
     },

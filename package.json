@@ -2,15 +2,12 @@
   "name": "privatesky.xyz",
   "version": "1.0.0",
   "description": "PrivateSky Development Hub.",
-  "bin": {
-    "cardinal": "./dev/cardinal/merger/bin/cli.js"
-  },
   "scripts": {
     "postinstall": "node ./node_modules/octopus/scripts/run && cardinal build && cardinal theme",
     "start": "ws --spa ./index.html"
   },
-  "dependencies": {},
   "devDependencies": {
+    "@cardinal/composer": "file:dev/cardinal/composer",
     "local-web-server": "^4.2.1",
     "octopus": "git+http://github.com/privatesky/octopus.git"
   },
