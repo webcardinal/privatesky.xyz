@@ -7,7 +7,7 @@
     "start": "ws --spa ./index.html"
   },
   "devDependencies": {
-    "@cardinal/composer": "file:dev/cardinal/composer",
+    "@cardinal/composer": "git+https://github.com/webcardinal/cardinal-composer.git",
     "local-web-server": "^4.2.1",
     "octopus": "git+http://github.com/privatesky/octopus.git"
   },

@@ -2,21 +2,6 @@
   "workDir": ".",
   "dependencies": [
     {
-      "name": "composer",
-      "src": "https://github.com/webcardinal/cardinal-composer",
-      "actions": [
-        {
-          "type": "smartClone",
-          "target": "./dev/cardinal",
-          "collectLog": false
-        },
-        {
-          "type": "execute",
-          "cmd": "npm install ./dev/cardinal/composer -D"
-        }
-      ]
-    },
-    {
       "name": "components/core",
       "src": "https://github.com/webcardinal/cardinal-core",
       "actions": [
