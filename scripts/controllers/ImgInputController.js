@@ -1,4 +1,4 @@
-import ContainerController from "../../cardinal/controllers/base-controllers/ContainerController.js";
+import ContainerController from '/cardinal/base/controllers/ContainerController.js';
 
 export default class ImgInputController extends ContainerController {
     constructor(element) {

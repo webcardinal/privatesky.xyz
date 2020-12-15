@@ -6,6 +6,7 @@
     "postinstall": "node ./node_modules/octopus/scripts/run && cardinal build && cardinal theme",
     "start": "ws --spa ./index.html"
   },
+  "dependencies": {},
   "devDependencies": {
     "@cardinal/composer": "git+https://github.com/webcardinal/cardinal-composer.git",
     "local-web-server": "^4.2.1",

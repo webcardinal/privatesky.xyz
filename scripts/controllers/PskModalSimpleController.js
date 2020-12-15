@@ -1,4 +1,4 @@
-import ModalController from '../../../cardinal/controllers/base-controllers/ModalController.js';
+import ModalController from '/cardinal/base/controllers/ModalController.js';
 
 export default class PskModalSimpleController extends ModalController {
     getModel() {
