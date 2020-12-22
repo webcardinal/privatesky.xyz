@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "PrivateSky Development Hub.",
   "scripts": {
-    "preinstall": "npm cache --force clean",
     "postinstall": "node ./node_modules/octopus/scripts/run && npm run build-cardinal",
     "build-cardinal": "npm run build-cardinal-components && npm run build-cardinal-themes",
     "build-cardinal-themes": "node ./node_modules/octopus/scripts/run build-cardinal-themes",

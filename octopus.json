@@ -32,6 +32,21 @@
       ]
     },
     {
+      "name": "components/barcode",
+      "src": "https://github.com/webcardinal/cardinal-barcode",
+      "actions": [
+        {
+          "type": "smartClone",
+          "target": "./dev/cardinal",
+          "collectLog": false
+        },
+        {
+          "type": "execute",
+          "cmd": "cd ./dev/cardinal/components/barcode && npm install"
+        }
+      ]
+    },
+    {
       "name": "themes/clear-sky-theme",
       "src": "https://github.com/PrivateSky/clear-sky-theme.git",
       "actions": [
