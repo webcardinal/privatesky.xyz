@@ -47,6 +47,21 @@
       ]
     },
     {
+      "name": "components/wiki",
+      "src": "https://github.com/webcardinal/cardinal-wiki",
+      "actions": [
+        {
+          "type": "smartClone",
+          "target": "./dev/cardinal",
+          "collectLog": false
+        },
+        {
+          "type": "execute",
+          "cmd": "cd ./dev/cardinal/components/wiki && npm install"
+        }
+      ]
+    },
+    {
       "name": "themes/clear-sky-theme",
       "src": "https://github.com/PrivateSky/clear-sky-theme.git",
       "actions": [
