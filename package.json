@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "PrivateSky Development Hub.",
   "scripts": {
-    "postinstall": "node ./node_modules/octopus/scripts/run && npm run build-cardinal",
-    "build-cardinal": "npm run build-cardinal-components && npm run build-cardinal-themes",
-    "build-cardinal-themes": "node ./node_modules/octopus/scripts/run build-cardinal-themes",
-    "build-cardinal-components": "node ./node_modules/octopus/scripts/run build-cardinal-components",
-    "server": "ws --spa ./index.html"
+    "postinstall": "node ./node_modules/octopus/scripts/run && npm run clone-webcardinal-components && npm run build",
+    "clone-webcardinal-components": "node ./node_modules/octopus/scripts/run clone-webcardinal-components",
+    "build-webcardinal-components": "node ./node_modules/octopus/scripts/run build-webcardinal-components",
+    "build-webcardinal-themes": "node ./node_modules/octopus/scripts/run build-webcardinal-themes",
+    "build": "npm run build-webcardinal-components && npm run build-webcardinal-themes",
+    "start": "ws --spa ./index.html"
   },
   "dependencies": {},
   "devDependencies": {
