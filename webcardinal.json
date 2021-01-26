@@ -161,7 +161,7 @@
           "children": [
             {
               "name": "Routing",
-              "path:": "./",
+              "path": "./",
               "src": "./",
               "children": [
                 {
@@ -179,12 +179,11 @@
                   "path": "./psk-app-router",
                   "src": "./psk-app-router.html"
                 }
-              ],
-              "__FIX__": "path property does not work as expected gere, but src does!"
+              ]
             },
             {
               "name": "Pages",
-              "path:": "./",
+              "path": "./",
               "src": "./",
               "children": [
                 {
@@ -202,8 +201,7 @@
                   "path": "./psk-ssapp",
                   "src": "./psk-ssapp.html"
                 }
-              ],
-              "__FIX__": "path property does not work as expected gere, but src does!"
+              ]
             },
             {
               "name": "Business logic",
