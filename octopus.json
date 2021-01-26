@@ -19,7 +19,6 @@
       "actions": [
         {
           "type": "cloneWebCardinalComponents",
-          "target": ".dev/webcardinal/components",
           "components": [
             {
               "name": "webcardinal-core",
@@ -53,14 +52,11 @@
   "build-webcardinal-components": [
     {
       "name": "build-webcardinal-components",
-      "src": ".dev/webcardinal/components",
+      "src": ".dev/webcardinal",
       "actions": [
         {
           "type": "buildWebCardinalComponents",
-          "target": "./webcardinal/components",
-          "options": {
-            "DEV": true
-          }
+          "target": "./webcardinal"
         }
       ]
     }
