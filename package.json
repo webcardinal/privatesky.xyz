@@ -8,6 +8,7 @@
     "build-webcardinal-components": "node ./node_modules/octopus/scripts/run build-webcardinal-components",
     "build-webcardinal-themes": "node ./node_modules/octopus/scripts/run build-webcardinal-themes",
     "build": "npm run build-webcardinal-components && npm run build-webcardinal-themes",
+    "clean": "rm -rf .dev/ node_modules/",
     "start": "ws --spa ./index.html"
   },
   "dependencies": {},
