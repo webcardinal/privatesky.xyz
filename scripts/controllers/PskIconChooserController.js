@@ -1,4 +1,4 @@
-import ContainerController from '/cardinal/base/controllers/ContainerController.js';
+const { WccController } = WebCardinal.controllers;
 
 const model = {
     iconSize: '20px',
@@ -6,10 +6,10 @@ const model = {
     iconValue: ''
 };
 
-export default class PskIconChooserController extends ContainerController {
+export default class PskIconChooserController extends WccController {
     constructor(element) {
         super(element);
-        this.model = this.setModel(model);
+        this.setModel(model);
         this.model.onChange('iconValue', () => {
             // this.model.iconValue has the value of the icon you just selected.
             // Your code here.

@@ -1,6 +1,6 @@
-import ContainerController from '/cardinal/base/controllers/ContainerController.js';
+const { WccController } = WebCardinal.controllers;
 
-class MobileController extends ContainerController {
+class MobileController extends WccController {
     getModel() {
         return {
             footer: [
@@ -25,7 +25,7 @@ class MobileController extends ContainerController {
         // element === psk-mobile web component
         super(element);
 
-        this.model = this.setModel(this.getModel());
+        this.setModel(this.getModel());
 
         this.on("needMenuItems", e => {
             e.stopImmediatePropagation();

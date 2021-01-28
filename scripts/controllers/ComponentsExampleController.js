@@ -1,4 +1,4 @@
-import ContainerController from '/cardinal/base/controllers/ContainerController.js';
+const { WccController } = WebCardinal.controllers;
 
 const model = {
     buttonStatus: "0",
@@ -18,10 +18,10 @@ const model = {
     opened: false
 };
 
-export default class ComponentsExampleController extends ContainerController {
+export default class ComponentsExampleController extends WccController {
     constructor(element) {
         super(element);
-        this.model = this.setModel(JSON.parse(JSON.stringify(model)));
+        this.setModel(JSON.parse(JSON.stringify(model)));
         console.log(this.model.disabled.value)
         this.feedbackEmitter = null;
         this.on('openFeedback', (e) => {

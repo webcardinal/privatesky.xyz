@@ -1,4 +1,4 @@
-import ContainerController from '/cardinal/base/controllers/ContainerController.js';
+const { WccController } = WebCardinal.controllers;
 
 const model = {
     htmlValue: `
@@ -28,10 +28,10 @@ const model = {
             </psk-container>
         </psk-page>`,
     javascriptValue: `
-        export default class LiveCodeEditorController extends ContainerController {
+        export default class LiveCodeEditorController extends WccController {
             constructor(element) {
                 super(element);
-                this.model = this.setModel(JSON.parse(JSON.stringify(model)));
+                this.setModel(JSON.parse(JSON.stringify(model)));
             }
         }
         `,
@@ -107,9 +107,9 @@ const model = {
         `
 };
 
-export default class LiveCodeEditorController extends ContainerController {
+export default class LiveCodeEditorController extends WccController {
     constructor(element) {
         super(element);
-        this.model = this.setModel(JSON.parse(JSON.stringify(model)));
+        this.setModel(JSON.parse(JSON.stringify(model)));
     }
 }

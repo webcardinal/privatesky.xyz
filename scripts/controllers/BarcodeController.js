@@ -1,6 +1,6 @@
-import ContainerController from '/cardinal/base/controllers/ContainerController.js';
+const { WccController } = WebCardinal.controllers;
 
-export default class BarcodeController extends ContainerController {
+export default class BarcodeController extends WccController {
 	getModel() {
 		return {
 			isScannerActive: false,

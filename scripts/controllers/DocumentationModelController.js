@@ -1,9 +1,9 @@
-import ContainerController from '/cardinal/base/controllers/ContainerController.js';
+const { WccController } = WebCardinal.controllers;
 
-export default class DocumentationModelController extends ContainerController {
+export default class DocumentationModelController extends WccController {
     constructor(element) {
         super(element);
-        this.model = this.setModel(this.getInitialModel());
+        this.setModel(this.getInitialModel());
 
         this.model.setChainValue("name.label", "Enter your name");
         this.model.name.placeholder = "Your name here...";

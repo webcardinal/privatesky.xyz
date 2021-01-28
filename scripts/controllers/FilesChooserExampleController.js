@@ -1,4 +1,4 @@
-import ContainerController from '/cardinal/base/controllers/ContainerController.js';
+const { WccController } = WebCardinal.controllers;
 
 const model = {
     filesChooser: {
@@ -10,10 +10,10 @@ const model = {
     }
 }
 
-export default class FilesChooserExampleController extends ContainerController {
+export default class FilesChooserExampleController extends WccController {
     constructor(element) {
         super(element);
-        this.model = this.setModel(JSON.parse(JSON.stringify(model)));
+        this.setModel(JSON.parse(JSON.stringify(model)));
         this.model.onChange('filesChooser', () => {
             let filesArray = this.model.filesChooser.files || [];
         });

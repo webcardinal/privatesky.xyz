@@ -1,4 +1,4 @@
-import ContainerController from '/cardinal/base/controllers/ContainerController.js';
+const { WccController } = WebCardinal;
 
 const model = {
     gdpr: 0,
@@ -15,10 +15,10 @@ const model = {
     }
 };
 
-export default class TestConditionController extends ContainerController {
+export default class TestConditionController extends WccController {
     constructor(element) {
         super(element);
-        this.model = this.setModel(JSON.parse(JSON.stringify(model)));
+        this.setModel(JSON.parse(JSON.stringify(model)));
 
         // Create the "formHasErrors" expression
         this.model.addExpression('formHasErrors', function () {

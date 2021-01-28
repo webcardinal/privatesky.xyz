@@ -1,4 +1,4 @@
-import ContainerController from '/cardinal/base/controllers/ContainerController.js';
+const { WccController } = WebCardinal.controllers;
 
 const model = {
     name: {
@@ -96,10 +96,10 @@ const model = {
 
 }
 
-export default class FormComponentExampleController extends ContainerController {
+export default class FormComponentExampleController extends WccController {
     constructor(element) {
         super(element);
-        this.model = this.setModel(JSON.parse(JSON.stringify(model)));
+        this.setModel(JSON.parse(JSON.stringify(model)));
 
         this.feedbackEmitter = null;
 

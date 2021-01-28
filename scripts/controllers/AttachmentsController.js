@@ -1,6 +1,6 @@
-const { Controller } = WebCardinal.controllers;
+const { WccController } = WebCardinal.controllers;
 
-class AttachmentsController extends Controller {
+class AttachmentsController extends WccController {
     initModel = _ => ({
         attachments: [
             {

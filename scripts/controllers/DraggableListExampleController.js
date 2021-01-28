@@ -1,4 +1,4 @@
-import ContainerController from '/cardinal/base/controllers/ContainerController.js';
+const { WccController } = WebCardinal.controllers;
 
 const model = {
     draggableListModel: {
@@ -10,10 +10,10 @@ const model = {
     }
 }
 
-export default class DraggableListExampleController extends ContainerController {
+export default class DraggableListExampleController extends WccController {
     constructor(element) {
         super(element);
-        this.model = this.setModel(model);
+        this.setModel(model);
         this.model.onChange('draggableListModel.items', () => {
             console.log('Order of the list changed', this.model.draggableListModel)
         });

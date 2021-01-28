@@ -1,10 +1,10 @@
-import ContainerController from '/cardinal/base/controllers/ContainerController.js';
+const { WccController } = WebCardinal.controllers;
 
-export default class ImgInputController extends ContainerController {
+export default class ImgInputController extends WccController {
     constructor(element) {
         super(element);
 
-        this.model = this.setModel({
+        this.setModel({
             placeholder: "Click to choose an image",
             alt: "image input component",
             label: "Image Input Component",

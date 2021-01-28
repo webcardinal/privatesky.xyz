@@ -1,10 +1,10 @@
-import ContainerController from '/cardinal/base/controllers/ContainerController.js';
+const { WccController } = WebCardinal.controllers;
 
-export default class BreadcrumbController extends ContainerController {
+export default class BreadcrumbController extends WccController {
     constructor(element) {
         super(element);
         const initialModel = this.getInitialModel();
-        this.model = this.setModel(initialModel);
+        this.setModel(initialModel);
 
         /**
          * Default event-name for psk-breadcrumb-navigator component
