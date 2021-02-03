@@ -1,4 +1,4 @@
-const { WccController } = WebCardinal;
+const { WccController } = WebCardinal.controllers;
 
 const model = {
     gdpr: 0,
