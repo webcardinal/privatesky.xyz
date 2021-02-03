@@ -1,4 +1,9 @@
 {
+  "identity": {
+    "avatar": "/assets/images/privatesky.png",
+    "name": "PrivateSky",
+    "email": ""
+  },
   "theme": "clear-sky-theme",
   "pagesFallback": {
     "name": "404"
