@@ -1,9 +1,9 @@
-@import url("./fonts/fontawesome/font-awesome.min.css");
-
-/*@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");*/
-
 @import url("./fonts/nunito/nunito.css");
+@import url("./fonts/fontawesome/font-awesome.min.css");
 @import url("./bootstrap/css/bootstrap.min.css");
+
+@import url('./variables.css');
+
 body {
     margin: 0;
     padding: 0;
@@ -29,7 +29,7 @@ header {
 }
 
 
-/* Broser support style */
+/* Browser support style */
 
 div.browser-support {
     display: flex;
@@ -60,7 +60,7 @@ div.browser-support li strong {
 }
 
 
-/* End broser support */
+/* End browser support */
 
 .app-loader {
     display: flex;
