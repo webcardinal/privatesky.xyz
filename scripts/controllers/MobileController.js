@@ -1,6 +1,6 @@
-const { WccController } = WebCardinal.controllers;
+const { WebcController } = WebCardinal.controllers;
 
-class MobileController extends WccController {
+class MobileController extends WebcController {
     getModel() {
         return {
             footer: [

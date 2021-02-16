@@ -1,4 +1,4 @@
-const { WccController } = WebCardinal.controllers;
+const { WebcController } = WebCardinal.controllers;
 
 const model = {
     name: {
@@ -96,7 +96,7 @@ const model = {
 
 }
 
-export default class FormComponentExampleController extends WccController {
+export default class FormComponentExampleController extends WebcController {
     constructor(element) {
         super(element);
         this.setModel(JSON.parse(JSON.stringify(model)));

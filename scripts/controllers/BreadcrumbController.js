@@ -1,6 +1,6 @@
-const { WccController } = WebCardinal.controllers;
+const { WebcController } = WebCardinal.controllers;
 
-export default class BreadcrumbController extends WccController {
+export default class BreadcrumbController extends WebcController {
     constructor(element) {
         super(element);
         const initialModel = this.getInitialModel();

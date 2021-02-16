@@ -1,4 +1,4 @@
-const { WccController } = WebCardinal.controllers;
+const { WebcController } = WebCardinal.controllers;
 
 const model = {
     wizardSteps : [{
@@ -16,7 +16,7 @@ const model = {
     }]
 }
 
-export default class WizardController extends WccController {
+export default class WizardController extends WebcController {
     constructor(element) {
         super(element);
         this.setModel(JSON.parse(JSON.stringify(model)));

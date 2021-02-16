@@ -1,4 +1,4 @@
-const { WccController } = WebCardinal.controllers;
+const { WebcController } = WebCardinal.controllers;
 
 const model = {
     entities: [{
@@ -112,7 +112,7 @@ const model = {
     }
 }
 
-export default class TestFormForEachController extends WccController {
+export default class TestFormForEachController extends WebcController {
     constructor(element) {
         super(element);
         this.setModel(JSON.parse(JSON.stringify(model)));

@@ -1,4 +1,4 @@
-const { WccController } = WebCardinal.controllers;
+const { WebcController } = WebCardinal.controllers;
 
 const model = {
     filesChooser: {
@@ -10,7 +10,7 @@ const model = {
     }
 }
 
-export default class FilesChooserExampleController extends WccController {
+export default class FilesChooserExampleController extends WebcController {
     constructor(element) {
         super(element);
         this.setModel(JSON.parse(JSON.stringify(model)));

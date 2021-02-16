@@ -1,6 +1,6 @@
-const { WccController } = WebCardinal.controllers;
+const { WebcController } = WebCardinal.controllers;
 
-export default class BarcodeController extends WccController {
+export default class BarcodeController extends WebcController {
 	getModel() {
 		return {
 			isScannerActive: false,

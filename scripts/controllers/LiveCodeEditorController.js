@@ -1,4 +1,4 @@
-const { WccController } = WebCardinal.controllers;
+const { WebcController } = WebCardinal.controllers;
 
 const model = {
     htmlValue: `
@@ -28,7 +28,7 @@ const model = {
             </psk-container>
         </psk-page>`,
     javascriptValue: `
-        export default class LiveCodeEditorController extends WccController {
+        export default class LiveCodeEditorController extends WebcController {
             constructor(element) {
                 super(element);
                 this.setModel(JSON.parse(JSON.stringify(model)));
@@ -107,7 +107,7 @@ const model = {
         `
 };
 
-export default class LiveCodeEditorController extends WccController {
+export default class LiveCodeEditorController extends WebcController {
     constructor(element) {
         super(element);
         this.setModel(JSON.parse(JSON.stringify(model)));

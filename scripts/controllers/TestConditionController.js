@@ -1,4 +1,4 @@
-const { WccController } = WebCardinal.controllers;
+const { WebcController } = WebCardinal.controllers;
 
 const model = {
     gdpr: 0,
@@ -15,7 +15,7 @@ const model = {
     }
 };
 
-export default class TestConditionController extends WccController {
+export default class TestConditionController extends WebcController {
     constructor(element) {
         super(element);
         this.setModel(JSON.parse(JSON.stringify(model)));
