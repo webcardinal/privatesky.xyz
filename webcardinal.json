@@ -604,6 +604,14 @@
       ]
     },
     {
+      "name": "WebCardinal",
+      "children": [
+        {
+          "name": "Cheatsheet"
+        }
+      ]
+    },
+    {
       "name": "How to create",
       "path": "./how-to",
       "src": "./how-to",
