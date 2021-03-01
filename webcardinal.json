@@ -607,6 +607,15 @@
       "name": "WebCardinal",
       "children": [
         {
+          "name": "Components",
+          "children": [
+            {
+              "name": "webc-docs",
+              "tag": "webc-docs"
+            }
+          ]
+        },
+        {
           "name": "Cheatsheet"
         }
       ]
