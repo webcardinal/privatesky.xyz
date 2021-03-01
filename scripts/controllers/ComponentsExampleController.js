@@ -1,4 +1,4 @@
-const { WccController } = WebCardinal.controllers;
+const { WebcController } = WebCardinal.controllers;
 
 const model = {
     buttonStatus: "0",
@@ -18,7 +18,7 @@ const model = {
     opened: false
 };
 
-export default class ComponentsExampleController extends WccController {
+export default class ComponentsExampleController extends WebcController {
     constructor(element) {
         super(element);
         this.setModel(JSON.parse(JSON.stringify(model)));

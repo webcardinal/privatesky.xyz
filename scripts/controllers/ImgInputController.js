@@ -1,6 +1,6 @@
-const { WccController } = WebCardinal.controllers;
+const { WebcController } = WebCardinal.controllers;
 
-export default class ImgInputController extends WccController {
+export default class ImgInputController extends WebcController {
     constructor(element) {
         super(element);
 

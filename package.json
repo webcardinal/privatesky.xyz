@@ -3,13 +3,12 @@
   "version": "1.0.0",
   "description": "PrivateSky Development Hub.",
   "scripts": {
-    "postinstall": "node ./node_modules/octopus/scripts/run && npm run clone-webcardinal-components && npm run build",
-    "clone-webcardinal-components": "node ./node_modules/octopus/scripts/run clone-webcardinal-components",
-    "build-webcardinal-components": "node ./node_modules/octopus/scripts/run build-webcardinal-components",
-    "build-webcardinal-themes": "node ./node_modules/octopus/scripts/run build-webcardinal-themes",
-    "build": "npm run build-webcardinal-components && npm run build-webcardinal-themes",
-    "clean": "rm -rf .dev/ node_modules/",
-    "start": "ws --spa ./index.html"
+    "postinstall": "npm run bundle-webcardinal",
+    "bundle-webcardinal": "node node_modules/octopus/scripts/run bundle-webcardinal devmode",
+    "dev": "node node_modules/octopus/scripts/run build-webcardinal.dev devmode",
+    "docs": "node docs/bin/indes.js",
+    "start": "ws --spa ./index.html",
+    "clean": "rm -rf .webcardinal/ node_modules/"
   },
   "dependencies": {},
   "devDependencies": {

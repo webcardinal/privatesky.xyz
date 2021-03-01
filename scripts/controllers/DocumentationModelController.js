@@ -1,6 +1,6 @@
-const { WccController } = WebCardinal.controllers;
+const { WebcController } = WebCardinal.controllers;
 
-export default class DocumentationModelController extends WccController {
+export default class DocumentationModelController extends WebcController {
     constructor(element) {
         super(element);
         this.setModel(this.getInitialModel());

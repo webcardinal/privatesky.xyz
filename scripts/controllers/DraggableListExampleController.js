@@ -1,4 +1,4 @@
-const { WccController } = WebCardinal.controllers;
+const { WebcController } = WebCardinal.controllers;
 
 const model = {
     draggableListModel: {
@@ -10,7 +10,7 @@ const model = {
     }
 }
 
-export default class DraggableListExampleController extends WccController {
+export default class DraggableListExampleController extends WebcController {
     constructor(element) {
         super(element);
         this.setModel(model);

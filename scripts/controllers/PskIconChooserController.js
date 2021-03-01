@@ -1,4 +1,4 @@
-const { WccController } = WebCardinal.controllers;
+const { WebcController } = WebCardinal.controllers;
 
 const model = {
     iconSize: '20px',
@@ -6,7 +6,7 @@ const model = {
     iconValue: ''
 };
 
-export default class PskIconChooserController extends WccController {
+export default class PskIconChooserController extends WebcController {
     constructor(element) {
         super(element);
         this.setModel(model);
