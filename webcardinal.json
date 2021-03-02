@@ -612,6 +612,14 @@
             {
               "name": "webc-docs",
               "tag": "webc-docs"
+            },
+            {
+              "name": "webc-for",
+              "tag": "webc-for"
+            },
+            {
+              "name": "webc-if",
+              "tag": "webc-if"
             }
           ]
         },

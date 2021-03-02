@@ -1,0 +1,182 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != "dataLayer" ? "&l=" + l : "";
+            j.async = true;
+            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, "script", "dataLayer", "GTM-NW4R664");
+    </script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<psk-page title="webc-for">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+        ><iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+            height="0"
+            width="0"
+            style="display: none; visibility: hidden"
+        ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <psk-toc title="Table of contents"></psk-toc>
+
+    <psk-description title="Summary">
+        <p>
+            This component is mainly used to render multiple form sections or components based on a template and a
+            model.
+        </p>
+        <p>
+            The model is declared in the form controller and this will be responsible for two-way binding. The model
+            should be written as a JavaScript array (<a href="#model-example">Model Example</a>).
+        </p>
+        <p>
+            The template is written between start and end tag of the component. Everything written inside this, will be
+            treated as a template for the model.
+        </p>
+        <p>
+            So, for each item in the model, an instance of the template will be created and it will be filled with the
+            information from the model. A written example can be found below:
+            <a href="#template-example">Template Example</a>
+        </p>
+
+        <p>The general use of <code>webc-if</code> is the following:</p>
+        <!-- prettier-ignore -->
+        <psk-code language="markup">
+            <webc-for data-model="@array">
+                CONTENT
+            </webc-for>
+        </psk-code>
+    </psk-description>    
+
+    <psk-chapter title="Examples">
+        <psk-chapter title="Model example">
+            <!-- prettier-ignore -->
+            <psk-code language="Javascript">
+                {
+                    entities: [
+                        {
+                            sectionTitle: {
+                                label: "Your personal information",
+                            },
+                            name: {
+                                label: "Name",
+                                name: "name",
+                                required: true,
+                                placeholder: "Name here...",
+                                value: "",
+                            },
+                            email: {
+                                label: "Email address",
+                                name: "email",
+                                required: true,
+                                placeholder: "Email address here...",
+                                value: "",
+                            },
+                        },
+                        {
+                            sectionTitle: {
+                                label: "Your associate personal information",
+                            },
+                            name: {
+                                label: "Associate Name",
+                                name: "name",
+                                required: true,
+                                placeholder: "Name here...",
+                                value: "",
+                            },
+                            email: {
+                                label: "Associate email address",
+                                name: "email",
+                                required: true,
+                                placeholder: "Email address here...",
+                                value: "",
+                            },
+                        },
+                    ];
+                }                
+            </psk-code>
+        </psk-chapter>
+
+        <psk-chapter title="Template example">
+            <!-- prettier-ignore -->
+            <psk-code language="markup">
+                <webc-page controller="WebcTestForController">
+                    <webc-for data-model="entities">            
+                        <psk-layout columns="1">
+                            <psk-grid layout="xs=[12] m=[6] l=[12] xl=[4]">
+                                <psk-label view-model="sectionTitle"></psk-label>
+                            </psk-grid>
+                            
+                            <psk-grid layout="xs=[12,12] m=[6,6] l=[12,12] xl=[6,6]">
+                                <psk-text-input view-model="name"></psk-text-input>
+                                <psk-email-input view-model="email"></psk-email-input>
+                            </psk-grid>
+                            
+                        </psk-layout>
+                        <psk-card slot="no-data" title="Slot 'no-data' example">
+                            <p>A psk-card with slot="no-data" for the webc-for example!</p>
+                        </psk-card>
+                    </webc-for>
+                    <button data-tag="submit-for">Submit</button>
+                </webc-page>
+            </psk-code>
+        </psk-chapter>
+
+        <psk-chapter title="Visual example using above model & template">
+            <psk-example class="app-example">
+                <webc-page controller="WebcTestForController">
+                    <webc-for data-model="@entities">
+                        <psk-grid layout="xs=[12] m=[6] l=[12] xl=[4]">
+                            <label data-model="@sectionTitle"></label>
+                        </psk-grid>
+
+                        <psk-grid layout="xs=[12,12] m=[6,6] l=[12,12] xl=[6,6]">
+                            <input data-model="@name"></input>
+                            <input data-model="@email"></input>
+                        </psk-grid>
+
+                        <psk-card slot="no-data" title="Slot 'no-data' example">
+                            <p>A psk-card with slot="no-data" for the webc-for example!</p>
+                        </psk-card>
+                    </webc-for>
+                    <button data-tag="submit-for">Submit</button>
+                </webc-page>
+            </psk-example>
+        </psk-chapter>
+        
+
+        <p>In case the model is empty <code>webc-for</code> will render the slot="no-data" child element.</p>
+        <p>Here is a visual exemple with entities=[]:</p>
+
+        <psk-chapter title="Visual example using an empty model & template">
+            <psk-example class="app-example">
+                <webc-page controller="WebcTestForController">
+                    <webc-for data-model="@noEntities">
+                        <psk-grid layout="xs=[12] m=[6] l=[12] xl=[4]">
+                            <label data-model="@sectionTitle"></label>
+                        </psk-grid>
+
+                        <psk-grid layout="xs=[12,12] m=[6,6] l=[12,12] xl=[6,6]">
+                            <input data-model="@name"></input>
+                            <input data-model="@email"></input>
+                        </psk-grid>
+
+                        <psk-card slot="no-data" title="Slot 'no-data' example">
+                            <p>A psk-card with slot="no-data" for the webc-for example!</p>
+                        </psk-card>
+                    </webc-for>
+                    <button data-tag="submit-for">Submit</button>
+                </webc-page>
+            </psk-example>
+        </psk-chapter>
+    </psk-chapter>
+</psk-page>
