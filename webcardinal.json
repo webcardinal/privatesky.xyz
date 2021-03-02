@@ -610,8 +610,8 @@
           "name": "Components",
           "children": [
             {
-              "name": "webc-docs",
-              "tag": "webc-docs"
+              "name": "webc-app-container",
+              "tag": "webc-app-container"
             },
             {
               "name": "webc-for",
@@ -620,6 +620,10 @@
             {
               "name": "webc-if",
               "tag": "webc-if"
+            },
+            {
+              "name": "webc-modal",
+              "tag": "webc-modal"
             }
           ]
         },
