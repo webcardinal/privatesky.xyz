@@ -115,19 +115,19 @@
 
         <psk-code language="markup">
             <!-- View -->
-            <webc-page controller="WebcTestConditionController">
+            <webc-container controller="webcardinal/WebcTestConditionController">
                 <webc-if condition="@gdpr">
                     <p><strong>GDPR Notice...</strong></p>
                 </webc-if>
-            </webc-page>
+            </webc-container>
         </psk-code>
 
-        <webc-page controller="WebcTestConditionController">
+        <webc-container controller="webcardinal/WebcTestConditionController">
             <webc-if condition="@gdpr">
                 <p><strong>GDPR Notice...</strong></p>
             </webc-if>
             <button data-tag="toggle-property">Click here to toggle the GDPR notice</button>
-        </webc-page>
+        </webc-container>
     </psk-chapter>
 
     <psk-chapter title="Code Example: Using a model expression as a condition">
@@ -187,7 +187,7 @@
 
         <psk-code language="markup">
             <!-- View -->
-            <webc-page controller="WebcTestConditionController">
+            <webc-container controller="webcardinal/WebcTestConditionController">
                 <webc-if condition="@form.wasSubmitted">
                     <webc-if condition="@formHasErrors">
                         <div slot="true" class="alert alert-danger">
@@ -207,10 +207,10 @@
                 <psk-form-row>
                     <button data-tag="validate-email" button-class="btn btn-info btn-sm">Validate Email</button>
                 </psk-form-row>
-            </webc-page>
+            </webc-container>
         </psk-code>
 
-        <webc-page controller="WebcTestConditionController">
+        <webc-container controller="webcardinal/WebcTestConditionController">
             <webc-if condition="@form.wasSubmitted">
                 <webc-if condition="@formHasErrors">
                     <div slot="true" class="alert alert-danger">
@@ -230,7 +230,7 @@
             <psk-form-row>
                 <button data-tag="validate-email" button-class="btn btn-info btn-sm">Validate Email</button>
             </psk-form-row>
-        </webc-page>
+        </webc-container>
 
         <!-- <p>
             A model expression can also return a <code>Promise</code>, when that happens, <code>webc-if</code> will wait

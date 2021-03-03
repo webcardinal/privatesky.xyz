@@ -123,7 +123,7 @@ const model = {
         checkedValue: "yes",
         uncheckedValue: "no",
     },
-    noEntities: []
+    noEntities: [],
 };
 
 export default class WebcTestForController extends WebcController {
@@ -132,7 +132,7 @@ export default class WebcTestForController extends WebcController {
         this.setModel(JSON.parse(JSON.stringify(model)));
 
         this.onTagClick("submit-for", () => {
-            console.log("submitted");
+            console.log("submitted", this.model.toObject("entities"));
         });
 
         // this.feedbackEmitter = null;
