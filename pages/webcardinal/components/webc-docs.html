@@ -1,18 +1,29 @@
 <style>
-    webc-container {
-        display: block;
-        padding: 2rem;
-    }
-    .docs-container {
-        max-width: 1000px;
-        margin: 0 auto;
+    psk-chapter[title="Usage"] psk-code pre {
+        margin-top: -1rem;
     }
 </style>
-
-<webc-container>
-    <div class="docs-container">
-        <webc-docs for="webc-modal" local></webc-docs>
-
-        <webc-docs for="webc-app-container" local></webc-docs>
-    </div>
-</webc-container>
+<psk-page title="Documentation">
+    <psk-toc title="Table of contents"></psk-toc>
+    <webc-docs for="webc-docs">
+        <psk-description title="Summary">
+            <p>
+                This component generates a visual representation of
+                <strong>properties</strong>,
+                <strong>events</strong>,
+                <strong>methods</strong>,
+                <strong>slots</strong>
+                and other useful information.
+            </p>
+        </psk-description>
+        <psk-chapter title="Usage">
+            <psk-example>
+                <psk-code language="markup">
+                    <webc-docs for="webc-component">
+                        CONTENT_FOR_SUMMARY or ANY_CONTENT
+                    </webc-docs>
+                </psk-code>
+            </psk-example>
+        </psk-chapter>
+    </webc-docs>
+</psk-page>

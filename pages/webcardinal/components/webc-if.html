@@ -15,7 +15,7 @@
     <!-- End Google Tag Manager -->
 </head>
 
-<psk-page title="webc-if">
+<psk-page title="Conditionals">
     <!-- Google Tag Manager (noscript) -->
     <noscript
         ><iframe
@@ -29,62 +29,60 @@
 
     <psk-toc title="Table of contents"></psk-toc>
 
-    <psk-description title="Summary">
-        <p>This component allows conditional rendering of children components.</p>
-        <p>
-            If the value defined in the <code>condition</code> attribute is evaluated to <code>true</code>,
-            <code>webc-if</code> will render its children accordingly.
-        </p>
+    <webc-docs for="webc-if">
+        <psk-description title="Summary">
+            <p>This component allows conditional rendering of children components.</p>
+            <p>
+                If the value defined in the <code>condition</code> attribute is evaluated to <code>true</code>,
+                <code>webc-if</code> will render its children accordingly.
+            </p>
 
-        <p>The general use of <code>webc-if</code> is the following:</p>
+            <p>The general use of <code>webc-if</code> is the following:</p>
 
-        <!-- prettier-ignore -->
-        <psk-code language="markup">
-            <webc-if condition="@condition">
-                <container slot="true">
-                    CONTENT_TO_SHOW_WHEN_CONDITION_IS_TRUE
-                </container>
-                <container slot="false">
-                    CONTENT_TO_SHOW_WHEN_CONDITION_IS_FALSE
-                </container>
-            </webc-if>
-        </psk-code>
-
-        <p>Use with <code>true</code> slot only</p>
-
-        <!-- prettier-ignore -->
-        <psk-code language="markup">
-            <webc-if condition="@condition">
-                <container slot="true">
-                    CONTENT_TO_SHOW_WHEN_CONDITION_IS_TRUE
-                </container>
-            </webc-if>
-        </psk-code>
-
-        <p>Use with without slots</p>
-        <!-- prettier-ignore -->
-        <psk-code language="markup">
-            <webc-if condition="@condition">
-                <container>
-                    CONTENT_TO_SHOW_WHEN_CONDITION_IS_TRUE
-                </container>
-            </webc-if>
-        </psk-code>
-
-        <p>
-            Observations:
             <!-- prettier-ignore -->
-            <psk-list>
-                <code>container</code> can be any HTML tag or custom component 
-                both <code>true</code> and <code>false</code> slots are optional.
-                if neither <code>true</code> nor <code>false</code> slots are specified, then the whole <code>webc-if</code> content will be considered the <code>true</code> slot. Under this consideration, the two above examples are identical functional-wise.
-            </psk-list>
-        </p>
-    </psk-description>
+            <psk-code language="markup">
+                <webc-if condition="@condition">
+                    <container slot="true">
+                        CONTENT_TO_SHOW_WHEN_CONDITION_IS_TRUE
+                    </container>
+                    <container slot="false">
+                        CONTENT_TO_SHOW_WHEN_CONDITION_IS_FALSE
+                    </container>
+                </webc-if>
+            </psk-code>
 
-    <!-- <psk-property-descriptor title="Supported properties">
-        <webc-if></webc-if>
-    </psk-property-descriptor> -->
+            <p>Use with <code>true</code> slot only</p>
+
+            <!-- prettier-ignore -->
+            <psk-code language="markup">
+                <webc-if condition="@condition">
+                    <container slot="true">
+                        CONTENT_TO_SHOW_WHEN_CONDITION_IS_TRUE
+                    </container>
+                </webc-if>
+            </psk-code>
+
+            <p>Use with without slots</p>
+            <!-- prettier-ignore -->
+            <psk-code language="markup">
+                <webc-if condition="@condition">
+                    <container>
+                        CONTENT_TO_SHOW_WHEN_CONDITION_IS_TRUE
+                    </container>
+                </webc-if>
+            </psk-code>
+
+            <p>
+                Observations:
+                <!-- prettier-ignore -->
+                <psk-list>
+                    <code>container</code> can be any HTML tag or custom component
+                    both <code>true</code> and <code>false</code> slots are optional.
+                    if neither <code>true</code> nor <code>false</code> slots are specified, then the whole <code>webc-if</code> content will be considered the <code>true</code> slot. Under this consideration, the two above examples are identical functional-wise.
+                </psk-list>
+            </p>
+        </psk-description>
+    </webc-docs>
 
     <psk-chapter title="Code Example: Using a model property as a condition">
         <p>
@@ -162,7 +160,7 @@
                 constructor(element, history) {
                     super(element, history);
                     this.setModel(JSON.parse(JSON.stringify(model)));
-            
+
                     // Create the "formHasErrors" expression
                     this.model.addExpression(
                         "formHasErrors",
@@ -172,7 +170,7 @@
                         "form.email.isValid"
                     ); // watch the "form.email.isValid" model chain
                     // for changes in order to trigger re-evaluation
-            
+
                     this.onTagClick("validate-email", () => {
                         if (this.model.form.wasSubmitted === false) {
                             this.model.form.wasSubmitted = true;

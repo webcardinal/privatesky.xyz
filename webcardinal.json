@@ -8,6 +8,7 @@
   "pagesFallback": {
     "name": "404"
   },
+  "docsSource": "local",
   "pages": [
     {
       "name": "Home",
@@ -610,6 +611,22 @@
           "name": "Components",
           "children": [
             {
+              "name": "webc-app-container",
+              "tag": "webc-app-container"
+            },
+            {
+              "name": "webc-app-identity",
+              "tag": "webc-app-identity"
+            },
+            {
+              "name": "webc-app-router",
+              "tag": "webc-app-router"
+            },
+            {
+              "name": "webc-app-root",
+              "tag": "webc-app-root"
+            },
+            {
               "name": "webc-docs",
               "tag": "webc-docs"
             },
@@ -620,6 +637,10 @@
             {
               "name": "webc-if",
               "tag": "webc-if"
+            },
+            {
+              "name": "webc-modal",
+              "tag": "webc-modal"
             }
           ]
         },

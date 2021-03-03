@@ -15,7 +15,7 @@
     <!-- End Google Tag Manager -->
 </head>
 
-<psk-page title="webc-for">
+<psk-page title="Iteration">
     <!-- Google Tag Manager (noscript) -->
     <noscript
         ><iframe
@@ -29,33 +29,35 @@
 
     <psk-toc title="Table of contents"></psk-toc>
 
-    <psk-description title="Summary">
-        <p>
-            This component is mainly used to render multiple form sections or components based on a template and a
-            model.
-        </p>
-        <p>
-            The model is declared in the form controller and this will be responsible for two-way binding. The model
-            should be written as a JavaScript array (<a href="#model-example">Model Example</a>).
-        </p>
-        <p>
-            The template is written between start and end tag of the component. Everything written inside this, will be
-            treated as a template for the model.
-        </p>
-        <p>
-            So, for each item in the model, an instance of the template will be created and it will be filled with the
-            information from the model. A written example can be found below:
-            <a href="#template-example">Template Example</a>
-        </p>
+    <webc-docs for="webc-for">
+        <psk-description title="Summary">
+            <p>
+                This component is mainly used to render multiple form sections or components based on a template and a
+                model.
+            </p>
+            <p>
+                The model is declared in the form controller and this will be responsible for two-way binding. The model
+                should be written as a JavaScript array (<a href="#model-example">Model Example</a>).
+            </p>
+            <p>
+                The template is written between start and end tag of the component. Everything written inside this, will be
+                treated as a template for the model.
+            </p>
+            <p>
+                So, for each item in the model, an instance of the template will be created and it will be filled with the
+                information from the model. A written example can be found below:
+                <a href="#template-example">Template Example</a>
+            </p>
 
-        <p>The general use of <code>webc-if</code> is the following:</p>
-        <!-- prettier-ignore -->
-        <psk-code language="markup">
-            <webc-for data-model="@array">
-                CONTENT
-            </webc-for>
-        </psk-code>
-    </psk-description>    
+            <p>The general use of <code>webc-if</code> is the following:</p>
+            <!-- prettier-ignore -->
+            <psk-code language="markup">
+                <webc-for data-model="@array">
+                    CONTENT
+                </webc-for>
+            </psk-code>
+        </psk-description>
+    </webc-docs>
 
     <psk-chapter title="Examples">
         <psk-chapter title="Model example">
