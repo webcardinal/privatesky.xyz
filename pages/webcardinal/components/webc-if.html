@@ -1,0 +1,267 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != "dataLayer" ? "&l=" + l : "";
+            j.async = true;
+            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, "script", "dataLayer", "GTM-NW4R664");
+    </script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<psk-page title="Conditionals">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+        ><iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+            height="0"
+            width="0"
+            style="display: none; visibility: hidden"
+        ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <psk-toc title="Table of contents"></psk-toc>
+
+    <webc-docs for="webc-if">
+        <psk-description title="Summary">
+            <p>This component allows conditional rendering of children components.</p>
+            <p>
+                If the value defined in the <code>condition</code> attribute is evaluated to <code>true</code>,
+                <code>webc-if</code> will render its children accordingly.
+            </p>
+
+            <p>The general use of <code>webc-if</code> is the following:</p>
+
+            <!-- prettier-ignore -->
+            <psk-code language="markup">
+                <webc-if condition="@condition">
+                    <container slot="true">
+                        CONTENT_TO_SHOW_WHEN_CONDITION_IS_TRUE
+                    </container>
+                    <container slot="false">
+                        CONTENT_TO_SHOW_WHEN_CONDITION_IS_FALSE
+                    </container>
+                </webc-if>
+            </psk-code>
+
+            <p>Use with <code>true</code> slot only</p>
+
+            <!-- prettier-ignore -->
+            <psk-code language="markup">
+                <webc-if condition="@condition">
+                    <container slot="true">
+                        CONTENT_TO_SHOW_WHEN_CONDITION_IS_TRUE
+                    </container>
+                </webc-if>
+            </psk-code>
+
+            <p>Use with without slots</p>
+            <!-- prettier-ignore -->
+            <psk-code language="markup">
+                <webc-if condition="@condition">
+                    <container>
+                        CONTENT_TO_SHOW_WHEN_CONDITION_IS_TRUE
+                    </container>
+                </webc-if>
+            </psk-code>
+
+            <p>
+                Observations:
+                <!-- prettier-ignore -->
+                <psk-list>
+                    <code>container</code> can be any HTML tag or custom component
+                    both <code>true</code> and <code>false</code> slots are optional.
+                    if neither <code>true</code> nor <code>false</code> slots are specified, then the whole <code>webc-if</code> content will be considered the <code>true</code> slot. Under this consideration, the two above examples are identical functional-wise.
+                </psk-list>
+            </p>
+        </psk-description>
+    </webc-docs>
+
+    <psk-chapter title="Code Example: Using a model property as a condition">
+        <p>
+            In this example the <code>webc-if</code> component is bound to the value of the <code>gdpr</code> model
+            property and it will render the paragraph only if the property is <code>true</code>.
+        </p>
+
+        <!-- prettier-ignore -->
+        <psk-code language="javascript">
+            // Controller
+            const { WebcController } = WebCardinal.controllers;
+
+            const model = {
+                gdpr: 0,
+            };
+
+            export default class WebcTestConditionController extends WebcController {
+                constructor(element) {
+                    super(element);
+                    this.model = this.setModel(JSON.parse(JSON.stringify(model)));
+
+                    this.onTagClick("toggle-property", () => {
+                        this.model.gdpr = !this.model.gdpr;
+                    });
+                }
+            }
+        </psk-code>
+
+        <psk-code language="markup">
+            <!-- View -->
+            <webc-page controller="WebcTestConditionController">
+                <webc-if condition="@gdpr">
+                    <p><strong>GDPR Notice...</strong></p>
+                </webc-if>
+            </webc-page>
+        </psk-code>
+
+        <webc-page controller="WebcTestConditionController">
+            <webc-if condition="@gdpr">
+                <p><strong>GDPR Notice...</strong></p>
+            </webc-if>
+            <button data-tag="toggle-property">Click here to toggle the GDPR notice</button>
+        </webc-page>
+    </psk-chapter>
+
+    <psk-chapter title="Code Example: Using a model expression as a condition">
+        <p>
+            This example will demonstrate how to use the <code>webc-if</code> together with a model expression. An
+            in-depth explanation of model expressions can be found
+            <a href="/?Cardinal/models&chapter=expressions">here</a>.
+        </p>
+        <p>
+            For this case, a model expression is used to validate the value of an email text input and show an error
+            message if validation fails.
+        </p>
+
+        <!-- prettier-ignore -->
+        <psk-code language="javascript">
+            // Controller
+            const { WebcController } = WebCardinal.controllers;
+
+            const model = {
+                gdpr: 0,
+                form: {
+                    wasSubmitted:false,
+                    email: {
+                        label: 'Email',
+                        name: 'email',
+                        isValid: true
+                    }
+                }
+            };
+
+            export default class WebcTestConditionController extends WebcController {
+                constructor(element, history) {
+                    super(element, history);
+                    this.setModel(JSON.parse(JSON.stringify(model)));
+
+                    // Create the "formHasErrors" expression
+                    this.model.addExpression(
+                        "formHasErrors",
+                        () => {
+                            return !this.form.email.isValid;
+                        },
+                        "form.email.isValid"
+                    ); // watch the "form.email.isValid" model chain
+                    // for changes in order to trigger re-evaluation
+
+                    this.onTagClick("validate-email", () => {
+                        if (this.model.form.wasSubmitted === false) {
+                            this.model.form.wasSubmitted = true;
+                        }
+                        const emailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                        const emailValue = this.model.form.email.value;
+                        this.model.form.email.isValid = emailRegex.test(emailValue);
+                    });
+                }
+            }
+        </psk-code>
+
+        <psk-code language="markup">
+            <!-- View -->
+            <webc-page controller="WebcTestConditionController">
+                <webc-if condition="@form.wasSubmitted">
+                    <webc-if condition="@formHasErrors">
+                        <div slot="true" class="alert alert-danger">
+                            <p>The email address is invalid</p>
+                        </div>
+
+                        <div slot="false" class="alert alert-success">
+                            <p>The email address is valid</p>
+                        </div>
+                    </webc-if>
+                </webc-if>
+
+                <psk-form-row>
+                    <psk-text-input view-model="form.email"></psk-text-input>
+                </psk-form-row>
+
+                <psk-form-row>
+                    <button data-tag="validate-email" button-class="btn btn-info btn-sm">Validate Email</button>
+                </psk-form-row>
+            </webc-page>
+        </psk-code>
+
+        <webc-page controller="WebcTestConditionController">
+            <webc-if condition="@form.wasSubmitted">
+                <webc-if condition="@formHasErrors">
+                    <div slot="true" class="alert alert-danger">
+                        <p>The email address is invalid</p>
+                    </div>
+
+                    <div slot="false" class="alert alert-success">
+                        <p>The email address is valid</p>
+                    </div>
+                </webc-if>
+            </webc-if>
+
+            <psk-form-row>
+                <psk-text-input view-model="form.email"></psk-text-input>
+            </psk-form-row>
+
+            <psk-form-row>
+                <button data-tag="validate-email" button-class="btn btn-info btn-sm">Validate Email</button>
+            </psk-form-row>
+        </webc-page>
+
+        <!-- <p>
+            A model expression can also return a <code>Promise</code>, when that happens, <code>webc-if</code> will wait
+            for the Promise to be resolved and based on its value it will decide if the children nodes will be rendered
+            or not.
+        </p> -->
+
+        <psk-highlight>
+            <p>
+                As seen in the previous code samples, the <code>webc-if</code> needs to be placed inside a controller
+                aware component in order to have access to the model so it can evaluate either a property or a
+                predefined expression. Click <a href="/?Cardinal/models&chapter=expressions">here</a> to learn more
+                about model expressions. Regardless of the type of condition used, the attribute value must start with
+                the <code>@</code> character, as explained in the
+                <psk-link tag="Models">Cardinal Model</psk-link> chapter.
+            </p>
+        </psk-highlight>
+    </psk-chapter>
+
+    <psk-chapter title="If/Else behavior">
+        <p>
+            <code>webc-if</code> supports the <code>if/else</code> construct by using <code>slots</code>. To enable this
+            behavior the children of the component must name the slot for each outcome of the condition. This component
+            supports the following slots:
+        </p>
+        <psk-list>
+            <code>true</code>
+            <code>false</code>
+        </psk-list>
+        <p>
+            Consider the code example above, to display a certain element when the condition is true, set the
+            <code>slot</code> attribute to the <code>true</code> value, use
+            <code>false</code> otherwise.
+        </p>
+    </psk-chapter>
+</psk-page>
