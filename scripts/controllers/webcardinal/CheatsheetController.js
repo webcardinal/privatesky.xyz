@@ -2,7 +2,7 @@ const { WebcController } = WebCardinal.controllers;
 
 class CheatsheetController extends WebcController {
     initializeModel = () => ({
-        sort: 'alphabetically'
+        sort: 'library'
     });
 
     constructor(element, history) {
@@ -20,7 +20,7 @@ class CheatsheetController extends WebcController {
             this.container = this.element.querySelector('[data-tag=cheatsheet]');
 
             this.removeCheatsheet();
-            this.presentCheatsheetInAlphabeticalOrder();
+            this.presentCheatsheetByLibrary();
 
             this.onTagEvent('sort', 'change', (model, target) => {
                 if (target.value !== this.model.sort) {

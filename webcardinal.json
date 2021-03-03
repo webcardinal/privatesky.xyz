@@ -614,6 +614,10 @@
               "tag": "webc-app-container"
             },
             {
+              "name": "webc-docs",
+              "tag": "webc-docs"
+            },
+            {
               "name": "webc-for",
               "tag": "webc-for"
             },
