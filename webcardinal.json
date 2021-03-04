@@ -611,20 +611,24 @@
           "name": "Components",
           "children": [
             {
-              "name": "webc-app-container",
-              "tag": "webc-app-container"
+              "name": "webc-app-root",
+              "tag": "webc-app-root"
             },
             {
-              "name": "webc-app-identity",
-              "tag": "webc-app-identity"
+              "name": "webc-app-container",
+              "tag": "webc-app-container"
             },
             {
               "name": "webc-app-router",
               "tag": "webc-app-router"
             },
             {
-              "name": "webc-app-root",
-              "tag": "webc-app-root"
+              "name": "webc-app-menu",
+              "tag": "webc-app-menu"
+            },
+            {
+              "name": "webc-app-identity",
+              "tag": "webc-app-identity"
             },
             {
               "name": "webc-docs",
@@ -641,14 +645,18 @@
             {
               "name": "webc-modal",
               "tag": "webc-modal"
+            },
+            {
+              "name": "webc-skin",
+              "tag": "webc-skin"
             }
           ]
         },
         {
-          "name": "Cheatsheet"
+          "name": "Forms"
         },
         {
-          "name": "Forms"
+          "name": "Cheatsheet"
         }
       ]
     },

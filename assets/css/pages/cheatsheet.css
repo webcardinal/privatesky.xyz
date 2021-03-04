@@ -1,10 +1,10 @@
-webc-page {
+webc-container {
     display: grid;
     padding: 1.5rem;
     gap: 1.5rem;
 }
 
-webc-page header,
+webc-container header,
 [data-tag=cheatsheet] {
     display: grid;
     max-width: 1170px;
@@ -12,27 +12,27 @@ webc-page header,
     width: 100%;
 }
 
-webc-page header {
+webc-container header {
     grid-template-columns: auto 1fr auto;
     align-items: center;
 }
 
-webc-page header h1,
-webc-page header label {
+webc-container header h1,
+webc-container header label {
     /* bootstrap */
     margin: 0;
 }
 
-webc-page header h1 {
+webc-container header h1 {
     font-size: 1.3rem;
 }
 
-webc-page header label {
+webc-container header label {
     text-align: right;
     padding-right: 0.35rem;
 }
 
-webc-page header select {
+webc-container header select {
     border: 1px solid #cdcdcd;
     background: transparent;
     border-radius: 1px;
@@ -52,7 +52,7 @@ webc-page header select {
     align-items: start;
 }
 
-webc-page header,
+webc-container header,
 [data-tag=cheatsheet] [data-letter],
 [data-tag=cheatsheet] [data-library] {
     padding: 1rem;
@@ -181,11 +181,11 @@ webc-page header,
 }
 
 @media screen and (max-width: 580px) {
-    webc-page header {
+    webc-container header {
         grid-template-columns: auto 1fr;
         gap: 1rem;
     }
-    webc-page header h1 {
+    webc-container header h1 {
         grid-column: 1 / -1;
     }
 }
@@ -197,7 +197,7 @@ webc-page header,
 }
 
 @media screen and (max-width: 380px) {
-    webc-page {
+    webc-container {
         padding: 0.75rem;
         gap: 1rem;
     }
