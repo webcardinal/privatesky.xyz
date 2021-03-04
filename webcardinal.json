@@ -8,7 +8,6 @@
   "pagesFallback": {
     "name": "404"
   },
-  "docsSource": "local",
   "pages": [
     {
       "name": "Home",
