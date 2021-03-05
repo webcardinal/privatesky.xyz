@@ -1,0 +1,27 @@
+<webc-container controller="webcardinal/WebcFormsController">
+    <div>
+        <div>
+            <label>{{ @name.placeholder}}</label>
+            <input data-model="@name"></input>
+        </div>
+        
+        <div>
+            <label>{{ @description.placeholder}}</label>
+            <textarea data-model="@description"></textarea>
+        </div>
+        
+        <webc-for data-model="@addresses">
+            <div>
+                <label>{{ @placeholder }}</label>
+                <input data-model="@"></input>
+
+            </div>
+        </webc-for>
+    </div>
+    <button data-tag="submit">Submit</button>
+
+    <p>
+        Model:
+    </p>
+    <pre>{{ @modeString }}</pre>
+</webc-container>

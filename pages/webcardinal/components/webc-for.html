@@ -111,7 +111,7 @@
         <psk-chapter title="Template example">
             <!-- prettier-ignore -->
             <psk-code language="markup">
-                <webc-page controller="WebcTestForController">
+                <webc-container controller="webcardinal/WebcTestForController">
                     <webc-for data-model="entities">            
                         <psk-layout columns="1">
                             <psk-grid layout="xs=[12] m=[6] l=[12] xl=[4]">
@@ -129,29 +129,29 @@
                         </psk-card>
                     </webc-for>
                     <button data-tag="submit-for">Submit</button>
-                </webc-page>
+                </webc-container>
             </psk-code>
         </psk-chapter>
 
         <psk-chapter title="Visual example using above model & template">
             <psk-example class="app-example">
-                <webc-page controller="WebcTestForController">
+                <webc-container controller="webcardinal/WebcTestForController">
                     <webc-for data-model="@entities">
                         <psk-grid layout="xs=[12] m=[6] l=[12] xl=[4]">
                             <label data-model="@sectionTitle"></label>
                         </psk-grid>
 
-                        <psk-grid layout="xs=[12,12] m=[6,6] l=[12,12] xl=[6,6]">
+                        <!-- <psk-grid layout="xs=[12,12] m=[6,6] l=[12,12] xl=[6,6]"> -->
                             <input data-model="@name"></input>
                             <input data-model="@email"></input>
-                        </psk-grid>
+                        <!-- </psk-grid> -->
 
                         <psk-card slot="no-data" title="Slot 'no-data' example">
                             <p>A psk-card with slot="no-data" for the webc-for example!</p>
                         </psk-card>
                     </webc-for>
                     <button data-tag="submit-for">Submit</button>
-                </webc-page>
+                </webc-container>
             </psk-example>
         </psk-chapter>
         
@@ -161,7 +161,7 @@
 
         <psk-chapter title="Visual example using an empty model & template">
             <psk-example class="app-example">
-                <webc-page controller="WebcTestForController">
+                <webc-container controller="webcardinal/WebcTestForController">
                     <webc-for data-model="@noEntities">
                         <psk-grid layout="xs=[12] m=[6] l=[12] xl=[4]">
                             <label data-model="@sectionTitle"></label>
@@ -177,7 +177,7 @@
                         </psk-card>
                     </webc-for>
                     <button data-tag="submit-for">Submit</button>
-                </webc-page>
+                </webc-container>
             </psk-example>
         </psk-chapter>
     </psk-chapter>

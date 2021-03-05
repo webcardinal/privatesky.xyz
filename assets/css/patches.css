@@ -18,3 +18,11 @@
     padding-right: 0.25rem;
 }
 
+webc-docs psk-description p {
+    text-align: left;
+}
+
+psk-highlight .psk-highlight .body {
+    padding-left: 0.5rem !important;
+    text-align: left;
+}
