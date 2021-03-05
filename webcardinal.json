@@ -137,7 +137,8 @@
       ]
     },
     {
-      "name": "FAQ"
+      "name": "FAQ",
+      "tag": "faq"
     },
     {
       "name": "Cardinal",
@@ -622,12 +623,20 @@
               "tag": "webc-app-router"
             },
             {
+              "name": "webc-app-loader",
+              "tag": "webc-app-loader"
+            },
+            {
               "name": "webc-app-menu",
               "tag": "webc-app-menu"
             },
             {
               "name": "webc-app-identity",
               "tag": "webc-app-identity"
+            },
+            {
+              "name": "webc-app-error-toast",
+              "tag": "webc-app-error-toast"
             },
             {
               "name": "webc-docs",
@@ -642,12 +651,20 @@
               "tag": "webc-if"
             },
             {
+              "name": "webc-link",
+              "tag": "webc-link"
+            },
+            {
               "name": "webc-modal",
               "tag": "webc-modal"
             },
             {
               "name": "webc-skin",
               "tag": "webc-skin"
+            },
+            {
+              "name": "webc-spinner",
+              "tag": "webc-spinner"
             }
           ]
         },
