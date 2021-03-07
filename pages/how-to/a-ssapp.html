@@ -20,7 +20,7 @@
     </psk-description>
 
     <psk-chapter title="Prerequisites">
-        <p>In order to get started you need to install the <a href="https://github.com/PrivateSky/ssapp-demo-workspace" target="_blank">ssapp-demo-workspace</a> by following the steps provided on the <psk-link page="quick start/installation">Setup page</psk-link> (Setup SSApps section).</p>
+        <p>In order to get started you need to install the <a href="https://github.com/PrivateSky/ssapp-demo-workspace" target="_blank">ssapp-demo-workspace</a> by following the steps provided on the <webc-link href="/quick-start/installation">Setup page</webc-link> (Setup SSApps section).</p>
 
         <p><strong>ssapp-demo-workspace</strong> bundles all the necessary dependencies for building and running SSApps in a single package.</p>
     </psk-chapter>
@@ -38,7 +38,7 @@
                 <li>SSApp application loader</li>
             </ul>
 
-            <p><strong>Octopus</strong> is the first tool installed by the ssapp-demo-workspace and it is used to further fetch and build the rest of the dependencies. For more information on Octopus read the <psk-link page="Tools/Octopus">dedicated page</psk-link> in the documentation.</p>
+            <p><strong>Octopus</strong> is the first tool installed by the ssapp-demo-workspace and it is used to further fetch and build the rest of the dependencies. For more information on Octopus read the <webc-link href="/tools/octopus">dedicated page</webc-link> in the documentation.</p>
 
             <p><strong>PrivateSky</strong> provides the VirtualMQ service and the javascript runtime bundles required for a SSApp to interact with EDFS and PrivateSky nodes</p>
 
@@ -108,7 +108,7 @@
             <p>The <code>code</code> folder will contain the application source code files (html, javacript &amp; css files).</p>
             <p>The <code>package.json</code> contains a single dependency, the <strong>Octopus</strong> package which will help with building and installing the application in <code>ssapp-demo-workspace</code>. You are free to add as many dependencies as you want in order to develop your application.
 
-            <p>The <code>octopus.json</code> file contains actions executed by Octopus that will copy the runtime javascript bundles from PrivateSky into our new application into the <code>code</code> folder and install the <psk-link page="Cardinal/web-components-mvc">Cardinal</psk-link> framework.</p>
+            <p>The <code>octopus.json</code> file contains actions executed by Octopus that will copy the runtime javascript bundles from PrivateSky into our new application into the <code>code</code> folder and install the <webc-link tag="cardinal-web-components-mvc">Cardinal</webc-link> framework.</p>
         </psk-chapter>
 
         <psk-chapter title="Adding the SSApp in ssapp-demo-workspace">
@@ -170,7 +170,7 @@
 
             </psk-code>
             <p>The <code>psk-ssapp</code> is a Cardinal web component which handles loading and running a SSApp. The <code>to-do-list.html</code> file is actually a <code>View</code> file from the <code>wallet template</code> SSApp which will load our To do List SSApp.</p>
-            <p><code>WalletSsappLauncher</code> controller binds the <code>KeySSI</code> to <code>psk-ssapp</code> component. The attribute <code>data-app-name</code> is used internally by <code>WalletSsappLauncher</code> to retrieve the KeySSI for <code>psk-ssapp</code> component. (<psk-link page="api/edfs/key-ssis">About KeySSI</psk-link>)</p>
+            <p><code>WalletSsappLauncher</code> controller binds the <code>KeySSI</code> to <code>psk-ssapp</code> component. The attribute <code>data-app-name</code> is used internally by <code>WalletSsappLauncher</code> to retrieve the KeySSI for <code>psk-ssapp</code> component. (<webc-link href="/api/edfs/key-ssis">About KeySSI</webc-link>)</p>
             <p>To verify that the application was built correctly, open the browser and load <a href="http://localhost:8080/secure-channels/loader" target="_blank">http://localhost:8080/secure-channels/loader</a>. If you have previously created a wallet using the loader make sure you clear your local storage and refresh the page. Follow the steps to create a new wallet and then open it. You should see a link to our To Do application in the left menu and when clicking it you should see the Cardinal framework starting page.</p>
         </psk-chapter>
 
@@ -196,7 +196,7 @@
 
             <p>Clear the browse's local storage and refresh. You should see that the loader's UI isn't shown anymore and you are automatically presented with the SSApps menu. Now, everytime you change the source code of your application the wallet will be automatically rebuilt.</p>
 
-            <p>It's time to add some functionality to our app and the first thing we need to do is add a <psk-link page="Cardinal/Views">View</psk-link> for our to do list. Edit the <code>/code/pages/home.html</code> file and replace its existing content with the one presented in the following chapter.</p>
+            <p>It's time to add some functionality to our app and the first thing we need to do is add a <webc-link tag="cardinal-views">View</webc-link> for our to do list. Edit the <code>/code/pages/home.html</code> file and replace its existing content with the one presented in the following chapter.</p>
 
             <psk-chapter title="View">
                 <p>The <code>code/pages/home.html</code> view of our application will display the items in our to do list and will allow any user to add new items to that list:</p>
@@ -289,7 +289,7 @@
             </psk-chapter>
 
             <psk-chapter title="Model">
-                <p>The last piece of the puzzle is the model. Add the following code in <code>code/scripts/models/ListModel.js</code>. The model will fetch the data from EDFS using the <psk-link page="API/ssapps/service-worker-middleware">Download Middleware</psk-link> of its service worker. When saving the data, the model will upload the list as a JSON file to EDFS using the <psk-link page="API/ssapps/service-worker-middleware">Upload Middleware</psk-link> provided by the service worker.</p>
+                <p>The last piece of the puzzle is the model. Add the following code in <code>code/scripts/models/ListModel.js</code>. The model will fetch the data from EDFS using the <webc-link href="/api/ssapps/service-worker-middleware">Download Middleware</webc-link> of its service worker. When saving the data, the model will upload the list as a JSON file to EDFS using the <webc-link href="/apis/ssapps/service-worker-middleware">Upload Middleware</webc-link> provided by the service worker.</p>
 
                 <psk-code language="javascript">
                     export default class ListModel {
@@ -388,7 +388,7 @@
 
         <psk-img src="assets/images/wallet-structure.svg"></psk-img>
 
-        <p>A <strong>solution wallet</strong> is a <psk-link page="API/edfs/overview">Dossier</psk-link> containing a blockchain and a set of SSApps which encapsulate business logic. In the diagram above you can see that the "Secure Channels Solution" is based on the <strong>menu-wallet-prototype</strong> template and contains 3 more SSApps: profile-sapp, secure-channels-sapp and our newly created todo-ssapp. The "menu-wallet-prototype" template is in itself just a regular SSApp which displays a menu in the UI with links to the rest of the SSApps contained in the solution. Each individual SSApp (including the menu-wallet) is built by Octopus using the command line (<code>npm run build-all</code> command) while the <strong>solution wallet</strong> is build by the loader during first use. The steps for creating the solution wallet in the loader are the following:</p>
+        <p>A <strong>solution wallet</strong> is a <webc-link href="/api/edfs/overview">Dossier</webc-link> containing a blockchain and a set of SSApps which encapsulate business logic. In the diagram above you can see that the "Secure Channels Solution" is based on the <strong>menu-wallet-prototype</strong> template and contains 3 more SSApps: profile-sapp, secure-channels-sapp and our newly created todo-ssapp. The "menu-wallet-prototype" template is in itself just a regular SSApp which displays a menu in the UI with links to the rest of the SSApps contained in the solution. Each individual SSApp (including the menu-wallet) is built by Octopus using the command line (<code>npm run build-all</code> command) while the <strong>solution wallet</strong> is build by the loader during first use. The steps for creating the solution wallet in the loader are the following:</p>
 
         <psk-list list-type="ordered">
             Create a new Dossier

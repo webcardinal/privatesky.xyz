@@ -18,13 +18,13 @@
     <psk-description title="Summary & Definition">
         <p>Table of contents, we will explain what is a model, how to and where to write a model for a page, or for a controlled section inside a page.</p>
         <p>A controlled section inside a page can be a
-            <psk-link page='forms/psk-form'>psk-form</psk-link> or a set of components wrapped inside a
-            <psk-link page='web-components/container'>psk-container</psk-link>.</p>
+            <webc-link tag='psk-form'>psk-form</webc-link> or a set of components wrapped inside a
+            <webc-link tag='psk-container'>psk-container</webc-link>.</p>
         <psk-chapter title="What is a model?">
 			<p>Binding, at it's very basic, is the process where one thing is assinged to another thing. Here, we want to assign some attributes from a model to a component.</p>
             <p>A model is data used by a program. This may be a database, file, or a simple object.</p>
             <p>For now, each model can be defined inside a controller as in the examples found at the page
-                <psk-link page='forms/using-forms'>Using Forms</psk-link>.</p>
+                <webc-link tag='cardinal-forms'>Using Forms</webc-link>.</p>
             <p>In our case, the model is JavaScript object ment to handle the form changes (in case of forms), to apply some attributes for some components.</p>
             <p>One of the most important feature that a model can provide is the support for internationalization and localization, a feature we target with the models.</p>
         </psk-chapter>
@@ -40,10 +40,10 @@
 
     <psk-chapter title="One-way binding">
         <p>This is the easiest way to use a model. You just need to have a
-            <psk-link page='web-components/container'>psk-container</psk-link> with a controller, to define a model and to apply the chain to the components to set the attributes.</p>
+            <webc-link tag='psk-container'>psk-container</webc-link> with a controller, to define a model and to apply the chain to the components to set the attributes.</p>
         <p>The attributes can be set using the following methods:</p>
         <p>Using "@" inside a value of an attribute.
-            <psk-link page='forms/psk-label'>psk-label</psk-link>
+            <webc-link tag='psk-label'>psk-label</webc-link>
         </p>
         <psk-code>
             <psk-label label="@customLabel">
@@ -68,7 +68,7 @@
 			}
 		</psk-code>
         <p>Using "view-model" attribute to assign more attributes.
-            <psk-link page='forms/psk-input'>psk-input</psk-link>
+            <webc-link tag='psk-input'>psk-input</webc-link>
         </p>
         <psk-code>
             <psk-input view-model="customInput">
@@ -90,7 +90,7 @@
 		</psk-code>
 
         <p>Using view-model-ATTRIBUTE_NAME to assign a value to ATTRIBUTE_NAME, where ATTRIBUTE_NAME can be any attribute of a component. Similar to first method.
-            <psk-link page='forms/psk-label'>psk-label</psk-link>
+            <webc-link tag='psk-label'>psk-label</webc-link>
         </p>
         <psk-code>
             <psk-label view-model-label="languages.en.customLabel">
@@ -99,24 +99,24 @@
             </psk-label>
         </psk-code>
         <p>Using "data-view-model" to assign more attributes to more components. This one is used only for
-            <psk-link page='forms/psk-for-each'>psk-for-each</psk-link> component.</p>
-        <p>Intuitive examples cand be found on the following pages:
-            <psk-link page='forms/using-forms'>Using Forms</psk-link> and
-            <psk-link page='forms/psk-for-each'>psk-for-each</psk-link>
+            <webc-link tag='psk-for-each'>psk-for-each</webc-link> component.</p>
+        <p>Intuitive examples can be found on the following pages:
+            <webc-link tag='cardinal-forms'>Using Forms</webc-link> and
+            <webc-link tag='psk-for-each'>psk-for-each</webc-link>
         </p>
         </psk-list>
     </psk-chapter>
 
     <psk-chapter title="Two-way binding">
         <p>Two-way binding in programming, as minimal definition, is the process where any change made in the view is reflected into the model and any change in the model is reflected into the view.</p>
-        <p>In time, all the components will be able to have bindings, right now, all the form components have implmented two-way binding (explained in <psk-link page='forms/using-forms'>Using Forms</psk-link> page).</p>
+        <p>In time, all the components will be able to have bindings, right now, all the form components have implmented two-way binding (explained in <webc-link tag='cardinal-forms'>Using Forms</webc-link> page).</p>
         <p>There is not much to do here, you just need to make sure that the components are bound and the two-way is handled by the components.</p>
     </psk-chapter>
 
     <psk-chapter title="Expressions">
         <p><strong>Expressions</strong> are a way of adding business logic to models. These are plain callbacks which are executed in the context of a model and are bound to Cardinal components using the <code>@</code> syntax.</p>
         <p>
-        This feature was designed to work with the <code>psk-condition</code> component in order to allow conditional rendering of other components or native HTML elements, nevertheless expressions work just as well as a standalone feature used outside of web components. For more information on how to use expressions with <code>psk-condition</code> read the <psk-link page="Web components/condition">dedicated page</psk-link> in the documentation.
+        This feature was designed to work with the <code>psk-condition</code> component in order to allow conditional rendering of other components or native HTML elements, nevertheless expressions work just as well as a standalone feature used outside of web components. For more information on how to use expressions with <code>psk-condition</code> read the <webc-link tag="psk-condition">dedicated page</webc-link> in the documentation.
         </p>
 
         <psk-chapter title="Creating expressions">
@@ -238,7 +238,7 @@
         </psk-chapter>
 
         <psk-chapter title="Using an expression">
-            <p>To see how to use an expression in a web component read the <psk-link page="Web components/condition">psk-condition documentation</psk-link>.</p>
+            <p>To see how to use an expression in a web component read the <webc-link tag="psk-condition">psk-condition documentation</webc-link>.</p>
 
             <p>Using an expression in a controller requires calling the <code>model.evaluateExpression()</code> method. One advantage of expressions over simple properties is their capability of encapsulating complex logic, including asynchronous operations.</p>
 
