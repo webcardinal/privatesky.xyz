@@ -536,6 +536,12 @@
                   "tag": "psk-pin-popup"
                 },
                 {
+                  "name": "Progress",
+                  "path": "./psk-progress",
+                  "src": "./psk-progress.html",
+                  "tag": "psk-progress"
+                },
+                {
                   "name": "Slideshow",
                   "path": "./psk-slideshow",
                   "src": "./psk-slideshow.html",
