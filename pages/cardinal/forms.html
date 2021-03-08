@@ -49,7 +49,7 @@
                     }
                 }
             </psk-code>
-            <p>Information about the Controllers can be found here: <psk-link tag="mvc-controller">Cardinal -> Controllers</psk-link></p>
+            <p>Information about the Controllers can be found here: <webc-link tag="mvc-controller">Cardinal -> Controllers</webc-link></p>
             <p>If you do not need any special behaviour in your controller, but only submitting the form-data to a server, we strongly recommend you to use the first method, which is less likely to cause errors.</p>
         </p>
 	</psk-chapter>
@@ -65,7 +65,7 @@
 
     <psk-chapter title="How to bind the model to the form. Two-way binding">
         <p>Binding, at it's very basic, is the process where one thing is assinged to another thing. Here, we want to assign some attributes from a model to a component.</p>
-        <p>To bind the model to a component, we need set the attribute <code>view-model</code> or <code>data-view-model</code> to the component we want to bind the data. Pay attention that the attribute <code>data-view-model</code> is available only for the component <psk-link tag="psk-for-each">psk-for-each</psk-link>, as described in the above chapter.</p>
+        <p>To bind the model to a component, we need set the attribute <code>view-model</code> or <code>data-view-model</code> to the component we want to bind the data. Pay attention that the attribute <code>data-view-model</code> is available only for the component <webc-link tag="psk-for-each">psk-for-each</webc-link>, as described in the above chapter.</p>
         <p>Let's take a look at the following source code of a controller wich loads a model, and the HTML view:</p>
         <psk-code language="Javascript">
             import ContainerController from '../../../cardinal/controllers/base-controllers/ContainerController.js';
@@ -166,8 +166,8 @@
     </psk-chapter>
 
     <psk-chapter title="How to handle the form submission.">
-        <p>This part is not very complicated, if you ned only to have a submition, just extend the DefaultFormController like in the above examples and let the default behaviour handle it. The form will automatically collect the form-data from and will send them to your Server or ESB or whatever you use to receive the form-data by using the attributes exposed by the <psk-link tag='psk-form'>psk-form</psk-link> component.</p>
-        <p>If you still want to customize the submition, no problem, this is also simple enough. At the end of the form, or wherever you need, add the component <psk-link tag="psk-button">psk-button</psk-link>. Bear in mind to add the <code>type="submit"</code> attribute in order to proper validate you form fields, if required.</p>
+        <p>This part is not very complicated, if you ned only to have a submition, just extend the DefaultFormController like in the above examples and let the default behaviour handle it. The form will automatically collect the form-data from and will send them to your Server or ESB or whatever you use to receive the form-data by using the attributes exposed by the <webc-link tag='psk-form'>psk-form</webc-link> component.</p>
+        <p>If you still want to customize the submition, no problem, this is also simple enough. At the end of the form, or wherever you need, add the component <webc-link tag="psk-button">psk-button</webc-link>. Bear in mind to add the <code>type="submit"</code> attribute in order to proper validate you form fields, if required.</p>
         <p>Here is an example:</p>
         <psk-code language="markup">
             <psk-form controller-name="TestFormChildrenController">

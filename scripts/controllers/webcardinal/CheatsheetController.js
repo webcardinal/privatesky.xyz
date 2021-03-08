@@ -83,6 +83,10 @@ class CheatsheetController extends WebcController {
         const libraries = {};
 
         for (const component of Object.keys(cheatsheet)) {
+            if (cheatsheet[component].disableCheatsheet) {
+                continue;
+            }
+
             const index = cheatsheet[component].source;
 
             if (!libraries[index]) {

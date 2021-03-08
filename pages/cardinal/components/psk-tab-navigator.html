@@ -117,6 +117,74 @@
                 </psk-tab-navigator>
             </psk-example>
         </psk-chapter>
+
+        <psk-chapter title="Controlled tab navigation">
+            <psk-chapter title="Controller Source Code">
+                <psk-code language="Javascript">
+                import ContainerController from "../../cardinal/controllers/base-controllers/ContainerController.js";
+
+                const TAB_MIN_VALUE = 0;
+                const TAB_MAX_VALUE = 4;
+
+                export default class PskTabNavigatorController extends ContainerController {
+                    constructor(element) {
+                        super(element);
+                        this.model = this.setModel({
+                                tabNavigator: {
+                                selected: 2,
+                                tabNavigationDisabled: true
+                            }
+                        });
+
+                        this.on('prev', (event) => {
+                            let currentIndexSelected = this.model.tabNavigator.selected;
+                            if (currentIndexSelected > TAB_MIN_VALUE) {
+                                this.model.tabNavigator.selected = currentIndexSelected - 1;
+                            }
+                        });
+
+                        this.on('next', (event) => {
+                            let currentIndexSelected = this.model.tabNavigator.selected;
+                            if (currentIndexSelected < TAB_MAX_VALUE) {
+                                this.model.tabNavigator.selected = currentIndexSelected + 1;
+                            }
+                        });
+                    }
+                }
+                </psk-code>
+            </psk-chapter>
+
+            <psk-chapter title="HTML Source Code">
+                <psk-code language="markup">
+                    <psk-container controller-name="PskTabNavigatorController">
+                        <psk-tab-navigator view-model="tabNavigator">
+                            <psk-tab title="Tab 0">0</psk-tab>
+                            <psk-tab title="Tab 1">1</psk-tab>
+                            <psk-tab title="Tab 2">2</psk-tab>
+                            <psk-tab title="Tab 3">3</psk-tab>
+                            <psk-tab title="Tab 4">4</psk-tab>
+                        </psk-tab-navigator>
+                        <psk-button event-name="prev">Back</psk-button>
+                        <psk-button event-name="next">Next</psk-button>
+                    </psk-container>
+                </psk-code>
+            </psk-chapter>
+
+            <psk-example class="app-example">
+                <psk-container controller-name="PskTabNavigatorController">
+                    <psk-tab-navigator view-model="tabNavigator">
+                        <psk-tab title="Tab 0">0</psk-tab>
+                        <psk-tab title="Tab 1">1</psk-tab>
+                        <psk-tab title="Tab 2">2</psk-tab>
+                        <psk-tab title="Tab 3">3</psk-tab>
+                        <psk-tab title="Tab 4">4</psk-tab>
+                    </psk-tab-navigator>
+                    <psk-button event-name="prev">Back</psk-button>
+                    <psk-button event-name="next">Next</psk-button>
+                </psk-container>
+            </psk-example>
+        </psk-chapter>
+
     </psk-chapter>
 
 </psk-page>

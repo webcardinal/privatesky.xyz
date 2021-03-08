@@ -19,7 +19,7 @@
     </psk-chapter>
 
     <psk-chapter title="Installation">
-        <p><psk-link page="tools/octopus">Octopus</psk-link> can be installed using <code>npm</code> by adding its repository url to the list of dependencies in your <code>package.json</code> file:</p>
+        <p><webc-link tag="octopus">Octopus</webc-link> can be installed using <code>npm</code> by adding its repository url to the list of dependencies in your <code>package.json</code> file:</p>
         <psk-code language="javascript">
             {
                 "name": "My Octopus Project",
@@ -45,7 +45,7 @@
     </psk-chapter>
 
     <psk-chapter title="Configuration">
-        <psk-link page="tools/octopus">Octopus</psk-link> executes in sequence all tasks found in a JSON configuration file called octopus.json. <br />
+        <webc-link tag="octopus">Octopus</webc-link> executes in sequence all tasks found in a JSON configuration file called octopus.json. <br />
         The structure of the <b>octopus.json</b> file is represented by an dictionary of tasks organized by purpose:
         <psk-code language="javascript">
             {
@@ -72,7 +72,7 @@
                 }
             }
         </psk-code>
-        The available action types that <psk-link page="tools/octopus">Octopus</psk-link> comes bundled with can be found by reading the Actions chapter.<br>
+        The available action types that <webc-link tag="octopus">Octopus</webc-link> comes bundled with can be found by reading the Actions chapter.<br>
         <psk-chapter title="Examples">
             For example if we need to use Octopus as dependency manager we can write the following configuration:
             <psk-code language="javascript">
@@ -86,7 +86,7 @@
                     ]
                 }
             </psk-code>
-            Running <psk-link page="tools/octopus">Octopus</psk-link> with the above configuration will result in a new folder <i>modules</i> which will contain a clone of the PrivateSky repository.<br>
+            Running <webc-link tag="octopus">Octopus</webc-link> with the above configuration will result in a new folder <i>modules</i> which will contain a clone of the PrivateSky repository.<br>
             If Octopus does not find any action specified for a task it defaults to a <strong>smartClone</strong> action:
 			<psk-code language="JavaScript">
 				{

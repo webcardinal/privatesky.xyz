@@ -21,18 +21,18 @@
         <p>At this moment, the following ways of implementing a controller are available (we will get into detail in the chapters below):</p>
         <psk-list list-type="ordered">
             <span>By creating a javascript class inside <code>controller</code> folder of the application. This class needs to be registered. </span>
-            <span>By writing javascript code inside the tag <code>script</code>. This tag will be connected as controller only inside <psk-link page="web-components/container">psk-container</psk-link> and <psk-link page="forms/psk-form">psk-form</psk-link> components.</span>
+            <span>By writing javascript code inside the tag <code>script</code>. This tag will be connected as controller only inside <webc-link tag="psk-container">psk-container</webc-link> and <webc-link tag="psk-form">psk-form</webc-link> components.</span>
         </psk-list>
 
         <p>There is also a default controller that is available, which is named <code>"ContainerController"</code>. Our suggestion is that when you want to create a controller, is to extend this already available controller.</p>
         <p>Why? There are two reasons for this: First, we already handle the HTML container where you desire to use the controller and the second reason is that the controller already handles the possibility to listen or to trigger events. More about these,
             in the chapters below.</p>
 
-        <p>Also, after you define your custom controllers, or maybe you want to use the provided controller, you have the following ways to include the controller inside your components, all of them by using the component <code><psk-link page="web-components/container">psk-container</psk-link></code>            (we will get into detail in the chapters below): </p>
+        <p>Also, after you define your custom controllers, or maybe you want to use the provided controller, you have the following ways to include the controller inside your components, all of them by using the component <code><webc-link tag="psk-container">psk-container</webc-link></code>            (we will get into detail in the chapters below): </p>
         <psk-list list-type="ordered">
-            Load the <psk-link page="web-components/container">psk-container</psk-link> component without any attribute.
-            Load the <psk-link page="web-components/container">psk-container</psk-link> component by giving the <code>controller-name</code> attribute.
-            Load the <psk-link page="web-components/container">psk-container</psk-link> component with or without the <code>controller-name</code> attribute, and also, write javascript source code inside <code>script</code> tag.
+            Load the <webc-link tag="psk-container">psk-container</webc-link> component without any attribute.
+            Load the <webc-link tag="psk-container">psk-container</webc-link> component by giving the <code>controller-name</code> attribute.
+            Load the <webc-link tag="psk-container">psk-container</webc-link> component with or without the <code>controller-name</code> attribute, and also, write javascript source code inside <code>script</code> tag.
         </psk-list>
     </psk-description>
 
@@ -77,12 +77,12 @@
     <psk-chapter title="Loading a controller">
             <p>To load a controller by name is possible using one of the following methods:</p>
             <psk-list>
-                    Load the <psk-link page="web-components/container">psk-container</psk-link> component without any attribute.
-                    Load the <psk-link page="web-components/container">psk-container</psk-link> component by giving the <code>controller-name</code> attribute.
-                    Load the <psk-link page="web-components/container">psk-container</psk-link> component and define <code>script</code> source code.
+                    Load the <webc-link tag="psk-container">psk-container</webc-link> component without any attribute.
+                    Load the <webc-link tag="psk-container">psk-container</webc-link> component by giving the <code>controller-name</code> attribute.
+                    Load the <webc-link tag="psk-container">psk-container</webc-link> component and define <code>script</code> source code.
             </psk-list>
             <psk-chapter title="Loading a controller by default">
-                <p>This type of controller is the easiest to be instantiated. You just need to load the <psk-link page="web-components/container">psk-container</psk-link> component, and inside it you only need to write down the web components you desire for the layout. The source code should look like the following: </p>
+                <p>This type of controller is the easiest to be instantiated. You just need to load the <webc-link tag="psk-container">psk-container</webc-link> component, and inside it you only need to write down the web components you desire for the layout. The source code should look like the following: </p>
 				<psk-code language="markup">
 					<!-- In this way, the default controller named "ContainerController" is loaded inside the container -->
 					<psk-container>
@@ -91,7 +91,7 @@
 				</psk-code>
             </psk-chapter>
             <psk-chapter title="Loading a controller by name">
-                <p>This type of controller can be loaded by providing to <psk-link page="web-components/container">psk-container</psk-link> component, the attribute controller-name with the name of the controller.</p>
+                <p>This type of controller can be loaded by providing to <webc-link tag="psk-container">psk-container</webc-link> component, the attribute controller-name with the name of the controller.</p>
                 <p>If the controller given as attribute does not exists, no controller will be attached to the container, so pay attention when you type the controller-name.</p>
                 <p>The source code of the container component should look like this:</p>
 				<psk-code language="markup">

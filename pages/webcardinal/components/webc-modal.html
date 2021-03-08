@@ -1,4 +1,17 @@
 <psk-page title="Modals">
     <psk-toc title="Table of contents"></psk-toc>
-    <webc-docs for="webc-modal"></webc-docs>
+    <webc-docs for="webc-modal">
+        <psk-description title="Summary">
+            <p>This component should be used when a modal is needed in your application.</p>
+        </psk-description>
+        <psk-chapter title="Usage">
+            <p style="text-align: left">From a custom <strong>Controller</strong> of your page, who inherits the <code>WebController</code> or <code>Controller</code> from <code>WebCardinal.controllers</code>:</p>
+            <psk-example>
+                <psk-code language="JavaScript">this.showModal("Content", "Modal title", onConfirm, onClose);</psk-code>
+                <psk-code language="JavaScript">this.showErrorModal("Message", "Error title", onConfirm, onClose);</psk-code>
+                <psk-code language="JavaScript">this.showErrorModalAndRedirect("Message", "Redirecting title", "contact-page-tag", 3000);</psk-code>
+                <psk-code language="JavaScript">this.showModalFromTemplate("modal-template", onConfirm, onClose);</psk-code>
+            </psk-example>
+        </psk-chapter>
+    </webc-docs>
 </psk-page>

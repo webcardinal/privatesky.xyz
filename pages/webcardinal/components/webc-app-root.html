@@ -8,24 +8,31 @@
     <psk-toc title="Table of contents"></psk-toc>
     <webc-docs for="webc-app-root">
         <psk-description title="Summary">
-            <p>This is the entry point of your application and contains by default:</p>
+            <p>The entry point of your application.</p>
+            <p>This component has attached a controller called
+                <a title="ApplicationController" href="https://raw.githubusercontent.com/webcardinal/webcardinal-core/master/src/controllers/ApplicationController.ts">ApplicationController</a>
+                that converts the configurations from <code>webcardinal.json</code> into a WebCardinal application.
+                <a title="Default Configuration" href="https://raw.githubusercontent.com/webcardinal/webcardinal-core/master/src/controllers/config/default.ts">Default Configuration</a> of WebCardinal can and should be modified.
+            </p>
+            <p><strong><code>webc-app-root</code></strong> contains by default:</p>
             <ul>
-                <li><code>webc-app-menu</code></li>
-                <li><code>webc-app-container</code></li>
-                <li><code>webc-app-error-toast</code></li>
+                <li><webc-link tag="webc-app-menu"><code>webc-app-menu</code></webc-link></li>
+                <li><webc-link tag="webc-app-container"><code>webc-app-container</code></webc-link></li>
+                <li><webc-link tag="webc-app-error-toast"><code>webc-app-error-toast</code></webc-link></li>
             </ul>
-            <p>
-                <small>
-                    <strong>Note:</strong> <code>webc-app-menu</code> and <code>webc-app-container</code> must be manged using slots,
-                    but <code>webc-app-error-toast</code> will be always appended.
-                </small>
-            </p>
-            <p>It is also worth mentioning that this component invokes
-                <a title="ApplicationController" href="https://github.com/webcardinal/webcardinal-core/blob/master/src/controllers/ApplicationController.ts">ApplicationController</a>.
-            </p>
-            <p>
-                <a title="Default Configuration" href="https://raw.githubusercontent.com/webcardinal/webcardinal-core/master/src/controllers/config/default.ts">Default Configuration</a> of WebCardinal can and should be modified from <code>webcardinal.json</code>.
-            </p>
+            <p><strong>Notes:</strong></p>
+            <psk-highlight type-of-highlight="example">
+                Components that have in name <code>webc-app</code> are internal and are not part of a normal page.
+            </psk-highlight>
+            <psk-highlight type-of-highlight="note">
+                <code>ApplicationController</code> responds to all events that are prefixed with <code>webcardinal:config</code>.
+            </psk-highlight>
+            <small>
+                <p>
+                    <code>webc-app-menu</code> and <code>webc-app-container</code> can be manged using slots, but <code>webc-app-error-toast</code> will be always appended.
+                </p>
+            </small>
+            <p>The element <code>webc-app-root</code> is accessible from <code class="accent">window.WebCardinal.root</code>.</p>
         </psk-description>
         <psk-chapter title="Usage">
             <!-- normal usage -->
@@ -41,12 +48,10 @@
                 <p>Responsiveness of components is manged by the <code>webc-app-root</code> itself.</p>
             </psk-highlight>
 
-            <p>In this example example layout of <code>webc-app-root</code> is managed by <code>webc-app-menu</code>.</p>
-
             <!-- complex usage -->
             <psk-example>
                 <psk-code title="If something more custom is desired:" language="markup">
-                    <webc-app-root>
+                    <webc-app-root loader="custom-loader">
                         <webc-app-container>
                             <custom-header slot="before"></custom-header>
                             <custom-main>
@@ -57,7 +62,7 @@
                     </webc-app-root>
                 </psk-code>
             </psk-example>
-            <p>Where <code>custom-header</code>, <code>custom-main</code>, <code>custom-footer</code> are personalized / customized web components.</p>
+            <p>Where <code>custom-header</code>, <code>custom-main</code>, <code>custom-footer</code> and <code>custom-loader</code> are personalized / customized web components.</p>
             <psk-highlight type-of-highlight="issue">
                 <p>You must deal with responsiveness of these components.</p>
             </psk-highlight>

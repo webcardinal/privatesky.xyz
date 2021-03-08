@@ -8,7 +8,6 @@
   "pagesFallback": {
     "name": "404"
   },
-  "docsSource": "local",
   "pages": [
     {
       "name": "Home",
@@ -19,13 +18,16 @@
       "name": "Overview",
       "children": [
         {
-          "name": "Why"
+          "name": "Why",
+          "tag": "overview-why"
         },
         {
-          "name": "Main Innovations"
+          "name": "Main Innovations",
+          "tag": "overview-main-innovations"
         },
         {
-          "name": "Architecture"
+          "name": "Architecture",
+          "tag": "overview-architecture"
         },
         {
           "name": "Blockchain",
@@ -36,10 +38,12 @@
           ]
         },
         {
-          "name": "Swarms Explained"
+          "name": "Swarms Explained",
+          "tag": "overview-swarms-explained"
         },
         {
-          "name": "Dependencies"
+          "name": "Dependencies",
+          "tag": "overview-dependencies"
         }
       ]
     },
@@ -65,7 +69,8 @@
               "name": "Overview"
             },
             {
-              "name": "Blockchain"
+              "name": "Blockchain",
+              "path": "./"
             }
           ]
         },
@@ -138,29 +143,36 @@
       ]
     },
     {
-      "name": "FAQ"
+      "name": "FAQ",
+      "tag": "faq"
     },
     {
       "name": "Cardinal",
       "children": [
         {
           "name": "Web Components MVC",
-          "path": "./web-components"
+          "path": "./web-components",
+          "tag": "cardinal-web-components-mvc"
         },
         {
-          "name": "Models"
+          "name": "Models",
+          "tag": "cardinal-models"
         },
         {
-          "name": "Views"
+          "name": "Views",
+          "tag": "cardinal-views"
         },
         {
-          "name": "Controllers"
+          "name": "Controllers",
+          "tag": "cardinal-controllers"
         },
         {
-          "name": "Events"
+          "name": "Events",
+          "tag": "cardinal-events"
         },
         {
-          "name": "Themes"
+          "name": "Themes",
+          "tag": "cardinal-themes"
         },
         {
           "name": "Components",
@@ -279,7 +291,8 @@
                 {
                   "name": "Using Forms",
                   "path": "../forms",
-                  "src": "../forms.html"
+                  "src": "../forms.html",
+                  "tag": "cardinal-forms"
                 },
                 {
                   "name": "Checkbox",
@@ -523,6 +536,12 @@
                   "tag": "psk-pin-popup"
                 },
                 {
+                  "name": "Progress",
+                  "path": "./psk-progress",
+                  "src": "./psk-progress.html",
+                  "tag": "psk-progress"
+                },
+                {
                   "name": "Slideshow",
                   "path": "./psk-slideshow",
                   "src": "./psk-slideshow.html",
@@ -598,9 +617,6 @@
               ]
             }
           ]
-        },
-        {
-          "name": "Cheatsheet"
         }
       ]
     },
@@ -611,20 +627,36 @@
           "name": "Components",
           "children": [
             {
-              "name": "webc-app-container",
-              "tag": "webc-app-container"
+              "name": "webc-app-root",
+              "tag": "webc-app-root"
             },
             {
-              "name": "webc-app-identity",
-              "tag": "webc-app-identity"
+              "name": "webc-app-container",
+              "tag": "webc-app-container"
             },
             {
               "name": "webc-app-router",
               "tag": "webc-app-router"
             },
             {
-              "name": "webc-app-root",
-              "tag": "webc-app-root"
+              "name": "webc-app-loader",
+              "tag": "webc-app-loader"
+            },
+            {
+              "name": "webc-app-menu",
+              "tag": "webc-app-menu"
+            },
+            {
+              "name": "webc-app-identity",
+              "tag": "webc-app-identity"
+            },
+            {
+              "name": "webc-app-error-toast",
+              "tag": "webc-app-error-toast"
+            },
+            {
+              "name": "webc-container",
+              "tag": "webc-container"
             },
             {
               "name": "webc-docs",
@@ -639,16 +671,32 @@
               "tag": "webc-if"
             },
             {
+              "name": "webc-link",
+              "tag": "webc-link"
+            },
+            {
               "name": "webc-modal",
               "tag": "webc-modal"
+            },
+            {
+              "name": "webc-skin",
+              "tag": "webc-skin"
+            },
+            {
+              "name": "webc-spinner",
+              "tag": "webc-spinner"
+            },
+            {
+              "name": "webc-template",
+              "tag": "webc-template"
             }
           ]
         },
         {
-          "name": "Cheatsheet"
+          "name": "Forms"
         },
         {
-          "name": "Forms"
+          "name": "Cheatsheet"
         }
       ]
     },
@@ -691,10 +739,16 @@
       "src": "./about/glossary.html"
     },
     {
+      "name": "About",
+      "src": "./about/about.html",
+      "tag": "about"
+    },
+    {
       "name": "Tools",
       "children": [
         {
-          "name": "Octopus"
+          "name": "Octopus",
+          "tag": "octopus"
         },
         {
           "name": "bar"

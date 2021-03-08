@@ -18,18 +18,16 @@
         storage and retrieval of bricks (blocks of data stored on the server in files identified by the block's cryptographic hash) and
         allows the grouping of different bricks under the same unique identifier (<code>anchor</code>). Each one of the three components is
         explained in more detail at the links below.
-        The PSK API HUB can also be extended to include custom services (besides the default ones below). The section
-        <a href="?API/virtualmq/overview&chapter=how-to-extend-a-virtualmq-server"> <code>How to extend a PSK API HUB</code> </a> explains in more
-        detail how a PSK API HUB can be extended.
+        The PSK API HUB can also be extended to include custom services (besides the default ones below).
     </psk-highlight>
     <psk-toc title="Table of contents"></psk-toc>
     <psk-chapter title="Default PSK API HUB services">
         <psk-list list-type="unordered">
-            <psk-link page="apis/api-hub/anchoring">Anchoring</psk-link>
-            <psk-link page="apis/api-hub/brick-storage">Brick Storage</psk-link>
-            <psk-link page="apis/api-hub/brick-fabric-storage">Brick Fabric Storage</psk-link>
-            <psk-link page="apis/api-hub/dossier-wizard">Dossier Wizard</psk-link>
-            <psk-link page="apis/api-hub/virtualmq">VirtualMQ</psk-link>
+            <webc-link href="/api/api-hub/anchoring">Anchoring</webc-link>
+            <webc-link href="/api/api-hub/brick-storage">Brick Storage</webc-link>
+            <webc-link href="/api/api-hub/brick-fabric-storage">Brick Fabric Storage</webc-link>
+            <webc-link href="/api/api-hub/dossier-wizard">Dossier Wizard</webc-link>
+            <webc-link href="/api/api-hub/virtualmq">VirtualMQ</webc-link>
         </psk-list>
     </psk-chapter>
 
@@ -168,18 +166,18 @@
 
                         <code><b>zeromqForwardAddress</b></code>
                             A string that stores the address and port of a <code>zeromq</code> node along with the protocol that <code>zeromq</code> uses; the <code>zeromq</code> node
-                            acts as a forwarder for the messages that arrive in <psk-link page="apis/api-hub/virtualmq">virtualMQ</psk-link>.
+                            acts as a forwarder for the messages that arrive in <webc-link href="/api/api-hub/virtualmq">virtualMQ</webc-link>.
 
                         <code><b>preventRateLimit</b></code>
                             A flag that determines if the PSK API HUB's throttling component is enabled. By default, throttling is disabled.
 
                         <code><b>activeEndpoints</b></code>
                             An array which contains the names of the services that the server provides. By default, the server provides four services:
-                            <code>filesManager</code> for uploading and downloading files, <psk-link page="apis/api-hub/virtualmq">ChannelsManager</psk-link> which allows the communication
-                            between PrivateSky nodes and between processes running in the same node, <psk-link page="apis/api-hub/brick-storage">edfs</psk-link> which allows
+                            <code>filesManager</code> for uploading and downloading files, <webc-link href="/api/api-hub/virtualmq">ChannelsManager</webc-link> which allows the communication
+                            between PrivateSky nodes and between processes running in the same node, <webc-link href="/api/api-hub/brick-storage">edfs</webc-link> which allows
                             the storage and retrieval of <code>bricks</code> (encrypted blocks of data identifiable by their content's cryptographic hash),
-                            <psk-link page="apis/api-hub/dossier-wizard">dossier-wizard</psk-link> which allows the creation and manipulation of
-                        <psk-link page="apis/edfs/dossiers">dossiers</psk-link> and <code>staticServer</code> which handles all the requests that not processed by the other middlewares.
+                            <webc-link href="/api/api-hub/dossier-wizard">dossier-wizard</webc-link> which allows the creation and manipulation of
+                            dossiers and <code>staticServer</code> which handles all the requests that not processed by the other middlewares.
 
                             <psk-highlight type-of-highlight="example">
                                 Note: <code>staticServer</code> should be added last in the <code>activeEndpoints</code> list because the server loads the middlewares
