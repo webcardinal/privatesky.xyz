@@ -32,7 +32,7 @@
                     <code>webc-app-menu</code> and <code>webc-app-container</code> can be manged using slots, but <code>webc-app-error-toast</code> will be always appended.
                 </p>
             </small>
-            <p>The element is accessible from <code class="accent">window.WebCardinal.root</code>.</p>
+            <p>The element <code>webc-app-root</code> is accessible from <code class="accent">window.WebCardinal.root</code>.</p>
         </psk-description>
         <psk-chapter title="Usage">
             <!-- normal usage -->
@@ -48,12 +48,10 @@
                 <p>Responsiveness of components is manged by the <code>webc-app-root</code> itself.</p>
             </psk-highlight>
 
-            <p>In this example example layout of <code>webc-app-root</code> is managed by <code>webc-app-menu</code>.</p>
-
             <!-- complex usage -->
             <psk-example>
                 <psk-code title="If something more custom is desired:" language="markup">
-                    <webc-app-root>
+                    <webc-app-root loader="custom-loader">
                         <webc-app-container>
                             <custom-header slot="before"></custom-header>
                             <custom-main>
@@ -64,7 +62,7 @@
                     </webc-app-root>
                 </psk-code>
             </psk-example>
-            <p>Where <code>custom-header</code>, <code>custom-main</code>, <code>custom-footer</code> are personalized / customized web components.</p>
+            <p>Where <code>custom-header</code>, <code>custom-main</code>, <code>custom-footer</code> and <code>custom-loader</code> are personalized / customized web components.</p>
             <psk-highlight type-of-highlight="issue">
                 <p>You must deal with responsiveness of these components.</p>
             </psk-highlight>

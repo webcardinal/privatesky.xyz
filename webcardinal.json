@@ -18,13 +18,16 @@
       "name": "Overview",
       "children": [
         {
-          "name": "Why"
+          "name": "Why",
+          "tag": "overview-why"
         },
         {
-          "name": "Main Innovations"
+          "name": "Main Innovations",
+          "tag": "overview-main-innovations"
         },
         {
-          "name": "Architecture"
+          "name": "Architecture",
+          "tag": "overview-architecture"
         },
         {
           "name": "Blockchain",
@@ -35,10 +38,12 @@
           ]
         },
         {
-          "name": "Swarms Explained"
+          "name": "Swarms Explained",
+          "tag": "overview-swarms-explained"
         },
         {
-          "name": "Dependencies"
+          "name": "Dependencies",
+          "tag": "overview-dependencies"
         }
       ]
     },
@@ -64,7 +69,8 @@
               "name": "Overview"
             },
             {
-              "name": "Blockchain"
+              "name": "Blockchain",
+              "path": "./"
             }
           ]
         },
@@ -145,22 +151,28 @@
       "children": [
         {
           "name": "Web Components MVC",
-          "path": "./web-components"
+          "path": "./web-components",
+          "tag": "cardinal-web-components-mvc"
         },
         {
-          "name": "Models"
+          "name": "Models",
+          "tag": "cardinal-models"
         },
         {
-          "name": "Views"
+          "name": "Views",
+          "tag": "cardinal-views"
         },
         {
-          "name": "Controllers"
+          "name": "Controllers",
+          "tag": "cardinal-controllers"
         },
         {
-          "name": "Events"
+          "name": "Events",
+          "tag": "cardinal-events"
         },
         {
-          "name": "Themes"
+          "name": "Themes",
+          "tag": "cardinal-themes"
         },
         {
           "name": "Components",
@@ -279,7 +291,8 @@
                 {
                   "name": "Using Forms",
                   "path": "../forms",
-                  "src": "../forms.html"
+                  "src": "../forms.html",
+                  "tag": "cardinal-forms"
                 },
                 {
                   "name": "Checkbox",
@@ -598,9 +611,6 @@
               ]
             }
           ]
-        },
-        {
-          "name": "Cheatsheet"
         }
       ]
     },
@@ -639,6 +649,10 @@
               "tag": "webc-app-error-toast"
             },
             {
+              "name": "webc-container",
+              "tag": "webc-container"
+            },
+            {
               "name": "webc-docs",
               "tag": "webc-docs"
             },
@@ -665,6 +679,10 @@
             {
               "name": "webc-spinner",
               "tag": "webc-spinner"
+            },
+            {
+              "name": "webc-template",
+              "tag": "webc-template"
             }
           ]
         },
@@ -715,10 +733,16 @@
       "src": "./about/glossary.html"
     },
     {
+      "name": "About",
+      "src": "./about/about.html",
+      "tag": "about"
+    },
+    {
       "name": "Tools",
       "children": [
         {
-          "name": "Octopus"
+          "name": "Octopus",
+          "tag": "octopus"
         },
         {
           "name": "bar"
