@@ -15,7 +15,7 @@
     <!-- End Google Tag Manager -->
 </head>
 
-<psk-page title="Iteration">
+<psk-page title="data-for attribute">
     <!-- Google Tag Manager (noscript) -->
     <noscript
         ><iframe
@@ -29,35 +29,29 @@
 
     <psk-toc title="Table of contents"></psk-toc>
 
-    <webc-docs for="webc-for">
-        <psk-description title="Summary">
-            <p>
-                This component is mainly used to render multiple form sections or components based on a template and a
-                model.
-            </p>
-            <p>
-                The model is declared in the form controller and this will be responsible for two-way binding. The model
-                should be written as a JavaScript array (<a href="#model-example">Model Example</a>).
-            </p>
-            <p>
-                The template is written between start and end tag of the component. Everything written inside this, will be
-                treated as a template for the model.
-            </p>
-            <p>
-                So, for each item in the model, an instance of the template will be created and it will be filled with the
-                information from the model. A written example can be found below:
-                <a href="#template-example">Template Example</a>
-            </p>
+    <psk-description title="Summary">
+        <p>This attribute is used to render multiple form sections or components based on a template and a model.</p>
+        <p>
+            The model is declared in the form controller and this will be responsible for two-way binding. The model
+            should be written as a JavaScript array.
+        </p>
+        <p>
+            The template is written between start and end tag of the component that the <code>data-if</code> attribute
+            is applied on. Everything written inside this, will be treated as a template for the model.
+        </p>
+        <p>
+            So, for each item in the model, an instance of the template will be created and it will be filled with the
+            information from the model.
+        </p>
 
-            <p>The general use of <code>webc-if</code> is the following:</p>
-            <!-- prettier-ignore -->
-            <psk-code language="markup">
-                <webc-for data-model="@array">
+        <p>The general use of <code>webc-if</code> is the following:</p>
+        <!-- prettier-ignore -->
+        <psk-code language="markup">
+                <div data-for="@array">
                     CONTENT
-                </webc-for>
+                </div>
             </psk-code>
-        </psk-description>
-    </webc-docs>
+    </psk-description>
 
     <psk-chapter title="Examples">
         <psk-chapter title="Model example">
@@ -112,22 +106,22 @@
             <!-- prettier-ignore -->
             <psk-code language="markup">
                 <webc-container controller="webcardinal/WebcTestForController">
-                    <webc-for data-model="entities">            
+                    <div data-for="entities">            
                         <psk-layout columns="1">
-                            <psk-grid layout="xs=[12] m=[6] l=[12] xl=[4]">
-                                <psk-label view-model="sectionTitle"></psk-label>
-                            </psk-grid>
+                            <psk-layout columns="2">
+                                <label data-model="@sectionTitle"></label>
+                            </psk-layout>
                             
-                            <psk-grid layout="xs=[12,12] m=[6,6] l=[12,12] xl=[6,6]">
-                                <psk-text-input view-model="name"></psk-text-input>
-                                <psk-email-input view-model="email"></psk-email-input>
-                            </psk-grid>
+                            <psk-layout columns="2">
+                                <input data-model="@name"/>
+                            <input data-model="@email"/>
+                            </psk-layout>
                             
                         </psk-layout>
                         <psk-card slot="no-data" title="Slot 'no-data' example">
-                            <p>A psk-card with slot="no-data" for the webc-for example!</p>
+                            <p>A psk-card with slot="no-data" for the data-for example!</p>
                         </psk-card>
-                    </webc-for>
+                    </div>
                     <button data-tag="submit-for">Submit</button>
                 </webc-container>
             </psk-code>
@@ -136,42 +130,47 @@
         <psk-chapter title="Visual example using above model & template">
             <psk-example class="app-example">
                 <webc-container controller="webcardinal/WebcTestForController">
-                    <webc-for data-model="@entities">
-                        <psk-grid layout="xs=[12] m=[6] l=[12] xl=[4]">
+                    <div data-for="@entities">
+                        <psk-layout columns="2">
                             <label data-model="@sectionTitle"></label>
-                        </psk-grid>
+                        </psk-layout>
 
-                        <input data-model="@name"></input>
-                        <input data-model="@email"></input>
+                        <psk-layout columns="2">
+                            <input data-model="@name" />
+                            <input data-model="@email" />
+                        </psk-layout>
 
                         <psk-card slot="no-data" title="Slot 'no-data' example">
-                            <p>A psk-card with slot="no-data" for the webc-for example!</p>
+                            <p>A psk-card with slot="no-data" for the data-for example!</p>
                         </psk-card>
-                    </webc-for>
+                    </div>
                     <button data-tag="submit-for">Submit</button>
                 </webc-container>
             </psk-example>
         </psk-chapter>
-        
 
-        <p>In case the model is empty <code>webc-for</code> will render the slot="no-data" child element.</p>
-        <p>Here is a visual exemple with entities=[]:</p>
+        <psk-highlight type-of-highlight="example">
+            In case the model is empty <code>data-for</code> will render the slot="no-data" child element.
+        </psk-highlight>
+        <psk-highlight type-of-highlight="example"> Here is a visual exemple with entities=[]: </psk-highlight>
 
         <psk-chapter title="Visual example using an empty model & template">
             <psk-example class="app-example">
                 <webc-container controller="webcardinal/WebcTestForController">
-                    <webc-for data-model="@noEntities">
-                        <psk-grid layout="xs=[12] m=[6] l=[12] xl=[4]">
+                    <div data-for="@noEntities">
+                        <psk-layout columns="2">
                             <label data-model="@sectionTitle"></label>
-                        </psk-grid>
+                        </psk-layout>
 
-                        <input data-model="@name"></input>
-                        <input data-model="@email"></input>
+                        <psk-layout columns="2">
+                            <input data-model="@name" />
+                            <input data-model="@email" />
+                        </psk-layout>
 
                         <psk-card slot="no-data" title="Slot 'no-data' example">
-                            <p>A psk-card with slot="no-data" for the webc-for example!</p>
+                            <p>A psk-card with slot="no-data" for the data-for example!</p>
                         </psk-card>
-                    </webc-for>
+                    </div>
                     <button data-tag="submit-for">Submit</button>
                 </webc-container>
             </psk-example>
