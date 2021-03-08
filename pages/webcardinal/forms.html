@@ -10,13 +10,27 @@
             <textarea data-model="@description"></textarea>
         </div>
         
-        <webc-for data-model="@addresses">
-            <div>
-                <label>{{ @placeholder }}</label>
-                <input data-model="@"></input>
+        <div data-for="@addresses">
+            {{ @placeholder}}
+            <input data-model="@"></input>
+            <br/>
+        </div>
+        
+        <div data-if="@canAddAddresses">
+            <button data-tag="add-address">Add address</button>
+        </div>
 
-            </div>
-        </webc-for>
+        <div>
+            <label>{{ @terms.placeholder}}</label>
+            <input data-model="@terms"></input>
+            <span data-if="@terms.checked">Thank you for accepting</span>
+        </div>
+
+        <div>
+            <select data-for="@options" value="@selectedOption">
+                <option value="@value" >{{ @text }}</option>
+            </select>
+        </div>
     </div>
     <button data-tag="submit">Submit</button>
 
