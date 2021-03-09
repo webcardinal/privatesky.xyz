@@ -1,0 +1,185 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != "dataLayer" ? "&l=" + l : "";
+            j.async = true;
+            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, "script", "dataLayer", "GTM-NW4R664");
+    </script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<psk-page title="Translations">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+        ><iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+            height="0"
+            width="0"
+            style="display: none; visibility: hidden"
+        ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <psk-toc title="Table of contents"></psk-toc>
+
+    <psk-description title="Summary">
+        <p>Webcardinal offers basic support for translations.</p>
+
+        <p>Restrictions:</p>
+
+        <psk-highlight type-of-highlight="example">
+            Translations only work in the context of a <webc-link tag="webc-container">webc-container</webc-link>, if
+            <code>enableTranslations</code> property (<code>enable-translations</code> attribute) is set to true.
+        </psk-highlight>
+        <psk-highlight type-of-highlight="example">
+            The translation files must be available at a specific location based on the html file in which the
+            <code>webc-container</code> is used, inside the root folder of the project, in a folder called
+            <code>skins</code>.
+            <br />
+
+            The translation path has the following form:
+            <code>/skins/{LANGUAGE}/{HTML_RELATIVE_PATH}/{HTML_FILENAME}.translate.json</code>.
+            <br />
+
+            e.g.: if the <code>webc-container</code> is used inside the html which is located at
+            <code>/pages/about.html</code>, then the translation file for english should be placed at
+            <code>/skins/en/about/about.translate.json</code>
+            <br />
+
+            e.g.: if the <code>webc-container</code> is used inside the html which is located at
+            <code>/pages/demos/sample.html</code>, then the translation file for english should be placed at
+            <code>/skins/en/demos/sample/sample.translate.json</code>
+            <br />
+        </psk-highlight>
+    </psk-description>
+
+    <psk-description title="Usages">
+        <p>
+            The translation mechanism can be used both inside the html files and also inside the javascript (inside
+            controllers).
+        </p>
+
+        <psk-description title="Usage inside HTML">
+            <p>There are two ways to use translations inside the HTML files:</p>
+            <ul>
+                <li>
+                    Inside tag attributes, using the <code>$</code> prefix
+                    <!-- prettier-ignore -->
+                    <psk-code language="markup">
+                        <input type="button" value="$submit" />
+                    </psk-code>
+                    <psk-highlight type-of-highlight="note">
+                        This will get the translation for the key <code>submit</code> and display it inside the input
+                        button.
+                    </psk-highlight>
+                </li>
+                <li>
+                    Inside nodes, using the <code>$</code> prefix inside the <code>{{ }}</code> notation
+                    <!-- prettier-ignore -->
+                    <psk-code language="markup">
+                        <button>{{ $submit }}</button>
+                    </psk-code>
+                    <psk-highlight type-of-highlight="note">
+                        This will get the translation for the key <code>submit</code> and display it inside the button.
+                    </psk-highlight>
+                </li>
+            </ul>
+        </psk-description>
+
+        <psk-description title="Usage inside JavaScript">
+            <p>
+                There are situations where the translation mechanism must be used inside the controller files. For this
+                the controller must extends <code>webcardinal</code>'s <code>Controller</code> or any other existing
+                controller which extends <code>Controller</code>.
+            </p>
+            <p>
+                The translation can be used by calling the <code>translate</code> function and giving the translationKey
+                as the parameter.
+            </p>
+            <!-- prettier-ignore -->
+            <psk-code language="Javascript">
+                const { WebcController } = WebCardinal.controllers;
+
+                class TranslationsController extends WebcController {
+                    getModel = (_) => ({
+                        submitText: this.translate("submit"),
+                    });
+                
+                    constructor(element, history) {
+                        super(element, history);
+                
+                        this.setModel(this.getModel());
+                    }
+                }                
+            </psk-code>
+            <psk-highlight type-of-highlight="note">
+                The <code>submitText</code> will be populated with the translation for the key <code>submit</code>. The
+                <code>submitText</code> can be used inside the HTML as an ordinary model usage
+            </psk-highlight>
+        </psk-description>
+    </psk-description>
+
+    <psk-chapter title="Example">
+        <psk-chapter title="Controller example">
+            <!-- prettier-ignore -->
+            <psk-code language="Javascript">
+                const { WebcController } = WebCardinal.controllers;
+
+                class TranslationsController extends WebcController {
+                    getModel = (_) => ({
+                        submitText: this.translate("submit"),
+                    });
+
+                    constructor(element, history) {
+                        super(element, history);
+
+                        this.setModel(this.getModel());
+                    }
+                }              
+            </psk-code>
+        </psk-chapter>
+
+        <psk-chapter title="Template example">
+            <!-- prettier-ignore -->
+            <psk-code language="markup">
+                <webc-container controller="webcardinal/examples/TranslationsController" enable-translations>
+                    <div>
+                        <input type="button" value="$submitInputButton" />
+                        <button>{{ $submitButton }}</button>
+                        <button>Press: {{ @submitText }}</button>
+                    </div>
+                </webc-container>
+            </psk-code>
+        </psk-chapter>
+
+        <psk-chapter title="Translation file example">
+            <!-- prettier-ignore -->
+            <psk-code language="json">
+                {
+                    "submitInputButton": "Submit for input button",
+                    "submitButton": "Submit for button",
+                    "submit": "Submit"
+                }                
+            </psk-code>
+        </psk-chapter>
+
+        <psk-chapter title="Visual example">
+            <psk-example class="app-example">
+                <webc-container controller="webcardinal/examples/TranslationsController" enable-translations>
+                    <div>
+                        <input type="button" value="$submitInputButton" />
+                        <button>{{ $submitButton }}</button>
+                        <button>{{ @submitText }}</button>
+                    </div>
+                </webc-container>
+            </psk-example>
+        </psk-chapter>
+    </psk-chapter>
+</psk-page>

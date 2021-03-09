@@ -32,7 +32,7 @@ const model = {
     selectedOption: "value2",
 };
 
-export default class WebcFormsController extends WebcController {
+export default class FormsController extends WebcController {
     constructor(element, history) {
         super(element, history);
         this.setModel(JSON.parse(JSON.stringify(model)));

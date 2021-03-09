@@ -685,20 +685,23 @@
           ]
         },
         {
-            "name": "Custom attributes",
-            "children": [
-              {
-                "name": "data-for",
-                "tag": "data=for"
-              },
-              {
-                "name": "data-if",
-                "tag": "data-if"
-              }              
-            ]
-          },
+          "name": "Custom attributes",
+          "children": [
+            {
+              "name": "data-for",
+              "tag": "data=for"
+            },
+            {
+              "name": "data-if",
+              "tag": "data-if"
+            }              
+          ]
+        },
         {
           "name": "Forms"
+        },
+        {
+          "name": "Translations"
         },
         {
           "name": "Cheatsheet"
