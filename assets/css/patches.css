@@ -1,28 +1,66 @@
-.table-of-content {
-    top: 1rem !important;
-    padding-left: 1.5rem;
-}
-
-.table-of-content .card .card-header {
-    padding: 0 1.4rem;
-}
-.table-of-content .psk-card li {
-    position: relative;
-}
-.table-of-content .psk-card li.active::before {
-    position: absolute !important;
-    bottom: 2px !important;
-    z-index: 9;
-}
-.table-of-content .psk-card li .chapter-index {
-    padding-right: 0.25rem;
+webc-app-container {
+    overflow-x: hidden;
 }
 
 webc-docs psk-description p {
     text-align: left;
 }
 
+psk-toc .table-of-content {
+    top: 1rem !important;
+    padding-left: 1.5rem;
+}
+psk-toc .table-of-content .card .card-header {
+    padding: 0 1.4rem !important;
+}
+psk-toc .table-of-content .psk-card li {
+    position: relative;
+}
+psk-toc .table-of-content .psk-card li.active::before {
+    position: absolute !important;
+    bottom: 2px !important;
+    z-index: 9;
+}
+psk-toc .table-of-content .psk-card li .chapter-index {
+    padding-right: 0.25rem;
+}
+
 psk-highlight .psk-highlight .body {
     padding-left: 0.5rem !important;
     text-align: left;
+}
+
+psk-code.small-size code {
+    font-size: 0.85rem !important;
+}
+
+psk-page {
+    width: 100%; height: 100%;
+}
+
+psk-page::part(page-main) {
+    position: relative;
+    max-width: 100% !important;
+}
+
+psk-page[has-toc]::part(page-container) {
+    padding: 0 1rem !important;
+}
+
+psk-page[has-toc]::part(page-toc) {
+    width: 100%;
+}
+
+psk-page[has-toc]::part(page-container),
+psk-page[has-toc]::part(page-toc) {
+    max-width: 700px;
+}
+
+@media screen and (max-width: 1366px) {
+    psk-page[has-toc]::part(page-grid) {
+        display: grid;
+    }
+    psk-page[has-toc]::part(page-container) {
+        max-width: 100vw;
+    }
 }

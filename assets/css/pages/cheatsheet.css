@@ -153,6 +153,13 @@ webc-container header,
     color: var(--cardinal-wiki-color);
 }
 
+[data-tag=cheatsheet] .source.cardinal-forms {
+    border-color: var(--cardinal-forms-color);
+}
+[data-tag=cheatsheet] .source.cardinal-forms a {
+    color: var(--cardinal-forms-color);
+}
+
 @media screen and (max-width: 1400px) {
     [data-tag=cheatsheet][data-sort=alphabetically] {
         grid-template-columns: repeat(2, 1fr);
@@ -210,4 +217,12 @@ webc-container header,
         border-top: 1px solid #CDCDCD;
         padding: 0.35rem 0 0.5rem 0;
     }
+}
+
+webc-link.cardinal-core:after {
+    display: inline-block;
+    content: 'deprecated';
+    padding-left: 0.25rem;
+    transform: translateY(-10%);
+    font-size: 60%;
 }

@@ -624,6 +624,27 @@
       "name": "WebCardinal",
       "children": [
         {
+          "name": "Attributes",
+          "children": [
+            {
+              "name": "data-for",
+              "tag": "data-for"
+            },
+            {
+              "name": "data-if",
+              "tag": "data-if"
+            },
+            {
+              "name": "data-model",
+              "tag": "data-model"
+            },
+            {
+              "name": "data-tag",
+              "tag": "data-tag"
+            }
+          ]
+        },
+        {
           "name": "Components",
           "children": [
             {
@@ -685,17 +706,7 @@
           ]
         },
         {
-          "name": "Custom attributes",
-          "children": [
-            {
-              "name": "data-for",
-              "tag": "data=for"
-            },
-            {
-              "name": "data-if",
-              "tag": "data-if"
-            }              
-          ]
+          "name": "Configuration"
         },
         {
           "name": "Forms"

@@ -38,6 +38,10 @@ class CheatsheetController extends WebcController {
         const letters = {};
 
         for (const component of Object.keys(cheatsheet)) {
+            if (cheatsheet[component].disableCheatsheet) {
+                continue;
+            }
+
             let index = 0;
             if (component.startsWith('webc-')) {
                 index = 5;

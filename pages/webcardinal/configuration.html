@@ -1,0 +1,87 @@
+<head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != "dataLayer" ? "&l=" + l : "";
+            j.async = true;
+            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, "script", "dataLayer", "GTM-NW4R664");
+    </script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<psk-page title="Configuration">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+    ><iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-NW4R664"
+            height="0"
+            width="0"
+            style="display: none; visibility: hidden"
+    ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <psk-toc title="Table of contents"></psk-toc>
+
+    <psk-description title="Summary">
+        <p>WebCardinal configuration in made via <code>webcardinal.json</code>.</p>
+        <p>The initial settings are read from the <webc-link href="https://raw.githubusercontent.com/webcardinal/webcardinal-core/master/src/controllers/config/default.ts">default.ts</webc-link>.</p>
+    </psk-description>
+
+    <psk-chapter title="Configuration">
+        <psk-chapter title="Pages">
+            <p>Each page from <code>pages/</code> must be registered.</p>
+            <psk-code language="JSON" class="small-size">
+                pages: [
+                    ...
+                    {
+                        /* required */
+                        "name": "My page"
+
+                        /* optional */
+                        "path": "/my-custom-path" // default value would have been "./my-page"
+                        "src": "./my-custom-page.html" // default: "./my-page.html"
+                        "indexed": false // default: true
+                        "children": [...] // array of multiple pages
+                        "tag": "my-page" // used by webc-link or navigateByPageTag from any Controller
+                    }
+                    ...
+                ]
+            </psk-code>
+            <psk-highlight type-of-highlight="example">
+                <p><code>src</code> and <code>path</code> are relative to <code>basePath</code> and parent page.</p>
+            </psk-highlight>
+        </psk-chapter>
+
+        <psk-chapter title="PagesFallback">
+            <p>If <code>window.location.href</code> does not match anything, application will use this page.</p>
+            <p>Concept of 404 Not Found.</p>
+            <psk-code language="JSON">
+                pagesFallback: {
+                    /* required */
+                    "name": "My Fallback Page"
+
+                    /* optional */
+                    "src": "./404.html"
+                }
+            </psk-code>
+        </psk-chapter>
+
+        <psk-chapter title="Identity">
+            <p>Configure application name, email and logo.</p>
+            <p>Read more about these settings in the documentation for <webc-link tag="webc-app-identity">webc-app-identity</webc-link>.</p>
+        </psk-chapter>
+
+        <psk-chapter title="LogLevel">
+            <p>Read more about in the documentation for <webc-link tag="webc-app-error-toast">webc-app-error-toast</webc-link>.</p>
+        </psk-chapter>
+    </psk-chapter>
+
+
+</psk-page>
